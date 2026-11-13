@@ -339,3 +339,10 @@ the selector silently targets the wrong element.
 - Check: every bare class in `css/*.css` was compared with the translation table; this was the
   only collision. Hashed classes that are translation *values* (e.g. `kEODDe…`) map to themselves
   and are tracked across Steam updates.
+
+### M3f — NEW / IN LIBRARY as pills (verified 2026-11-13)
+- NEW: Steam stretches it to the full BottomBar height (`align-self: stretch`). Slate: 20px pill,
+  `align-self: center`, centered text, 600 weight, 6px gap before the price.
+- IN LIBRARY: same pill (999px radius) and inset `left: 8px` so it doesn't sit flush on the card edge.
+- Verified via injected CSS: NEW r=999px h=20 align=center; IN LIBRARY r=999px left=8px; both Slate blue.
+  Screenshot: docs/screenshots/pill-after.png (local only).
