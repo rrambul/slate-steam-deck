@@ -57,7 +57,7 @@ Selectors use CSS Loader's stable class names (e.g. `appportrait_InRecentGames`)
 translates to Steam's hashed classes at injection time.
 
 ## Status
-v0.2.0 — Home, Library and game page on neutral charcoal; Slate blue Install + Slate green Play; glass plugin badges; all Home card rows and Library cards rounded. Home neutralized (only blue left: small status badges). See docs/selectors.md.
+v0.3.0 — Home (incl. Recommended), Library and game page on neutral charcoal; Slate blue Install + Slate green Play; glass plugin badges; all Home card rows and Library cards rounded. Home neutralized (only blue left: small status badges). See docs/selectors.md.
 
 ## Versioning
 [Semantic Versioning](https://semver.org/): `0.x` during development, `1.0.0` for the first

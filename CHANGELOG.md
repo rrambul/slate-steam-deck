@@ -5,6 +5,9 @@ All notable changes to Slate. Versions follow [Semantic Versioning](https://semv
 The version lives in `theme.json` (shown by CSS Loader) and as a git tag `vX.Y.Z`.
 
 ## [Unreleased]
+
+## [0.3.0] — 2026-11-13
+Verified on Steam Deck LCD, SteamOS 3.9.5, CSS Loader 2.1.3.
 ### Added
 - Home › Recommended: rounded calendar, event and Discovery Queue cards; calendar Steam-blue
   gradient and Discovery Queue blue body → neutral; lighter "Play next" titles (16px).
