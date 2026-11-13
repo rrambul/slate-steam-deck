@@ -13,6 +13,10 @@
   --slate-muted:    #575B63;  /* subtle outlines / muted surfaces */
   --slate-text:     #F4F4F5;  /* main readable typography */
 
+  /* Canvas — Steam's radial geometry, neutral charcoal colors */
+  --slate-canvas: radial-gradient(155.42% 100% at 0% 0%,
+                  var(--slate-bg-deep) 0%, var(--slate-bg) 100%);
+
   /* Shape */
   --slate-radius-card: 8px;
 }
@@ -23,8 +27,21 @@
  * Steam's black and transparent variants are left as-is.
  */
 .gamepadui_BasicHome.gamepadui_OpaqueBackground {
-  background: radial-gradient(155.42% 100% at 0% 0%,
-              var(--slate-bg-deep) 0%, var(--slate-bg) 100%);
+  background: var(--slate-canvas);
+}
+
+/* ── Library ────────────────────────────────────────────── */
+/* L1 — the Library paints its own copy of Steam's navy gradient on top of the
+ * canvas. Give it the same Slate canvas (explicit, not transparent: in the
+ * in-game overlay the canvas underneath is transparent).
+ */
+.gamepadlibrary_GamepadLibrary {
+  background: var(--slate-canvas);
+}
+
+/* L1 — art placeholders in the Library grid: navy → neutral surface. */
+.gamepadlibrary_GamepadLibrary .libraryassetimage_Container {
+  background-color: var(--slate-surface);
 }
 
 /* ── Home › Recent Games ────────────────────────────────── */

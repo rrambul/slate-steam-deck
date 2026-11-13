@@ -146,3 +146,20 @@ Recently updated, Trending among friends.
 Verified via CDP on Home: capsules and 20 What's New placeholders compute rgb(32,34,38);
 no navy left inside Home; 11 BottomBars compute rgb(87,91,99), 0 outside Home.
 Navy background/placeholders remain in Library (out of Home scope).
+
+## L1 — Library canvas + placeholders (verified 2026-11-13)
+
+| Stable name | Hashed (this build) | Steam default | Slate |
+|---|---|---|---|
+| `gamepadlibrary_GamepadLibrary` | `ZBBhezbBR4VJYysmVhF3_` | own copy of navy radial gradient, painted over the canvas | `var(--slate-canvas)` |
+| `gamepadlibrary_GamepadLibrary .libraryassetimage_Container` | `… ._1R9r2OBCxAmtuUVrgBEUBw` | `rgb(14,20,27)` | `--slate-surface` |
+| `appportrait_InCollection` (Library card) | `_3ANruIVwRSgaU7L1eWRnf8` | square | not styled yet |
+| `cssgrid_CSSGrid` (Library grid) | `_3vHkmRShhzwd67_MtEq8-n` | — | — |
+
+- New token `--slate-canvas` holds the gradient once; Home canvas and Library share it.
+- Library gets the canvas explicitly (not `transparent`): in the in-game overlay the
+  `gamepadui_BasicHome` underneath uses the transparent variant.
+
+Verified via CDP in Library (Installed + All Games tabs): Library and canvas compute the same
+gradient rgb(11,12,14) → rgb(17,18,20); 50 placeholders rgb(32,34,38); 0 navy elements on screen.
+Screenshots: docs/screenshots/lib-{before,after}.png (local only).
