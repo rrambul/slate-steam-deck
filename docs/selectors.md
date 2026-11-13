@@ -219,11 +219,15 @@ Steam (from library.css): `.BasicUI .ButtonChild.Focusable:focus { background:#1
 Play: `.BasicUI .Green .ButtonChild.Focusable:focus { background:#59bf40 }` (0,5,0).
 Steam already uses white/#0e141b for the focused dropdown half — Slate extends that.
 
-Slate: focused → `--slate-text` bg / `--slate-bg` text (17:1). Play focused/hover → `--slate-green`
-`#2B8659` (white text 4.5:1; Steam's #59bf40 was 2.35:1) with an explicit white label rule, since the
-generic dark-label rule (0,5,0) would otherwise win over Steam's green label rule (0,4,0).
+Slate (revised same day, user choice "keep blue, but our blue"): focused → `--slate-blue` `#2D74C4`
+with white text (4.8:1; Steam's #1a9fff was 2.82:1). Play focused/hover → `--slate-green` `#2B8659`
+(white 4.5:1; Steam's #59bf40 was 2.35:1). Blue and green have matched luminance, so they read as a pair.
+First iteration (light `--slate-text` pill, commit 44b4c50) was replaced by this.
+The dropdown half keeps Steam's own focused style (white / #0e141b) — its rule (0,5,0) outranks
+the generic one (0,4,0), which is intended.
 
-Verified via CDP: focused Install = rgb(244,244,245) / text rgb(17,18,20).
+Verified via CDP + screenshot: main half focused = Slate blue + white label; dropdown focused =
+rgb(255,255,255) / rgb(14,20,27). Screenshot: docs/screenshots/g2-blue-after.png (local only).
 **Not yet verified on hardware:** green Play (needs an installed game's page).
 Tip: Steam's own rules can be read with `fetch(sheet.href)` from the page when CSSOM access fails.
 

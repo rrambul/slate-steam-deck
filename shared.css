@@ -12,6 +12,7 @@
   --slate-surface:  #202226;  /* secondary panels, placeholders */
   --slate-muted:    #575B63;  /* subtle outlines / muted surfaces */
   --slate-text:     #F4F4F5;  /* main readable typography */
+  --slate-blue:     #2D74C4;  /* primary action (Install/Update) — white text 4.8:1 */
   --slate-green:    #2B8659;  /* "ready / Play" — white text 4.5:1, 4.2:1 vs --slate-bg */
   --slate-glass:    rgba(17, 18, 20, .55);  /* translucent charcoal for overlays on art */
 
@@ -148,24 +149,17 @@
 
 /* G2 — primary action button (Install / Update / Play …).
  * In Gaming Mode the button is transparent until focused; Steam then paints it
- * #1a9fff (or #59bf40 for Play). Slate: light pill with dark text — same as
- * Steam's own focused dropdown half and selected tab pill — and a Slate green
- * for Play. Selectors mirror Steam's specificity (0,4,0 / 0,5,0), no !important.
+ * #1a9fff (or #59bf40 for Play), both with poor white-text contrast (2.8:1 / 2.35:1).
+ * Slate keeps the meaning (blue = act, green = play) with calmer, matched tones.
+ * Selectors mirror Steam's specificity (0,4,0 / 0,5,0), no !important.
  */
 .BasicUI .appactionbutton_ButtonChild.Focusable:focus {
-  background: var(--slate-text);
-  color: var(--slate-bg);
-}
-.BasicUI .appactionbutton_ButtonChild.Focusable:focus .appactionbutton_ButtonText {
-  color: var(--slate-bg);
+  background: var(--slate-blue);
+  color: #fff;
 }
 .BasicUI .appactionbutton_Green .appactionbutton_ButtonChild.Focusable:focus,
 .BasicUI .appactionbutton_Green .appactionbutton_ButtonChild:hover {
   background: var(--slate-green);
-  color: #fff;
-}
-/* keep Play's label white (the generic rule above would make it dark) */
-.BasicUI .appactionbutton_Green .appactionbutton_ButtonChild.Focusable:focus .appactionbutton_ButtonText {
   color: #fff;
 }
 
