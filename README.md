@@ -28,4 +28,4 @@ Copies `theme.json` and `*.css` to `~/homebrew/themes/Slate/` on the Deck
 (repo tooling and docs are excluded). Then CSS Loader → Refresh, and enable **Slate**.
 
 ## Status
-M3 — charcoal canvas; all Home card rows rounded (Recent Games, What's New, Recently updated, Trending among friends). Next: neutralize remaining navy tints. See docs/selectors.md.
+M3 — charcoal canvas; all Home card rows rounded (Recent Games, What's New, Recently updated, Trending among friends). Home neutralized (only blue left: small status badges). See docs/selectors.md.

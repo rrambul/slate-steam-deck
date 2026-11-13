@@ -87,6 +87,14 @@
   background-color: var(--slate-surface);
 }
 
+/* M3d — Trending capsule friends/price bar: Steam blue rgb(60,93,132) → muted.
+ * Similar luminance to the blue, so white text stays as readable. The small
+ * "NEW" / "IN LIBRARY" badges keep their blue as the single status accent.
+ */
+.homestorecarousel_StoreCarouselCtn .gamecapsule_BottomBar {
+  background-color: var(--slate-muted);
+}
+
 /* Steam draws focus here with a single global overlay (focusring_FocusRing)
  * that follows whatever is focused. Round it only while a rounded Home card has focus,
  * so menus, lists and buttons elsewhere keep their square ring.

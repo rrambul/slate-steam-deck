@@ -138,8 +138,11 @@ Recently updated, Trending among friends.
 - `gamecapsule_GameCapsule` background `rgb(35,38,46)` → `--slate-surface` ✅
 - `libraryassetimage_Container` placeholder `rgb(14,20,27)` in What's New → `--slate-surface` ✅
   (Recent Games was already covered by M2.)
-- `gamecapsule_BottomBar` Steam blue `rgb(60,93,132)` — **pending decision**: keep blue vs.
-  `--slate-muted`. A/B: docs/screenshots/bar-A-keep-blue.png, bar-B-neutral.png (local only).
+- `gamecapsule_BottomBar` Steam blue `rgb(60,93,132)` → `--slate-muted` ✅ (chosen from A/B:
+  docs/screenshots/bar-A-keep-blue.png vs bar-B-neutral.png). Similar luminance, so white
+  text stays readable. "NEW" (`rgb(58,155,237)`) and "IN LIBRARY" (`rgb(79,149,189)`) badges
+  intentionally keep their blue as Home's single status accent.
 
 Verified via CDP on Home: capsules and 20 What's New placeholders compute rgb(32,34,38);
-no navy left inside Home. Navy placeholders remain in Library (out of Home scope).
+no navy left inside Home; 11 BottomBars compute rgb(87,91,99), 0 outside Home.
+Navy background/placeholders remain in Library (out of Home scope).
