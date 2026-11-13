@@ -71,3 +71,10 @@ div:has(> .protondb-decky-indicator.protondb-decky-indicator-regular)[style*="24
 div[style*="solid"] > .protondb-decky-indicator.protondb-decky-indicator-regular {
   box-shadow: none;
 }
+
+/* ProtonDB library grid dots: plugin sets SVG attributes — working rgb(74,194,100),
+ * not working rgb(200,30,30). Generic status → Slate green / red. */
+.protondb-grid-dot [fill="rgb(74, 194, 100)"]   { fill: var(--slate-green-light); }
+.protondb-grid-dot [stroke="rgb(74, 194, 100)"] { stroke: var(--slate-green-light); }
+.protondb-grid-dot [fill="rgb(200, 30, 30)"]    { fill: var(--slate-red); }
+.protondb-grid-dot [stroke="rgb(200, 30, 30)"]  { stroke: var(--slate-red); }

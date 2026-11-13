@@ -1,0 +1,40 @@
+/* Slate — accents.css
+ * Steam blue / Steam green accents → Slate colors on every page Slate styles.
+ * Injected into: bigpicture, MainMenu, QuickAccess. Rules carry the page root `.BasicUI`
+ * (MainMenu/QuickAccess load Steam's sheets after CSS Loader's). Colors that ARE the
+ * information keep their hue — they only move to the Slate version of the same hue.
+ */
+
+/* A1 — Steam's accent variables (defined on :root; redefined on the page root, inherited) */
+.BasicUI {
+  --color-blue-8: var(--slate-blue);
+  --left-track-color: var(--slate-blue);                /* slider fill (brightness, volume…) */
+  --color-progress-bar-foreground: var(--slate-blue);   /* progress bars, achievements */
+  --virtualmenu-accent: var(--slate-blue);
+  --virtualmenupointer-color: var(--slate-blue);
+}
+
+/* A2 — toggle switches (Quick Access + Settings): "on" fill ToggleRail::before #1a9fff;
+ * track while its row is focused #23262e → neutral surface */
+.BasicUI .gamepaddialog_ToggleRail::before {
+  background: var(--slate-blue);
+}
+.BasicUI .gamepaddialog_Field.gpfocuswithin .gamepaddialog_ToggleRail {
+  background: var(--slate-surface);
+}
+
+/* A3 — battery icon: Steam draws it as <rect fill="#59BF40"> (presentation attribute, so any
+ * CSS fill wins). Only the green "normal" state matches; low-charge colors stay Steam's. */
+.BasicUI svg rect[fill="#59BF40" i] {
+  fill: var(--slate-green-light);
+}
+
+/* A4 — avatar presence strip: online #4cb4ff → Slate blue (light, it's a 3px strip),
+ * in-game #59bf40 → Slate green. Offline / watching-broadcast keep Steam's colors.
+ * Steam: `.GamepadMode .online .steamavatar_avatarStatus` (0,3,0); the doubled class → 0,4,0. */
+.BasicUI .online .steamavatar_avatarStatus.steamavatar_avatarStatus {
+  background: var(--slate-blue-light);
+}
+.BasicUI .ingame .steamavatar_avatarStatus.steamavatar_avatarStatus {
+  background: var(--slate-green-light);
+}

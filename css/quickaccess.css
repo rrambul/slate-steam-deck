@@ -1,0 +1,47 @@
+/* Slate — quickaccess.css
+ * The Quick Access menu (… button). Injected into: QuickAccess (separate CEF page; tokens.css is
+ * injected there too). Like MainMenu, Steam's sheets load after CSS Loader's here, so rules carry
+ * the page root `.BasicUI` (+1 class) to win. See docs/selectors.md.
+ */
+
+/* QA1 — shell: navy #0e141b panel/title → charcoal; navy #23262e dividers → neutral */
+.BasicUI .quickaccessmenu_QuickAccessMenu,
+.BasicUI .quickaccessmenu_Title {
+  background: var(--slate-bg);
+}
+.BasicUI .quickaccessmenu_QuickAccessMenu .quickaccessmenu_Menu::before,
+.BasicUI .quickaccessmenu_QuickAccessMenu .quickaccessmenu_Menu::after {
+  background: rgba(244, 244, 245, .08);
+}
+
+/* tab rail: rounded highlights (Steam: selected rgba(255,255,255,.2), focused white with dark
+ * icon — kept, just rounded) */
+.BasicUI .quickaccessmenu_Tab {
+  border-radius: var(--slate-radius-card);
+}
+
+/* QA2 — accents (sliders, progress, toggles) live in css/accents.css (shared by all pages) */
+
+/* QA3 — buttons (Help: "Visit Help Site", "View Manual", …): Steam DialogButton 2px; strongest
+ * Steam rule is button.….DialogButton:enabled (0,3,1) → 0,4,1 here. */
+.BasicUI .quickaccessmenu_QuickAccessMenu button.DialogButton,
+.BasicUI .quickaccessmenu_QuickAccessMenu button.DialogButton:enabled {
+  border-radius: var(--slate-radius-card);
+}
+
+/* QA4 — Friends tab: Steam's navy radial gradients (#0e141b; focused #23262e) and the 8px
+ * top inset shadow → same shapes in charcoal / neutral surface. `GamepadMode`, `friendlist`,
+ * `multiChatDialog` are plain (untranslated) Steam classes. */
+.BasicUI .GamepadMode.friendlist,
+.BasicUI .GamepadMode .multiChatDialog {
+  background: radial-gradient(155.42% 100% at 50% 0%,
+              var(--slate-bg) 0%, rgba(17, 18, 20, .5) 60%, rgba(17, 18, 20, .2) 100%);
+}
+.BasicUI .GamepadMode.friendlist.gpfocuswithin,
+.BasicUI .GamepadMode .multiChatDialog.gpfocuswithin {
+  background: radial-gradient(155.42% 100% at 50% 0%,
+              var(--slate-surface) 0%, rgba(32, 34, 38, .5) 60%, rgba(32, 34, 38, .2) 100%);
+}
+.BasicUI .GamepadMode .insetshadow_FriendListInsetShadowTop {
+  background: linear-gradient(to bottom, var(--slate-bg) 0%, rgba(17, 18, 20, .5) 25%, rgba(0, 0, 0, 0) 100%);
+}

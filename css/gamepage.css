@@ -91,12 +91,7 @@
   border-radius: var(--slate-radius-card);
 }
 
-/* Your Stuff › achievements progress fill. It's painted with Steam's own design token
- * --color-blue-8 (#1A9FFF, defined on :root, used ~6× across Steam). Re-point the token
- * only inside the stable achievements panel → Slate blue, no hashed classes needed. */
-.appdetailsachievementssection_HighlightDiv {
-  --color-blue-8: var(--slate-blue);
-}
+/* Your Stuff › achievements progress fill: Steam token --color-blue-8 → re-pointed globally in css/accents.css */
 
 /* Community › content cards; overflow clips the art and the absolute title strip */
 .BasicUI .appdetailscommunityfeed_CommunityItem {

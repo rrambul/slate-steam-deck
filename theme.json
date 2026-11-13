@@ -8,7 +8,8 @@
   "inject": {
     "css/tokens.css": [
       "bigpicture",
-      "MainMenu"
+      "MainMenu",
+      "QuickAccess"
     ],
     "css/canvas.css": [
       "bigpicture"
@@ -27,6 +28,14 @@
     ],
     "css/mainmenu.css": [
       "MainMenu"
+    ],
+    "css/quickaccess.css": [
+      "QuickAccess"
+    ],
+    "css/accents.css": [
+      "bigpicture",
+      "MainMenu",
+      "QuickAccess"
     ]
   },
   "patches": {

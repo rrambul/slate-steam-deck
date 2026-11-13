@@ -11,6 +11,12 @@ The version lives in `theme.json` (shown by CSS Loader) and as a git tag `vX.Y.Z
   Shared hero styling (art, transition, focus, colors) applies to both.
 - **Main menu** (STEAM button, new `MainMenu` injection target): charcoal floating sheet with a
   rounded edge and shadow, Slate-blue active-page dot, soft rounded focus/hover pill.
+- **Quick Access** (… button, new `QuickAccess` target): charcoal panel and title, neutral dividers,
+  rounded tab highlights and buttons; Friends tab gradients in charcoal.
+- **Accents everywhere** (`css/accents.css`, all pages): Steam's accent variables (sliders, progress
+  bars, menu accents) and toggle switches → Slate blue; battery icon green → Slate green (low-charge
+  colors untouched); avatar presence online → light Slate blue, in-game → Slate green.
+- ProtonDB library grid dots: working/not working → Slate green/red.
 
 ## [0.3.0] — 2026-11-13
 Verified on Steam Deck LCD, SteamOS 3.9.5, CSS Loader 2.1.3.

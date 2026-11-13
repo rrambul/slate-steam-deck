@@ -480,3 +480,31 @@ Separate CEF page `MainMenu_uid2` → `theme.json` injects `css/tokens.css` + `c
 Verified: panel rgb(17,18,20), dot rgb(45,116,196), scaled active row clear L=13.7 R=12.9; open-menu screenshot.
 Hidden CEF windows can't be screenshotted (no frames) — wait for the menu's open class `_3apLK4…` and for
 its slide-in transform to finish.
+
+## QA — Quick Access menu (verified 2026-11-13)
+Page `QuickAccess_uid2` (854×454); Steam sheets load after CSS Loader's → `.BasicUI` prefix.
+| Stable name | Steam | Slate |
+|---|---|---|
+| `quickaccessmenu_QuickAccessMenu`, `quickaccessmenu_Title` | `#0e141b` | `--slate-bg` |
+| `quickaccessmenu_Menu::before/::after` (dividers) | `#23262e` | rgba(244,244,245,.08) |
+| `quickaccessmenu_Tab` | square; selected rgba(255,255,255,.2), focused #fff | radius 8px (colors kept) |
+| `button.DialogButton` in the menu | 2px | 8px (0,4,1 beats `:enabled` 0,3,1) |
+| `.GamepadMode.friendlist`, `.multiChatDialog` (+`.gpfocuswithin`), `insetshadow_FriendListInsetShadowTop` | navy radial/linear gradients | same shapes, charcoal / surface |
+`gamepaddialog_Field` and `gamepaddialog_ToggleRail` are multi-hash entries, but their last hash is the
+current one on this Deck (no workaround needed). Verified: panel/title rgb(17,18,20), tabs 8px, dividers
+neutral, toggles on-fill rgb(45,116,196), no navy left (scan of the open menu).
+
+## A — accents on every page (`css/accents.css`, verified 2026-11-13)
+Injected into bigpicture + MainMenu + QuickAccess.
+- Steam accent variables (on `:root`) redefined on `.BasicUI`: `--color-blue-8`, `--left-track-color`
+  (slider fill), `--color-progress-bar-foreground`, `--virtualmenu-accent`, `--virtualmenupointer-color`
+  → `--slate-blue`. Left alone: `--status-color`, `--award-base-color` (may carry meaning).
+  (Replaces the earlier achievements-only scoped re-point.)
+- Toggles: `gamepaddialog_ToggleRail::before` #1a9fff → Slate blue; focused-row track #23262e → surface.
+- Battery: `<rect fill="#59BF40">` presentation attribute → `svg rect[fill="#59BF40" i]` → Slate green.
+  Only the green state matches; other charge colors untouched.
+- Avatar presence (`steamavatar_avatarStatus`): `.GamepadMode .online …` #4cb4ff → `--slate-blue-light`
+  #6FA3DF (new token); `.ingame …` #59bf40 → `--slate-green-light`. Doubled class for 0,4,0.
+  Offline (#67707b) and watching-broadcast (purple) kept.
+- ProtonDB grid dots: SVG attrs `rgb(74, 194, 100)` / `rgb(200, 30, 30)` → Slate green / red.
+Verified by a full-page color scan of all three pages: no Steam blue/green left except our own colors.

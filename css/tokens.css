@@ -12,6 +12,7 @@
   --slate-muted:    #575B63;  /* subtle outlines / muted surfaces */
   --slate-text:     #F4F4F5;  /* main readable typography */
   --slate-blue:     #2D74C4;  /* primary action (Install/Update) — white text 4.8:1 */
+  --slate-blue-light: #6FA3DF; /* small accents on dark (status strips, dots) — 7.1:1 vs --slate-bg */
   --slate-green:    #2B8659;  /* "ready / Play" — white text 4.5:1, 4.2:1 vs --slate-bg */
   --slate-glass:    rgba(17, 18, 20, .55);  /* translucent charcoal for overlays on art */
   --slate-raised:   rgba(244, 244, 245, .10); /* raised controls/cards on charcoal (neutral overlay) */
