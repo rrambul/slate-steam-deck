@@ -1,0 +1,42 @@
+/* Slate — mainmenu.css
+ * The STEAM-button side menu. Injected into: MainMenu (a separate CEF page; tokens.css is
+ * injected there too). Selectors use CSS Loader's stable names (see docs/selectors.md).
+ * In this document Steam's stylesheets load AFTER CSS Loader's <style>, so equal-specificity
+ * rules lose: every rule is prefixed with the page root `.BasicUI` (+1 class) to win.
+ *
+ * Multi-hash names: CSS Loader's table lists two hashes for mainmenu_Item and
+ * mainmenu_ActiveDot (current Steam + a newer build) and always injects the LAST one, which
+ * this Deck's Steam doesn't use yet. So each is matched both ways:
+ *   :is(.mainmenu_Item, [class*="2w9TpQwxU7vcwaAbf3KGv"])
+ * — the stable name covers newer Steam, the partial hash (not an exact table name, so CSS
+ * Loader leaves it alone) covers the current one. Drop the [class*] part once Steam updates.
+ */
+
+/* M1 — panel: Steam's flat navy #0e141b sheet → Slate charcoal, rounded outer edge, soft
+ * shadow so it reads as a floating sheet over the content. */
+.BasicUI .mainmenu_Menu {
+  background-color: var(--slate-bg);
+  border-radius: 0 12px 12px 0;
+  box-shadow: 8px 0 32px rgba(0, 0, 0, .45);
+}
+
+/* active-page marker: Steam blue #1a9fff → Slate blue */
+.BasicUI :is(.mainmenu_Item, [class*="2w9TpQwxU7vcwaAbf3KGv"]) :is(.mainmenu_ActiveDot, [class*="1uLVHdiiCg78BRnhqLxUID"]) {
+  background: var(--slate-blue);
+}
+
+/* items: inset from the panel edge so the focus/hover pill reads as a pill (Steam's rows are
+ * full-width and the focused one scales 1.1, so a background would be clipped at the edges) */
+.BasicUI :is(.mainmenu_Item, [class*="2w9TpQwxU7vcwaAbf3KGv"]) {
+  /* Steam scales focused/active rows 1.1 from `transform-origin: 12% 50%` (near the icon), so
+   * they grow to the right: inset 16px left / 30px right → ~13px clear on both sides when scaled */
+  margin-inline: 16px 30px;
+  width: calc(100% - 46px);
+  border-radius: var(--slate-radius-card);
+}
+/* focused / hovered item: one soft pill for both states. Steam paints focus+hover with
+ * rgba(255,255,255,.2) via `.mainmenu_Item:focus:hover` (0,3,0, loaded after us) — too heavy on
+ * charcoal; 0,4,0 here wins. Steam's 1.1 scale + white label stay. */
+.BasicUI .mainmenu_Menu :is(.mainmenu_Item, [class*="2w9TpQwxU7vcwaAbf3KGv"]):is(.gpfocus, :hover) {
+  background: rgba(244, 244, 245, .12);
+}

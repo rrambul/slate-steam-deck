@@ -49,7 +49,7 @@ In CSS Loader, open **Slate** to choose:
 
 ## Structure
 ```
-theme.json          CSS Loader manifest (v9) — injects css/* into Gaming Mode (bigpicture)
+theme.json          CSS Loader manifest (v9) — injects css/* into Gaming Mode (bigpicture, MainMenu)
 css/tokens.css      design tokens (--slate-*): palette, canvas gradient, radius
 css/canvas.css      global charcoal canvas
 css/home.css        Home rows, cards, hero styling shared by both options, focus ring
@@ -57,6 +57,7 @@ css/hero-full.css   Hero = Full: full-screen layout (patch, injected only when s
 css/library.css     Library background, placeholders, cards
 css/gamepage.css    game details page: backgrounds, action button, controls, activity
 css/plugins.css     third-party Decky plugin badges (protondb-decky, playcount-decky)
+css/mainmenu.css    STEAM-button side menu (injected into the MainMenu page)
 docs/selectors.md   every selector, why it was chosen, and how it was verified
 deploy.sh           rsync deploy to the Deck
 ```

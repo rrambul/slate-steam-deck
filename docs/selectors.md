@@ -458,3 +458,25 @@ reach the tabs). CSS Loader stores the choice in the theme's `config_USER.json`.
 Verified by switching via `callPluginMethod("set_patch_of_theme",{themeName,patchName,value})`:
 Full → section 0..588, tabs 558, cards 163×244, title 17px; Compact → section 0..397, tabs 367,
 cards 141×212-class, title 18px, no carousel transform. Restored to Full.
+
+## MM1 — main menu (STEAM button) (verified 2026-11-13)
+Separate CEF page `MainMenu_uid2` → `theme.json` injects `css/tokens.css` + `css/mainmenu.css` into `MainMenu`.
+
+**⚠ Two pitfalls specific to this page**
+1. Steam's stylesheets load *after* CSS Loader's `<style>` here → equal specificity loses. All rules are
+   prefixed with the page root `.BasicUI`.
+2. **Multi-hash translation entries.** `css_translations.json` lists two hashes for `mainmenu_Item`
+   (`_2w9TpQwx…` current, `_1LoZDVq2…` newer) and `mainmenu_ActiveDot` (`_1uLVHdii…` / `GxQrkK73…`);
+   CSS Loader injects the **last** one, which this Deck's Steam doesn't use yet — any exact hash in the
+   list gets rewritten too. Fix: `:is(.mainmenu_Item, [class*="2w9TpQwxU7vcwaAbf3KGv"])` (partial hash
+   isn't a table name, so it stays literal). Drop the `[class*]` half after Steam updates.
+   Scan result: only these two names are affected (`focusring_FocusRing` is multi-hash but its last hash is current).
+
+| Stable name | Steam | Slate |
+|---|---|---|
+| `mainmenu_Menu` | `#0e141b`, flat | `--slate-bg`, radius 0 12 12 0, shadow 8px 0 32px |
+| `mainmenu_ActiveDot` | `#1a9fff` | `--slate-blue` |
+| `mainmenu_Item` | full-width rows; focused/active `scale(1.1)` from `transform-origin: 12% 50%`; hover/focus+hover rgba(255,255,255,.2) | inset 16px/30px (scaled row ~13px clear both sides), radius 8px, focus/hover pill rgba(244,244,245,.12) at 0,4,0 |
+Verified: panel rgb(17,18,20), dot rgb(45,116,196), scaled active row clear L=13.7 R=12.9; open-menu screenshot.
+Hidden CEF windows can't be screenshotted (no frames) — wait for the menu's open class `_3apLK4…` and for
+its slide-in transform to finish.
