@@ -17,6 +17,8 @@ The version lives in `theme.json` (shown by CSS Loader) and as a git tag `vX.Y.Z
   bars, menu accents) and toggle switches → Slate blue; battery icon green → Slate green (low-charge
   colors untouched); avatar presence online → light Slate blue, in-game → Slate green.
 - ProtonDB library grid dots: working/not working → Slate green/red.
+- Friends list presence: online names → pale Slate blue, online status/snooze → light Slate blue,
+  in-game → Slate green; slider tracks (which set their own fill variable) → Slate blue.
 
 ## [0.3.0] — 2026-11-13
 Verified on Steam Deck LCD, SteamOS 3.9.5, CSS Loader 2.1.3.

@@ -14,6 +14,14 @@
   --virtualmenupointer-color: var(--slate-blue);
 }
 
+/* Sliders set their own --left-track-color (#1a9fff) on the track element, which beats the
+ * inherited page-root value — override on the element itself. Other slider variants (grey/white
+ * tracks) are untouched. `_1AbErM…` has no stable name (hash; fails safe). */
+.BasicUI .gamepadslider_SliderTrack,
+.BasicUI ._1AbErMQt3j46sNGHR3IoCb {
+  --left-track-color: var(--slate-blue);
+}
+
 /* A2 — toggle switches (Quick Access + Settings): "on" fill ToggleRail::before #1a9fff;
  * track while its row is focused #23262e → neutral surface */
 .BasicUI .gamepaddialog_ToggleRail::before {
@@ -37,4 +45,28 @@
 }
 .BasicUI .ingame .steamavatar_avatarStatus.steamavatar_avatarStatus {
   background: var(--slate-green-light);
+}
+
+/* A5 — friends list presence text (Quick Access › Friends, Friends & Chat).
+ * Steam (GamepadMode): online name #b3dfff, online status/game #4cb4ff, in-game #91c257/#a1f410,
+ * online group divider rgba(76,180,255,.3). Same hues, Slate versions. Steam's selectors are
+ * `.GamepadMode .online .X` (0,3,0, loaded after us) → doubled classes for 0,4,0+.
+ * Away/offline/other states keep Steam's colors. */
+.BasicUI .online .personanameandstatus_playerName.personanameandstatus_playerName {
+  color: var(--slate-blue-pale);
+}
+.BasicUI .online .personanameandstatus_richPresenceLabel.personanameandstatus_richPresenceLabel,
+.BasicUI .online .personanameandstatus_gameName.personanameandstatus_gameName,
+.BasicUI .friendsnooze_SnoozeContainer.online .friendsnooze_SnoozeZ.friendsnooze_SnoozeZ,
+.BasicUI .friend.online.online {
+  color: var(--slate-blue-light);
+}
+.BasicUI .ingame .personanameandstatus_richPresenceLabel.personanameandstatus_richPresenceLabel,
+.BasicUI .ingame .personanameandstatus_gameName.personanameandstatus_gameName,
+.BasicUI .friendsnooze_SnoozeContainer.in-game .friendsnooze_SnoozeZ.friendsnooze_SnoozeZ,
+.BasicUI .friend.ingame .status.status {
+  color: var(--slate-green-light);
+}
+.BasicUI .FriendsListContent .friendlistListContainer .friendGroup.onlineFriends.onlineFriends {
+  border-top-color: color-mix(in srgb, var(--slate-blue-light) 30%, transparent);
 }

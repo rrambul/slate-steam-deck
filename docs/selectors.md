@@ -508,3 +508,10 @@ Injected into bigpicture + MainMenu + QuickAccess.
   Offline (#67707b) and watching-broadcast (purple) kept.
 - ProtonDB grid dots: SVG attrs `rgb(74, 194, 100)` / `rgb(200, 30, 30)` → Slate green / red.
 Verified by a full-page color scan of all three pages: no Steam blue/green left except our own colors.
+- **Sliders:** `gamepadslider_SliderTrack` (and hashed `._1AbErMQt…`) set `--left-track-color:#1a9fff` on the
+  element itself, beating the inherited page-root value → overridden on the element (`.BasicUI` prefix).
+- **Friends presence** (QuickAccess › Friends): Steam GamepadMode rules `.GamepadMode .online .personanameandstatus_playerName`
+  #b3dfff, `… _richPresenceLabel/_gameName` and `friendsnooze_SnoozeZ` #4cb4ff, in-game #91c257/#a1f410,
+  `.friendGroup.onlineFriends` border rgba(76,180,255,.3). Slate: names `--slate-blue-pale` #B9CFEA (new token,
+  11.8:1), status `--slate-blue-light`, in-game `--slate-green-light`; doubled classes for 0,4,0+ (Steam loads after).
+  Verified: online name rgb(185,207,234), status rgb(111,163,223); full scan of the open Friends tab finds no Steam blue/green.
