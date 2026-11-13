@@ -202,7 +202,7 @@ Verified via CDP on an app page: page rgb(17,18,20) + radial rgb(32,34,38) → r
 panel and row compute the color-mix values; Install button unchanged.
 Screenshots: docs/screenshots/app-{before,after}.png (local only).
 
-## G2 — primary action button (verified 2026-11-13, Play pending)
+## G2 — primary action button (verified 2026-11-13, incl. green Play)
 
 In Gaming Mode the action button is **transparent until focused**; Steam then paints it.
 
@@ -228,7 +228,7 @@ the generic one (0,4,0), which is intended.
 
 Verified via CDP + screenshot: main half focused = Slate blue + white label; dropdown focused =
 rgb(255,255,255) / rgb(14,20,27). Screenshot: docs/screenshots/g2-blue-after.png (local only).
-**Not yet verified on hardware:** green Play (needs an installed game's page).
+Green Play verified on an installed game: focused = rgb(43,134,89).
 Tip: Steam's own rules can be read with `fetch(sheet.href)` from the page when CSSOM access fails.
 
 ## P1 — third-party plugin badges on the game page (verified 2026-11-13)
