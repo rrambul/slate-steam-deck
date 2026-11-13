@@ -153,7 +153,7 @@ Navy background/placeholders remain in Library (out of Home scope).
 |---|---|---|---|
 | `gamepadlibrary_GamepadLibrary` | `ZBBhezbBR4VJYysmVhF3_` | own copy of navy radial gradient, painted over the canvas | `var(--slate-canvas)` |
 | `gamepadlibrary_GamepadLibrary .libraryassetimage_Container` | `… ._1R9r2OBCxAmtuUVrgBEUBw` | `rgb(14,20,27)` | `--slate-surface` |
-| `appportrait_InCollection` (Library card) | `_3ANruIVwRSgaU7L1eWRnf8` | square | not styled yet |
+| `appportrait_InCollection` (Library card) | `_3ANruIVwRSgaU7L1eWRnf8` | square | 8px (L2) |
 | `cssgrid_CSSGrid` (Library grid) | `_3vHkmRShhzwd67_MtEq8-n` | — | — |
 
 - New token `--slate-canvas` holds the gradient once; Home canvas and Library share it.
@@ -163,3 +163,20 @@ Navy background/placeholders remain in Library (out of Home scope).
 Verified via CDP in Library (Installed + All Games tabs): Library and canvas compute the same
 gradient rgb(11,12,14) → rgb(17,18,20); 50 placeholders rgb(32,34,38); 0 navy elements on screen.
 Screenshots: docs/screenshots/lib-{before,after}.png (local only).
+
+## L2 — rounded Library cards (verified 2026-11-13)
+
+Same approach as M1: radius on `appportrait_InCollection`, its `libraryassetimage_Container`
+and `libraryassetimage_Image`. Focus is Steam's own outline on the card
+(`rgba(255,255,255,.6) 2px`), which follows the radius.
+
+Tried and dropped: `overflow: hidden` on the card. Steam sets
+`.BasicUI .appportrait_LibraryItemBox { overflow: visible }` (0,2,0) in Gaming Mode on purpose
+(its non-BasicUI default is `hidden`), which beats a single-class rule. Not worth escalating:
+the DEMO ribbon crosses the card away from the corner, so nothing pokes out.
+Debug tip: `CSS.getMatchedStylesForNode` over CDP shows every matching rule, including ones in
+stylesheets that `document.styleSheets` can't read.
+
+Verified via CDP + screenshot (All Games, DEMO card "Kings" focused): 25 cards 8px,
+images 8px, focus outline follows the radius, ribbon inside the corner.
+Screenshot: docs/screenshots/l2-after.png (local only).

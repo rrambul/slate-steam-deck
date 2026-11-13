@@ -44,6 +44,18 @@
   background-color: var(--slate-surface);
 }
 
+/* L2 — round Library grid cards to match Home (same appportrait component as
+ * Recent Games, same approach as M1: card + image container + image).
+ * No overflow:hidden: Steam deliberately sets
+ * `.BasicUI .appportrait_LibraryItemBox { overflow: visible }` in Gaming Mode,
+ * and the DEMO ribbon crosses the card away from the corner, so nothing pokes out.
+ */
+.appportrait_InCollection,
+.appportrait_InCollection .libraryassetimage_Container,
+.appportrait_InCollection .libraryassetimage_Image {
+  border-radius: var(--slate-radius-card);
+}
+
 /* ── Home › Recent Games ────────────────────────────────── */
 /* M1 — round card corners.
  * The card, its image container and the image are each rounded so the art
