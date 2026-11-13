@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Deploy Slate to the Steam Deck. Uses the "steamdeck" host from ~/.ssh/config.
+# Deploy Slate to the Steam Deck over SSH (see README → "SSH setup").
 # No --delete on purpose: files removed locally must be removed on the Deck by hand.
 set -euo pipefail
 HOST="${SLATE_HOST:-steamdeck}"

@@ -44,3 +44,29 @@
 .appportrait_InRecentGames .libraryassetimage_Container {
   background-color: var(--slate-surface);
 }
+
+/* ── Home › What's New ──────────────────────────────────── */
+/* M3 — round news cards to match the Recent Games cards.
+ * The news card wrappers have no stable class names, so cards are identified
+ * from the stable section root as "a Focusable whose direct child holds a news
+ * image" (game capsules = libraryassetimage, friend avatars = .avatar are
+ * excluded). Verified to match only the 300×265 news cards.
+ * overflow:hidden on the card clips the image and the text panel together;
+ * it does not clip the focus ring, which is a separate overlay (below).
+ */
+.gamepadhomewhatsnew_LibraryHomeWhatsNew
+  .Focusable:has(> div > img:not(.libraryassetimage_Image):not(.avatar)) {
+  border-radius: var(--slate-radius-card);
+  overflow: hidden;
+}
+
+/* Steam draws focus here with a single global overlay (focusring_FocusRing)
+ * that follows whatever is focused. Round it only while a news card has focus,
+ * so menus, lists and buttons elsewhere keep their square ring.
+ * Note: :has() cannot be nested, hence the flat selector inside :root:has().
+ */
+:root:has(.gamepadhomewhatsnew_LibraryHomeWhatsNew
+  .Focusable.gpfocus > div > img:not(.libraryassetimage_Image):not(.avatar))
+  .focusring_FocusRing {
+  border-radius: var(--slate-radius-card);
+}

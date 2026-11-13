@@ -70,3 +70,28 @@ Notes:
 
 Verified via CDP: canvas computes rgb(11,12,14) → rgb(17,18,20); placeholder rgb(32,34,38).
 Screenshots: docs/screenshots/m2-{before,after}.png (local only).
+
+## M3 — rounded What's New news cards + scoped focus ring (verified 2026-11-13)
+
+| Stable name | Hashed (this build) | Role |
+|---|---|---|
+| `gamepadhomewhatsnew_LibraryHomeWhatsNew` | `rvYRfhjWoi57GShuRcAwP` | What's New section root (stable scope) |
+| `focusring_FocusRing` | `_1wPplsegQqCoe06wXPhzKT` | global focus-ring overlay, follows the focused element |
+| `gamepadtabbedpage_Tab` / `…_Selected` | `_3eEbSktrstBdLk0dVpnKVI` / `_3Gp1bACHx__POxmy6Gd3kG` | Home tabs (not styled) |
+
+News card wrappers (`B1DxY2t9t_oR_fXgqs7Dj`, image box `_3Yd9bnm5cESPzqV_j5-WJt`) have
+**no** entry in css_translations.json, so they're matched structurally:
+`.Focusable:has(> div > img:not(.libraryassetimage_Image):not(.avatar))` inside the section root.
+Matches only the 300×265 news cards (not game capsules, icons or friend avatars).
+
+Lessons:
+- Rounding only the `<img>` left square text panels and a square focus ring → round the card
+  with `overflow: hidden` instead. The focus ring is a separate overlay, so it isn't clipped.
+- The focus ring is global; rounding it unscoped would change every focus ring in Gaming Mode.
+  Scoped with `:root:has(<focused news card>) .focusring_FocusRing`.
+- `:has()` cannot be nested — a nested `:has` invalidates the whole rule silently.
+- Tabs left alone: Steam's selected tab (rgba(255,255,255,.15)) already reads neutral on
+  charcoal; `--slate-surface` would lower its contrast.
+
+Verified via CDP with focus on a news card: 8 cards at 8px + overflow hidden, ring 8px,
+Recent Games cards still 8px. Screenshots: docs/screenshots/m3-{before,after}.png (local only).
