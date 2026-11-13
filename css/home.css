@@ -54,9 +54,10 @@
   transform: translateZ(15px) scale(1.03);
   box-shadow: 0 18px 36px rgba(0, 0, 0, .6);
 }
-/* game title: a touch larger; Steam's marquee keeps scrolling long titles (don't touch width) */
+/* game title: Steam's marquee keeps scrolling long titles (don't touch width).
+ * 17px × the carousel's 1.12 scale ≈ 19px on screen (Steam: 18px). 20px rendered ≈22.4px — too big. */
 .gamepadhomerecentgames_RecentGamesContainer .marquee_Content {
-  font-size: 20px;
+  font-size: 17px;
   text-shadow: 0 2px 12px rgba(0, 0, 0, .7);   /* legibility over the brighter art */
 }
 
@@ -196,6 +197,39 @@
   font-size: 11px;
   font-weight: 600;
   letter-spacing: .04em;
+}
+
+/* ── Home › Recommended tab ─────────────────────────────── */
+/* R1 — most of this tab is embedded Steam *Store* UI (calendar, event cards) whose classes are
+ * NOT in CSS Loader's translation table. Shapes go through stable names (the pure-react-carousel
+ * library's `carousel__inner-slide`, gamepadhomerecommended_*). Colors that need store hashes are
+ * written as hashes on purpose: if the store renames them the rule stops matching and Steam's
+ * look returns (fails safe) — it can't hit the wrong element.
+ */
+.gamepadhomerecommended_Recommended .carousel__inner-slide > * {
+  border-radius: var(--slate-radius-card);
+  overflow: hidden;
+}
+/* "Your Personal Calendar" day cards (plain variant; event-colored variants excluded):
+ * Steam-blue gradient rgba(31,49,74…) → neutral raised */
+.gamepadhomerecommended_Recommended .tqaXEuWN2wV5_8lmSkMng:not(._8UPO4fZBxxerbhcRBpAcc):not(._1beaDtCHZ3Kn9oAHWEKXMe) {
+  background-image: linear-gradient(0deg, rgba(244, 244, 245, .06) 5%, rgba(244, 244, 245, .10) 95%);
+}
+/* Discovery Queue widget: rounded; cool rgb(56,100,131) body → neutral control */
+.gamepadhomerecommended_DiscoveryQueueWidgetCtn {
+  border-radius: var(--slate-radius-card);
+  overflow: hidden;
+}
+.gamepadhomerecommended_DiscoveryQueueWidgetCtn ._3PAP1PfUymQrLEveRsxQxP,
+.gamepadhomerecommended_DiscoveryQueueWidgetCtn ._1DaxYFphX9KPH-YWeuNTvO {
+  background-color: var(--slate-control);
+}
+/* "Play next" carousel: lighter titles (Steam 18px/800 inherited) + neutral placeholders */
+.gamepadhomerecommended_PlayNextCarousel .marquee_Content {
+  font-size: 16px;
+}
+.gamepadhomerecommended_Recommended .libraryassetimage_Container {
+  background-color: var(--slate-surface);
 }
 
 /* Steam draws focus here with a single global overlay (focusring_FocusRing)

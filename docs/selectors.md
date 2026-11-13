@@ -421,3 +421,18 @@ SharedJSContext CDP target the same call is
   badge's wrapper div (improving/declining). Matched with `div:has(> .protondb-decky-indicator…)[style*="74, 222, 128"]`
   / `[style*="248, 113, 113"]` → Slate green/red, radius 10px; tier inset ring removed under a trend border.
 Verified: wrapper radius 10px, border rgb(91,191,138); buttons 8px, Manage/View rgb(67,67,71).
+
+## R1 — Home › Recommended (verified 2026-11-13)
+Mostly embedded Steam **Store** UI; its classes are mostly absent from CSS Loader's table.
+| Selector | Kind | Steam | Slate |
+|---|---|---|---|
+| `.gamepadhomerecommended_Recommended .carousel__inner-slide > *` | stable (pure-react-carousel BEM, literal) | square | 8px + overflow hidden |
+| `… .tqaXEuWN2wV5_8lmSkMng:not(._8UPO4…):not(._1beaDt…)` | store hash, **fail-safe** | `._326_… .tqaX…` blue gradient rgba(31,49,74…) | neutral raised gradient |
+| `.gamepadhomerecommended_DiscoveryQueueWidgetCtn` | stable | square | 8px + overflow hidden |
+| `… ._3PAP1PfUymQrLEveRsxQxP`, `… ._1DaxYFphX9KPH-YWeuNTvO` | hashes that map to themselves in the table (tracked) | rgb(56,100,131) | `--slate-control` |
+| `.gamepadhomerecommended_PlayNextCarousel .marquee_Content` | stable | 18px/800 (inherited) | 16px |
+| `.gamepadhomerecommended_Recommended .libraryassetimage_Container` | stable | rgb(14,20,27) | `--slate-surface` |
+Event-colored calendar variants (pink, `_8UPO4…` / `_1beaDt…`) keep their colors (Steam event art), only rounded.
+Verified via injected CSS: 14 plain calendar cards 8px + neutral; event cards 8px with own gradient; queue 8px,
+body rgb(67,67,71); play-next title 16px; placeholders rgb(32,34,38).
+Also: Home hero title 20px → 17px (rendered ≈19px under the carousel's scale(1.12); 20px rendered ≈22.4px).

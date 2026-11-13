@@ -5,7 +5,11 @@ All notable changes to Slate. Versions follow [Semantic Versioning](https://semv
 The version lives in `theme.json` (shown by CSS Loader) and as a git tag `vX.Y.Z`.
 
 ## [Unreleased]
+### Added
+- Home › Recommended: rounded calendar, event and Discovery Queue cards; calendar Steam-blue
+  gradient and Discovery Queue blue body → neutral; lighter "Play next" titles (16px).
 ### Changed
+- Home hero title 20px → 17px (≈19px on screen with the carousel's 1.12 scale).
 - Game page buttons (`DialogButton`: Manage items, View reviews, New Note…) rounded to 8px;
   cool background → neutral control grey.
 - ProtonDB trend border (green = improving, red = declining) kept, but rounded to wrap the
