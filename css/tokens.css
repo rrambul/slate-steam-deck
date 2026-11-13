@@ -15,6 +15,7 @@
   --slate-green:    #2B8659;  /* "ready / Play" — white text 4.5:1, 4.2:1 vs --slate-bg */
   --slate-glass:    rgba(17, 18, 20, .55);  /* translucent charcoal for overlays on art */
   --slate-raised:   rgba(244, 244, 245, .10); /* raised controls/cards on charcoal (neutral overlay) */
+  --slate-control:  #434347;  /* solid neutral control surface — same luminance as Steam's #3d4450 */
 
   /* Canvas — Steam's radial geometry, neutral charcoal colors */
   --slate-canvas: radial-gradient(155.42% 100% at 0% 0%,

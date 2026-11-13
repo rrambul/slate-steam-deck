@@ -270,3 +270,31 @@ pill glass/8px/white. Screenshot: docs/screenshots/g2p1-after.png (local only).
 
 Verified via CDP + screenshot on an installed game (Play focused = Slate green; ProtonDB Platinum
 accent rendered). Screenshot: docs/screenshots/g3-after.png (local only).
+
+## Split check (2026-11-13)
+After splitting `shared.css` into `css/*.css`, the live Slate rule set on the Deck (39 rules, dumped via
+CDP and sorted) was byte-identical to the pre-split baseline.
+
+## G4 — game page tabs: Your Stuff / Community / Game Info (verified 2026-11-13)
+
+Steam's navy `#23262e` → `--slate-surface`; cool `#3d4450` → new token `--slate-control` `#434347`
+(same luminance); 0–2px → 8px. Steam rules read from library.css via `fetch(sheet.href)`.
+
+| Stable selector (mirrors Steam's) | Hashed | Steam (Gaming Mode) |
+|---|---|---|
+| `.BasicUI .appdetailssection_Highlight` (achievements panel) | `_38t1mljBjmJfqjpVzMT1CG` | `#23262e`, 0 |
+| `.appdetailsachievementssection_AchievementCarouselItem.…_Detailed` | `mbFSnoK85dUXHz9VT-YNI._3KGi6ig3JCLHZP-dOsO-Wx` | `#3d4450` |
+| `.BasicUI .appdetailscommunityfeed_CommunityItem` | `_3QS6OBHpvI5bXsSQA2zQuW` | `#23262e`, 0 (desktop BPM: 6px) |
+| `.BasicUI .appdetailscommunityfeed_ArtItem .…_BottomSection` | `_1aP1bu_l_kDbKMN7XDNmzg ._3uabislt81gdMksbxzc-iN` | rgba(14,20,27,.72) |
+| `.appdetailsgameinfopanel_DeckVerifiedInfo` (+ `.…_Focused`) | `IIJeieZ-ZPRfIULY7uSDG` (+ `_1wl1mQLRXzpgY5WzEEtDm-`) | `#23262e` / `#3d4450`, 2px |
+| `.appdetailsgameinfopanel_DeckVerifiedInfo .…_Details` | `… ._3sfpA6uM8IJuAnrtDiJLZI` | `#3d4450`, 2px |
+| `.BasicUI .appdetailsprimarylinkssection_Anchor` (+ `.…_Link`) | `DY4_wSF8h9T5o46hO5I9V` (+ `_1b6LYWVijW-9E4YV0keDWZ`) | `#3d4450`, 2px; focus white |
+| `.appdetails_ScrollContainer .libraryassetimage_Container` | `… ._1R9r2OBCxAmtuUVrgBEUBw` | `rgb(14,20,27)` |
+
+Focus ring rounded while a community card (or a child) has focus — same `:root:has()` pattern as Home.
+
+Verified: Game Info + Community via after-screenshots and inventory (no cool tints left);
+Your Stuff panels via CDP (highlight rgb(32,34,38)/8px, tiles rgb(67,67,71)/8px).
+Open: Media thumbnails (`appdetailsscreenshotssection_Thumbnail` / `screenshots_ClickableScreenshot`)
+and DLC capsule still square; achievements progress fill still Steam blue rgb(26,159,255)
+(`_2YzOLNBx6TonKU0Zmp20l4`, unnamed yet).

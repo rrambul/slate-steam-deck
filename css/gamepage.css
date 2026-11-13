@@ -73,3 +73,64 @@
   background: var(--slate-raised);
   border-radius: 0 0 var(--slate-radius-card) var(--slate-radius-card);
 }
+
+/* ── Game page tabs ─────────────────────────────────────── */
+/* G4 — Your Stuff / Community / Game Info: Steam's navy #23262e → --slate-surface,
+ * cool #3d4450 → --slate-control, square/2px → 8px. Selectors mirror Steam's.
+ * (Desktop Big Picture already rounds community cards at 6px; Gaming Mode
+ * resets that to 0 via .BasicUI — Slate brings the rounding back.)
+ */
+
+/* Your Stuff › achievements highlight panel + detailed achievement tiles */
+.BasicUI .appdetailssection_Highlight {
+  background: var(--slate-surface);
+  border-radius: var(--slate-radius-card);
+}
+.appdetailsachievementssection_AchievementCarouselItem.appdetailsachievementssection_Detailed {
+  background-color: var(--slate-control);
+  border-radius: var(--slate-radius-card);
+}
+
+/* Community › content cards; overflow clips the art and the absolute title strip */
+.BasicUI .appdetailscommunityfeed_CommunityItem {
+  background-color: var(--slate-surface);
+  border-radius: var(--slate-radius-card);
+  overflow: hidden;
+}
+.BasicUI .appdetailscommunityfeed_ArtItem .appdetailscommunityfeed_BottomSection {
+  background: color-mix(in srgb, var(--slate-bg) 72%, transparent);   /* Steam: rgba(14,20,27,.72) */
+}
+
+/* Game Info › Deck Verified box + its details chip */
+.appdetailsgameinfopanel_DeckVerifiedInfo {
+  background-color: var(--slate-surface);
+  border-radius: var(--slate-radius-card);
+}
+.appdetailsgameinfopanel_DeckVerifiedInfo.appdetailsgameinfopanel_Focused {
+  background-color: var(--slate-control);
+}
+.appdetailsgameinfopanel_DeckVerifiedInfo .appdetailsgameinfopanel_Details {
+  background-color: var(--slate-control);
+  border-radius: var(--slate-radius-card);
+}
+
+/* All tabs › primary link buttons (Store page, Discussions, Guides, …).
+ * Focused state stays Steam's white/#0e141b, just rounded to match. */
+.BasicUI .appdetailsprimarylinkssection_Anchor {
+  background-color: var(--slate-control);
+  border-radius: var(--slate-radius-card);
+}
+.appdetailsprimarylinkssection_Anchor .appdetailsprimarylinkssection_Link {
+  border-radius: var(--slate-radius-card);
+}
+
+/* Art placeholders on the game page (e.g. Game Info capsule) */
+.appdetails_ScrollContainer .libraryassetimage_Container {
+  background-color: var(--slate-surface);
+}
+
+/* Round the global focus ring while a community card (or something in it) has focus */
+:root:has(.appdetailscommunityfeed_CommunityItem.gpfocus,
+          .appdetailscommunityfeed_CommunityItem .gpfocus) .focusring_FocusRing {
+  border-radius: var(--slate-radius-card);
+}
