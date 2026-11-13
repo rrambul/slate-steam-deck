@@ -3,6 +3,50 @@
  * Selectors use CSS Loader's stable class names (see docs/selectors.md).
  */
 
+/* ── Home › hero ────────────────────────────────────────── */
+/* H1 — full-height hero: Recent Games + its art fill the screen; What's New starts
+ * below the fold. Sizes use vh (not px) so it holds on LCD + OLED (both 1280×800,
+ * 854×534 CSS px @1.5×) and on docked/external displays.
+ * Card positions are left to Steam's JS (virtualized carousel) — only container
+ * heights/padding change, the focused card grows via transform (no layout impact).
+ */
+.gamepadhome_RecentSection,
+.gamepadhomerecentgames_RecentGamesContainer {
+  min-height: 100vh;
+}
+.gamepadhomerecentgames_RecentGamesBackgroundContainer {
+  height: 100vh;
+}
+/* Steam: radial(75% 83% at 50% 18%) on both container + images → larger, softer reach */
+.gamepadhomerecentgames_RecentGamesBackgroundContainer,
+.gamepadhomerecentgames_RecentGamesBackgroundImages {
+  -webkit-mask-image: radial-gradient(110% 95% at 50% 22%,
+                      #000 0%, rgba(0, 0, 0, .85) 55%, rgba(0, 0, 0, 0) 100%);
+  mask-image: radial-gradient(110% 95% at 50% 22%,
+              #000 0%, rgba(0, 0, 0, .85) 55%, rgba(0, 0, 0, 0) 100%);
+}
+/* Steam dims the art to 50% — let the game be the artwork */
+.gamepadhomerecentgames_RecentGamesBackgroundImage {
+  filter: brightness(80%);
+}
+/* drop the carousel into the lower-middle of the hero (≈72px on a Deck) */
+.gamepadhomerecentgames_RecentGamesInnerContainer {
+  padding-top: 13.5vh;
+}
+/* focused card: Steam lifts it translateZ(15px); Slate also grows it 3%.
+ * Ceiling is tight: the carousel is a clipped virtualized grid with ~12px headroom.
+ * Measured: 8% → top clipped 3.8px + overlaps title 3.7px; 4% → 0.5px spare (Steam's
+ * outline briefly thickens to ~3.3px while animating); 3% leaves room for that. */
+.BasicUI .appportrait_InRecentGames.Focusable:focus {
+  transform: translateZ(15px) scale(1.03);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, .6);
+}
+/* game title: a touch larger; Steam's marquee keeps scrolling long titles (don't touch width) */
+.gamepadhomerecentgames_RecentGamesContainer .marquee_Content {
+  font-size: 20px;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, .7);   /* legibility over the brighter art */
+}
+
 /* ── Home › Recent Games ────────────────────────────────── */
 /* M1 — round card corners.
  * The card, its image container and the image are each rounded so the art

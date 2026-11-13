@@ -6,6 +6,15 @@ A minimal, clean CSS Loader theme for the Steam Deck Home screen.
 ## Requirements
 - SteamOS (tested on 3.9.5), Decky Loader, CSS Loader 2.1.3 (manifest v9)
 
+## Devices
+| Device | Status |
+|---|---|
+| Steam Deck LCD (Jupiter) | developed and verified on hardware |
+| Steam Deck OLED (Galileo) | expected to match: same 1280×800 panel / 854×534 Gaming Mode viewport; not yet verified on hardware |
+| Docked / external display | layout uses viewport units (`vh`) for the hero; not yet verified |
+
+Charcoal (`#111214`) is intentionally not pure black, which avoids OLED black smearing.
+
 ## SSH setup
 `deploy.sh` connects to the SSH host `steamdeck`. Add an entry like this to
 `~/.ssh/config` (key-based auth; enable `sshd` on the Deck first):

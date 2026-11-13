@@ -350,3 +350,25 @@ the selector silently targets the wrong element.
   and the price sat ~4px high. `[class*="SalePriceWidgetContainer"] { height:100%; align-items:center }`
   centers the row; `align-self` alone does nothing (parent is `display:block`). Verified: bar, pill and
   price midpoints identical.
+
+## H1 — full-height Home hero (verified 2026-11-13)
+
+| Stable selector | Steam | Slate |
+|---|---|---|
+| `.gamepadhome_RecentSection`, `.gamepadhomerecentgames_RecentGamesContainer` | 397px section | `min-height: 100vh` (What's New moves below the fold: 367 → 558) |
+| `.gamepadhomerecentgames_RecentGamesBackgroundContainer` | 397px tall | `height: 100vh` |
+| `…BackgroundContainer, …BackgroundImages` mask | radial(75% 83% at 50% 18%) | radial(110% 95% at 50% 22%), softer |
+| `.gamepadhomerecentgames_RecentGamesBackgroundImage` | `brightness(50%)` | `brightness(80%)` |
+| `.gamepadhomerecentgames_RecentGamesInnerContainer` | — | `padding-top: 13.5vh` |
+| `.BasicUI .appportrait_InRecentGames.Focusable:focus` | `translateZ(15px)` | `+ scale(1.03)`, deeper shadow |
+| `.gamepadhomerecentgames_RecentGamesContainer .marquee_Content` | 18px | 20px + text-shadow; width untouched (Steam's marquee) |
+
+Lessons:
+- Focus scale ceiling is set by the clipped virtualized carousel (~12px headroom). Measured
+  8% → top clipped 3.8px + title overlap 3.7px; 4% → 0.5px; **3% → 1.5px spare** (outline animates up to ~3.3px).
+  Bottom-origin scaling makes the top clipping worse; `overflow: visible` on the grid would break scrolling.
+- Changing the title box width breaks Steam's marquee (duplicated, clipped text) — only change font-size.
+- Steam has an unused `BigArtMode` (full-brightness art, linear mask) — similar intent, not enabled.
+- Name check: every class in home.css resolves to exactly one CSS Loader translation entry.
+Device: verified on LCD (Jupiter); OLED shares the 854×534 viewport. Controller down/up navigation to
+What's New still to be confirmed by the user on hardware.
