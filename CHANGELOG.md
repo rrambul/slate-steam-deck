@@ -4,6 +4,13 @@ All notable changes to Slate. Versions follow [Semantic Versioning](https://semv
 `0.x` while the theme is in active development; `1.0.0` will be the first DeckThemes release.
 The version lives in `theme.json` (shown by CSS Loader) and as a git tag `vX.Y.Z`.
 
+## [Unreleased]
+### Changed
+- Game page buttons (`DialogButton`: Manage items, View reviews, New Note…) rounded to 8px;
+  cool background → neutral control grey.
+- ProtonDB trend border (green = improving, red = declining) kept, but rounded to wrap the
+  badge and recolored to Slate green/red; the badge's own tier ring is hidden while it shows.
+
 ## [0.2.0] — 2026-11-13
 First tagged release. Verified on Steam Deck LCD, SteamOS 3.9.5, CSS Loader 2.1.3.
 

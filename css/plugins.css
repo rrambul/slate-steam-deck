@@ -51,3 +51,23 @@
   color: var(--slate-green-light) !important;
   filter: drop-shadow(0 0 2px color-mix(in srgb, var(--slate-green-light) 50%, transparent)) !important;
 }
+
+/* ProtonDB trend border (plugin draws it inline on the badge's wrapper):
+ * green = compatibility improving, red = declining. It carries meaning, so it stays —
+ * rounded to wrap our 8px badge, in Slate status colors. The color is only knowable
+ * from the inline style, hence the attribute matches. Inline → !important. */
+div:has(> .protondb-decky-indicator.protondb-decky-indicator-regular)[style*="solid"] {
+  border-radius: calc(var(--slate-radius-card) + 2px) !important;
+}
+div:has(> .protondb-decky-indicator.protondb-decky-indicator-regular)[style*="74, 222, 128"] {
+  border-color: var(--slate-green-light) !important;
+  box-shadow: 0 0 6px color-mix(in srgb, var(--slate-green-light) 35%, transparent) !important;
+}
+div:has(> .protondb-decky-indicator.protondb-decky-indicator-regular)[style*="248, 113, 113"] {
+  border-color: var(--slate-red) !important;
+  box-shadow: 0 0 6px color-mix(in srgb, var(--slate-red) 35%, transparent) !important;
+}
+/* with a trend border, drop the badge's own tier ring (avoids a double ring) */
+div[style*="solid"] > .protondb-decky-indicator.protondb-decky-indicator-regular {
+  box-shadow: none;
+}

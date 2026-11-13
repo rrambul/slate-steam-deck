@@ -175,3 +175,15 @@
           .appdetailsdlcsection_Item .gpfocus) .focusring_FocusRing {
   border-radius: var(--slate-radius-card);
 }
+
+/* G6 — game page buttons (Your Stuff: "Manage my items", "View all my reviews", "New Note", …).
+ * Steam: button.DialogButton 2px (strongest: button.….DialogButton:enabled, 0,3,1).
+ * Scoped to the game page; 0,4,1 here. Focused state stays Steam's. */
+.BasicUI .appdetails_ScrollContainer button.DialogButton,
+.BasicUI .appdetails_ScrollContainer button.DialogButton:enabled {
+  border-radius: var(--slate-radius-card);
+}
+/* cool #3d4450 → neutral control (mirrors Steam's selector exactly) */
+.BasicUI button.DialogButton.appdetailsbutton_AppDetailsButton.appdetailsbutton_BottomRight:not(.gpfocus) {
+  background-color: var(--slate-control);
+}

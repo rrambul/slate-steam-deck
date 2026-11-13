@@ -410,3 +410,14 @@ CSS Loader's Refresh button calls `reloadBackend()` → `callPluginMethod("reset
 SharedJSContext CDP target the same call is
 `DeckyPluginLoader.createLegacyPluginAPI("CSS Loader").callPluginMethod("reset", {})`.
 `tools/cssloader-refresh.mjs` does this; `deploy.sh` runs it after rsync.
+
+## G6 — game page buttons + ProtonDB trend border (verified 2026-11-13)
+- Buttons: Steam `button.DialogButton { border-radius: 2px }`, strongest
+  `button.….DialogButton:enabled` (0,3,1). Slate: `.BasicUI .appdetails_ScrollContainer button.DialogButton(:enabled)`
+  (0,4,1) → 8px. `DialogButton` is not a CSS Loader translation name (stays literal).
+  "Manage my N items" / "View all my reviews" = `appdetailsbutton_AppDetailsButton.…_BottomRight`,
+  cool #3d4450 → `--slate-control` (mirrors Steam's `:not(.gpfocus)` selector).
+- ProtonDB trend: protondb-decky sets `border: 2px solid #4ade80|#f87171` + glow **inline** on the
+  badge's wrapper div (improving/declining). Matched with `div:has(> .protondb-decky-indicator…)[style*="74, 222, 128"]`
+  / `[style*="248, 113, 113"]` → Slate green/red, radius 10px; tier inset ring removed under a trend border.
+Verified: wrapper radius 10px, border rgb(91,191,138); buttons 8px, Manage/View rgb(67,67,71).
