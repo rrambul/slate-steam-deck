@@ -436,3 +436,8 @@ Event-colored calendar variants (pink, `_8UPO4…` / `_1beaDt…`) keep their co
 Verified via injected CSS: 14 plain calendar cards 8px + neutral; event cards 8px with own gradient; queue 8px,
 body rgb(67,67,71); play-next title 16px; placeholders rgb(32,34,38).
 Also: Home hero title 20px → 17px (rendered ≈19px under the carousel's scale(1.12); 20px rendered ≈22.4px).
+- Calendar fit: with a calendar card focused, Steam scrolls it to start ~140–160px down; the
+  two-game day card is 338px → bottom ~498 > footer top 492. `.gamepadhomerecommended_Recommended
+  .carousel:has(.tqaX…) { transform: scale(.95); transform-origin: 0 0 }` (visual only; `carousel`
+  is a literal pure-react-carousel class). Verified focused: tallest visible card top 140, h 321,
+  bottom 461 (fits, 31px clear). Measure focused states *immediately* — pressing A opens the store.
