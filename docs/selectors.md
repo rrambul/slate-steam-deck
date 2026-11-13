@@ -249,3 +249,24 @@ Lesson: never pass preview CSS through shell quoting — `inject.mjs` loads it f
 
 Verified via CDP: gold badge glass + rgb(207,181,59), info rgb(74,222,128), submit rgb(201,203,208),
 pill glass/8px/white. Screenshot: docs/screenshots/g2p1-after.png (local only).
+
+## G3 — game page shapes + last cool tints (verified 2026-11-13)
+
+| Stable name | Hashed (this build) | Steam | Slate |
+|---|---|---|---|
+| `basicappdetailssectionstyler_AppActionButton` (wrapper) | `QsZdWtHTlIK9KIKbscNTt` | 2px (`.BasicUI`) | 8px |
+| `appactionbutton_PlayButton` / `…_ShowingStreaming …` | `_3ydigb6zZAjJ0JCDgHwSYA` / `_1hhB2Wf7iExA15zh_lDQ_y` | 2px / 2px 0 0 2px | 8px / 8px 0 0 8px |
+| `appactionbutton_StreamingSelector` (dropdown half) | `_2q-gZ3XJzlvSGHSF-GvSmi` | 0 2px 2px 0 | 0 8px 8px 0 |
+| `appdetailsplaysection_MenuButton` (gear/controller) | `_3qDWQGB0rtwM3qpXTb11Q-` | 2px, rgba(172,178,201,.14) | 8px, `--slate-raised` |
+| `appdetailsplaysection_ControllerConfigButton` | `_1oYt_BfxCHnA-_6sfUHiNn` | (variant of MenuButton) | — |
+| `appactivityday_Event .appactivityday_EventHeadline` | `UVeN0kaD3zv1feMj_mMw5 .QCKBqF2k_sRLcXJ5qQIEl` | 0, rgba(172,178,201,.14) | 8px top, `--slate-raised` |
+| `appactivityday_Event .appactivityday_EventBody` | `… .NEMXhMlqXOCJwfgWlHXhT` | 0, rgba(172,178,201,.14) | 8px bottom, `--slate-raised` |
+| `appdetailssection_AppDetailsSectionContainer.…RightColumnSection` | (see G1) | 0 | 8px |
+
+- New token `--slate-raised: rgba(244,244,245,.10)` — neutral overlay at the same brightness as
+  Steam's blue-grey rgba(172,178,201,.14).
+- No `overflow: hidden` on the action-button wrapper (streaming callout may render outside).
+- Headline is always directly followed by EventBody (9/9 observed) → reads as one card.
+
+Verified via CDP + screenshot on an installed game (Play focused = Slate green; ProtonDB Platinum
+accent rendered). Screenshot: docs/screenshots/g3-after.png (local only).

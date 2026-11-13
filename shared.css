@@ -15,6 +15,7 @@
   --slate-blue:     #2D74C4;  /* primary action (Install/Update) — white text 4.8:1 */
   --slate-green:    #2B8659;  /* "ready / Play" — white text 4.5:1, 4.2:1 vs --slate-bg */
   --slate-glass:    rgba(17, 18, 20, .55);  /* translucent charcoal for overlays on art */
+  --slate-raised:   rgba(244, 244, 245, .10); /* raised controls/cards on charcoal (neutral overlay) */
 
   /* Canvas — Steam's radial geometry, neutral charcoal colors */
   --slate-canvas: radial-gradient(155.42% 100% at 0% 0%,
@@ -161,6 +162,41 @@
 .BasicUI .appactionbutton_Green .appactionbutton_ButtonChild:hover {
   background: var(--slate-green);
   color: #fff;
+}
+
+/* G3 — game page shapes + last cool tints.
+ * Action button: round each half's outer corners (no overflow:hidden on the
+ * wrapper — Steam's streaming callout may render outside it). Mirrors Steam:
+ * PlayButton is fully rounded unless the streaming dropdown is showing.
+ */
+.BasicUI .basicappdetailssectionstyler_AppActionButton { border-radius: var(--slate-radius-card); }
+.appactionbutton_PlayButton { border-radius: var(--slate-radius-card); }
+.appactionbutton_ShowingStreaming .appactionbutton_PlayButton {
+  border-radius: var(--slate-radius-card) 0 0 var(--slate-radius-card);
+}
+.appactionbutton_StreamingSelector {
+  border-radius: 0 var(--slate-radius-card) var(--slate-radius-card) 0;
+}
+
+/* Gear / controller buttons: round + blue-grey rgba(172,178,201,.14) → neutral */
+.BasicUI .appdetailsplaysection_MenuButton {
+  border-radius: var(--slate-radius-card);
+  background-color: var(--slate-raised);
+}
+
+/* Info rows (e.g. "On their wishlist") */
+.BasicUI .appdetailssection_AppDetailsSectionContainer.appdetailssection_RightColumnSection {
+  border-radius: var(--slate-radius-card);
+}
+
+/* Activity feed cards: headline + body read as one rounded card (always paired) */
+.BasicUI .appactivityday_Event .appactivityday_EventHeadline {
+  background: var(--slate-raised);
+  border-radius: var(--slate-radius-card) var(--slate-radius-card) 0 0;
+}
+.BasicUI .appactivityday_Event .appactivityday_EventBody {
+  background: var(--slate-raised);
+  border-radius: 0 0 var(--slate-radius-card) var(--slate-radius-card);
 }
 
 /* ── Third-party plugin badges (game page) ────────────── */
