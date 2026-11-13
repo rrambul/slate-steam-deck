@@ -112,3 +112,29 @@ The item itself receives `gpfocus`, so it's added to the focus-ring `:root:has(.
 
 Verified via CDP: 8 items at 8px/hidden; with one focused, `focusring_FocusRing` = 8px.
 Not yet styled on Home: "Trending among friends" row.
+
+## M3c — Home store carousels / "Trending among friends" (verified 2026-11-13)
+
+| Stable name | Hashed (this build) |
+|---|---|
+| `homestorecarousel_StoreCarouselCtn` (row container) | `_3zVCVKrpcKJT5fd_dbyuwQ` |
+| `homestorecarousel_Header` | `xpRXvu3-lbtUHYWgwJCiJ` |
+| `gamecapsule_GameCapsule` (card, focusable) | `fXdhjvKWFQqnjxUzju3jk` |
+| `gamecapsule_BottomBar` (friends / price bar) | `_3-GyQfKnKaWozIRLOw4BjY` |
+
+`gamecapsule_GameCapsule` is a shared Steam component → scoped to
+`.homestorecarousel_StoreCarouselCtn` so other pages are untouched. Card gets
+`border-radius` + `overflow: hidden`; focused capsule added to the focus-ring list.
+
+Verified via CDP with a capsule focused: 11 capsules at 8px/hidden, 0 capsules outside
+the carousel, ring 8px; Recent Games and Recently updated still 8px.
+Screenshot: docs/screenshots/m3c-after.png (local only).
+
+### Home rounding — complete
+All card rows on Home now share `--slate-radius-card`: Recent Games, What's New news,
+Recently updated, Trending among friends.
+
+### Open follow-up: remaining navy tints on Home
+- `gamecapsule_GameCapsule` background `rgb(35,38,46)`
+- `libraryassetimage_Container` placeholder `rgb(14,20,27)` outside Recent Games
+- `gamecapsule_BottomBar` Steam blue `rgb(60,93,132)` — decide keep vs. neutralize

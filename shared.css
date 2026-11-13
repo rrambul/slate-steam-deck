@@ -68,15 +68,26 @@
   overflow: hidden;
 }
 
+/* M3c — Home store carousels ("Trending among friends", …).
+ * gamecapsule_GameCapsule is a shared Steam component, so it's scoped to the
+ * Home store carousel container. overflow:hidden clips the capsule art and the
+ * friends BottomBar to the rounded shape.
+ */
+.homestorecarousel_StoreCarouselCtn .gamecapsule_GameCapsule {
+  border-radius: var(--slate-radius-card);
+  overflow: hidden;
+}
+
 /* Steam draws focus here with a single global overlay (focusring_FocusRing)
  * that follows whatever is focused. Round it only while a rounded Home card has focus,
  * so menus, lists and buttons elsewhere keep their square ring.
- * Covers: news cards, Recently updated cards.
+ * Covers: news cards, Recently updated cards, Home store carousel capsules.
  * Note: :has() cannot be nested, hence the flat selector inside :root:has().
  */
 :root:has(.gamepadhomewhatsnew_LibraryHomeWhatsNew
     .Focusable.gpfocus > div > img:not(.libraryassetimage_Image):not(.avatar),
-  .recentlycompleted_RecentlyCompletedItem.gpfocus)
+  .recentlycompleted_RecentlyCompletedItem.gpfocus,
+  .homestorecarousel_StoreCarouselCtn .gamecapsule_GameCapsule.gpfocus)
   .focusring_FocusRing {
   border-radius: var(--slate-radius-card);
 }
