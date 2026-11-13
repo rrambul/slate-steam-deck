@@ -134,7 +134,7 @@ Screenshot: docs/screenshots/m3c-after.png (local only).
 All card rows on Home now share `--slate-radius-card`: Recent Games, What's New news,
 Recently updated, Trending among friends.
 
-### M4 — remaining navy tints on Home (verified 2026-11-13)
+### M3d — remaining navy tints on Home (commit ba3f345 says "M4" by mistake) (verified 2026-11-13)
 - `gamecapsule_GameCapsule` background `rgb(35,38,46)` → `--slate-surface` ✅
 - `libraryassetimage_Container` placeholder `rgb(14,20,27)` in What's New → `--slate-surface` ✅
   (Recent Games was already covered by M2.)

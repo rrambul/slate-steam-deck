@@ -78,7 +78,7 @@
   overflow: hidden;
 }
 
-/* M4 — neutralize remaining navy tints on Home.
+/* M3d — neutralize remaining navy tints on Home.
  * Capsule background rgb(35,38,46) and art placeholders rgb(14,20,27) → surface.
  * (Recent Games placeholders are already covered by the M2 rule above.)
  */
