@@ -28,4 +28,4 @@ Copies `theme.json` and `*.css` to `~/homebrew/themes/Slate/` on the Deck
 (repo tooling and docs are excluded). Then CSS Loader → Refresh, and enable **Slate**.
 
 ## Status
-Home + Library charcoal canvas; all Home card rows and Library cards rounded. Home neutralized (only blue left: small status badges). See docs/selectors.md.
+Home, Library and game page on neutral charcoal; all Home card rows and Library cards rounded. Home neutralized (only blue left: small status badges). See docs/selectors.md.

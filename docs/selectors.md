@@ -180,3 +180,24 @@ stylesheets that `document.styleSheets` can't read.
 Verified via CDP + screenshot (All Games, DEMO card "Kings" focused): 25 cards 8px,
 images 8px, focus outline follows the radius, ribbon inside the corner.
 Screenshot: docs/screenshots/l2-after.png (local only).
+
+## G1 — game details page backgrounds (verified 2026-11-13)
+
+Static styling (no per-game inline color), so it can be overridden with plain rules that
+mirror Steam's specificity — no `!important`.
+
+| Stable selector (mirrors Steam's) | Hashed (this build) | Steam default | Slate |
+|---|---|---|---|
+| `.appdetails_ScrollContainer` | `_2l416KfEtI4CL0mCUEmOBw` | `#24282f` | `--slate-bg` |
+| `.appdetails_ScrollContainer.appdetails_Glassy` | `… ._3FmxxjyWNHU1PrBGnBe6tm` | radial rgb(44,50,61) → rgb(21,22,22) | radial `--slate-surface` → `--slate-bg` (same geometry) |
+| `.BasicUI .basicappdetailssectionstyler_AppDetailsRoot` | `_3fp5y6tdU77MdrCQZt_aS9` | `rgba(14,20,27,.25)` | `--slate-bg` @ 25% (color-mix) |
+| `.BasicUI .appdetailssection_AppDetailsSectionContainer.appdetailssection_RightColumnSection` | `_31ptFGGMZrSQc5BCX1e5lm._3KfxIwlXEvum7FCD_AM2_t` | `rgba(103,112,123,.2)` | `--slate-muted` @ 20% |
+
+Also on this page: `smartscrollcontainer_Body` (`_3lDczhulqraStjCitLYJ1K`),
+`sharedappdetailsheader_TopGradient` (`_1IWSiRVmH1DlNlWSaBeUuZ`, black fade over hero — kept).
+Untouched on purpose: hero art, Install/Play button (`rgb(26,159,255)`), plugin badges
+(ProtonDB, playcount, etc. — owned by other Decky plugins).
+
+Verified via CDP on an app page: page rgb(17,18,20) + radial rgb(32,34,38) → rgb(17,18,20);
+panel and row compute the color-mix values; Install button unchanged.
+Screenshots: docs/screenshots/app-{before,after}.png (local only).

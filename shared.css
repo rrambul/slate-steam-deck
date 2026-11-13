@@ -124,6 +124,26 @@
   background-color: var(--slate-muted);
 }
 
+/* ── Game details page ────────────────────────────────── */
+/* G1 — neutralize the blue-grey page and section tints (static, not per-game).
+ * Selectors mirror Steam's own specificity so no !important is needed.
+ * Hero art, Play/Install button and plugin badges are left untouched.
+ */
+.appdetails_ScrollContainer {                         /* Steam: #24282f */
+  background-color: var(--slate-bg);
+}
+.appdetails_ScrollContainer.appdetails_Glassy {       /* Steam: rgb(44,50,61) → rgb(21,22,22) */
+  background-image: radial-gradient(100% 100% at 45% 35%,
+                    var(--slate-surface) 0%, var(--slate-bg) 100%);
+}
+.BasicUI .basicappdetailssectionstyler_AppDetailsRoot {  /* Steam: rgba(14,20,27,.25) */
+  background: color-mix(in srgb, var(--slate-bg) 25%, transparent);
+}
+.BasicUI .appdetailssection_AppDetailsSectionContainer.appdetailssection_RightColumnSection {
+  /* Steam: rgba(103,112,123,.2) */
+  background: color-mix(in srgb, var(--slate-muted) 20%, transparent);
+}
+
 /* Steam draws focus here with a single global overlay (focusring_FocusRing)
  * that follows whatever is focused. Round it only while a rounded Home card has focus,
  * so menus, lists and buttons elsewhere keep their square ring.
