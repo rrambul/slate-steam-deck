@@ -1,0 +1,21 @@
+/* Slate — shared.css
+ * Injected into: bigpicture (Steam Deck Gaming Mode UI)
+ * Selectors use CSS Loader's stable class names (see docs/selectors.md);
+ * CSS Loader translates them to Steam's hashed classes at injection time.
+ */
+
+:root {
+  --slate-radius-card: 8px;
+}
+
+/* M1 — Home › Recent Games: round card corners.
+ * The card, its image container and the image are each rounded so the art
+ * clips cleanly without overflow:hidden on the focusable element (which
+ * could clip Steam's own focus effects). Steam's focus outline follows
+ * border-radius, so the focused state keeps its existing look.
+ */
+.appportrait_InRecentGames,
+.appportrait_InRecentGames .libraryassetimage_Container,
+.appportrait_InRecentGames .libraryassetimage_Image {
+  border-radius: var(--slate-radius-card);
+}

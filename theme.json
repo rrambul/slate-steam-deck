@@ -1,0 +1,11 @@
+{
+  "name": "Slate",
+  "author": "rrambul",
+  "version": "v0.1.0",
+  "description": "A minimal and clean Steam Deck Home theme.",
+  "target": "Home",
+  "manifest_version": 9,
+  "inject": {
+    "shared.css": ["bigpicture"]
+  }
+}

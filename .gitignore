@@ -1,0 +1,7 @@
+# Written by CSS Loader on the Deck; never source-controlled
+config_USER.json
+config_ROOT.json
+.DS_Store
+
+# Screenshots contain third-party game art; keep local, do not commit
+docs/screenshots/
