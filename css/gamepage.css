@@ -141,3 +141,13 @@
           .appdetailscommunityfeed_CommunityItem .gpfocus) .focusring_FocusRing {
   border-radius: var(--slate-radius-card);
 }
+
+/* C2 — Deck "Verified" check (Game Info tab header + compatibility box) → Slate green.
+ * Steam: hashed `.kEODDe6M5cuHWuPlcQexX { color:#59bf40 }` with NO stable name and no token.
+ * Deliberately using the hashed class: if Steam renames it, this simply stops matching and
+ * the icon falls back to Steam's green (fails safe). A structural selector could instead hit
+ * the yellow "Playable" icon and change its meaning. Playable/Unsupported are left untouched.
+ */
+.kEODDe6M5cuHWuPlcQexX {
+  color: var(--slate-green-light);
+}

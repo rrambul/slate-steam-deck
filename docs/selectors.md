@@ -316,3 +316,10 @@ their hue (ProtonDB tiers). A first pass mapped tiers to Slate status colors; re
 Steam has its own token scale `--color-blue-1…12` on `:root`. Scoped re-pointing of a Steam token
 inside a stable container is the cleanest way to recolor new-style components without hashed classes.
 New tokens: `--slate-green-light #5BBF8A`, `--slate-red #E07A7A`, `--slate-muted-light #A3A6AD`.
+
+### C2 — Deck "Verified" check → Slate green (verified 2026-11-13)
+`.kEODDe6M5cuHWuPlcQexX { color: var(--slate-green-light) }` — hashed class on purpose: no stable
+name, no Steam token. If Steam renames it, the rule stops matching and the icon falls back to
+Steam's #59bf40 (**fails safe**); a structural selector could recolor the yellow "Playable" icon.
+Verified via CDP: Game Info tab-header icons and the compatibility box icon = rgb(91,191,138).
+Battery icon (system status bar) intentionally untouched.
