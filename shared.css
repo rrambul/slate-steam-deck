@@ -12,6 +12,8 @@
   --slate-surface:  #202226;  /* secondary panels, placeholders */
   --slate-muted:    #575B63;  /* subtle outlines / muted surfaces */
   --slate-text:     #F4F4F5;  /* main readable typography */
+  --slate-green:    #2B8659;  /* "ready / Play" — white text 4.5:1, 4.2:1 vs --slate-bg */
+  --slate-glass:    rgba(17, 18, 20, .55);  /* translucent charcoal for overlays on art */
 
   /* Canvas — Steam's radial geometry, neutral charcoal colors */
   --slate-canvas: radial-gradient(155.42% 100% at 0% 0%,
@@ -142,6 +144,70 @@
 .BasicUI .appdetailssection_AppDetailsSectionContainer.appdetailssection_RightColumnSection {
   /* Steam: rgba(103,112,123,.2) */
   background: color-mix(in srgb, var(--slate-muted) 20%, transparent);
+}
+
+/* G2 — primary action button (Install / Update / Play …).
+ * In Gaming Mode the button is transparent until focused; Steam then paints it
+ * #1a9fff (or #59bf40 for Play). Slate: light pill with dark text — same as
+ * Steam's own focused dropdown half and selected tab pill — and a Slate green
+ * for Play. Selectors mirror Steam's specificity (0,4,0 / 0,5,0), no !important.
+ */
+.BasicUI .appactionbutton_ButtonChild.Focusable:focus {
+  background: var(--slate-text);
+  color: var(--slate-bg);
+}
+.BasicUI .appactionbutton_ButtonChild.Focusable:focus .appactionbutton_ButtonText {
+  color: var(--slate-bg);
+}
+.BasicUI .appactionbutton_Green .appactionbutton_ButtonChild.Focusable:focus,
+.BasicUI .appactionbutton_Green .appactionbutton_ButtonChild:hover {
+  background: var(--slate-green);
+  color: #fff;
+}
+/* keep Play's label white (the generic rule above would make it dark) */
+.BasicUI .appactionbutton_Green .appactionbutton_ButtonChild.Focusable:focus .appactionbutton_ButtonText {
+  color: #fff;
+}
+
+/* ── Third-party plugin badges (game page) ────────────── */
+/* P1 — ProtonDB (protondb-decky) and player count (playcount-decky) badges:
+ * dark glass, 8px corners, the plugin's meaning kept as an accent color
+ * (text/icon + faint ring) instead of a solid saturated fill.
+ * ProtonDB uses plain plugin classes → two-class selectors beat its rules.
+ * playcount-decky sets inline styles → !important is required there only.
+ */
+.protondb-decky-indicator.protondb-decky-indicator-regular,
+.protondb-decky-info-button.protondb-decky-indicator-regular,
+.protondb-decky-submit-button.protondb-decky-indicator-regular {
+  --slate-accent: var(--slate-text);
+  background: var(--slate-glass);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border-radius: var(--slate-radius-card);
+  color: var(--slate-accent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--slate-accent) 35%, transparent);
+}
+.protondb-decky-indicator-regular svg,
+.protondb-decky-indicator-regular svg path { fill: currentColor; }
+
+/* tier colors from protondb-decky; borked/pending/silver lightened for dark glass */
+.protondb-decky-indicator.protondb-decky-indicator-platinum { --slate-accent: rgb(180, 199, 220); }
+.protondb-decky-indicator.protondb-decky-indicator-gold     { --slate-accent: rgb(207, 181, 59); }
+.protondb-decky-indicator.protondb-decky-indicator-silver   { --slate-accent: rgb(190, 190, 190); }
+.protondb-decky-indicator.protondb-decky-indicator-bronze   { --slate-accent: rgb(205, 127, 50); }
+.protondb-decky-indicator.protondb-decky-indicator-borked   { --slate-accent: #f87171; }
+.protondb-decky-indicator.protondb-decky-indicator-pending  { --slate-accent: #A3A6AD; }
+.protondb-decky-info-button.protondb-decky-info-working     { --slate-accent: #4ade80; }
+.protondb-decky-info-button.protondb-decky-info-not-working { --slate-accent: #f87171; }
+.protondb-decky-submit-button.protondb-decky-indicator-regular { --slate-accent: #C9CBD0; }
+
+.playerBadge > button {
+  background-color: var(--slate-glass) !important;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border-radius: var(--slate-radius-card) !important;
+  box-shadow: inset 0 0 0 1px rgba(244, 244, 245, .12) !important;
+  color: var(--slate-text) !important;
 }
 
 /* Steam draws focus here with a single global overlay (focusring_FocusRing)

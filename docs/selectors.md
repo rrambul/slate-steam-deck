@@ -201,3 +201,47 @@ Untouched on purpose: hero art, Install/Play button (`rgb(26,159,255)`), plugin 
 Verified via CDP on an app page: page rgb(17,18,20) + radial rgb(32,34,38) → rgb(17,18,20);
 panel and row compute the color-mix values; Install button unchanged.
 Screenshots: docs/screenshots/app-{before,after}.png (local only).
+
+## G2 — primary action button (verified 2026-11-13, Play pending)
+
+In Gaming Mode the action button is **transparent until focused**; Steam then paints it.
+
+| Stable name | Hashed (this build) |
+|---|---|
+| `basicappdetailssectionstyler_AppActionButton` (wrapper) | `QsZdWtHTlIK9KIKbscNTt` |
+| `appactionbutton_PlayButton` (main half) | `_3ydigb6zZAjJ0JCDgHwSYA` |
+| `appactionbutton_ButtonChild` (each half) | `_2AzIX5kl9k6JnxLfR5H4kX` |
+| `appactionbutton_ButtonText` | `_33cnXIqTRgRr49_FNXIHj6` |
+| `appactionbutton_Green` (Play state) | `_3cI5TXsFX3bvpR-7EBOtxq` |
+| `appactionbutton_Disabled` / `…_ShutdownAppButton` | `_1Pb6PMh_3L5p5NzuUz0Pp9` / `_1WVYDQv_srgKP95rVG1cX-` |
+
+Steam (from library.css): `.BasicUI .ButtonChild.Focusable:focus { background:#1a9fff; color:#fff }` (0,4,0);
+Play: `.BasicUI .Green .ButtonChild.Focusable:focus { background:#59bf40 }` (0,5,0).
+Steam already uses white/#0e141b for the focused dropdown half — Slate extends that.
+
+Slate: focused → `--slate-text` bg / `--slate-bg` text (17:1). Play focused/hover → `--slate-green`
+`#2B8659` (white text 4.5:1; Steam's #59bf40 was 2.35:1) with an explicit white label rule, since the
+generic dark-label rule (0,5,0) would otherwise win over Steam's green label rule (0,4,0).
+
+Verified via CDP: focused Install = rgb(244,244,245) / text rgb(17,18,20).
+**Not yet verified on hardware:** green Play (needs an installed game's page).
+Tip: Steam's own rules can be read with `fetch(sheet.href)` from the page when CSSOM access fails.
+
+## P1 — third-party plugin badges on the game page (verified 2026-11-13)
+
+| Plugin | Selector | Styling source |
+|---|---|---|
+| protondb-decky | `.protondb-decky-indicator.protondb-decky-indicator-regular` + tier class `…-indicator-{platinum,gold,silver,bronze,borked,pending}` | plugin CSS (single class) → two-class selector wins |
+| protondb-decky | `.protondb-decky-info-button` (`…-info-working` / `…-info-not-working`), `.protondb-decky-submit-button` | plugin CSS |
+| playcount-decky | `.playerBadge > button` | **inline styles** → `!important` (only place in Slate) |
+
+Plugin tier colors: platinum rgb(180,199,220), gold rgb(207,181,59), silver rgb(166,166,166),
+bronze rgb(205,127,50), borked rgb(200,30,30), pending rgb(68,68,68); info working rgb(74,194,100).
+Slate: `--slate-glass` + 12px blur, 8px radius, tier color as `--slate-accent` (text/icon + 35% inset ring);
+borked → #f87171, pending → #A3A6AD, silver → rgb(190,190,190) for legibility on dark glass.
+Plugin class names are owned by the plugins and may change with plugin updates.
+
+Lesson: never pass preview CSS through shell quoting — `inject.mjs` loads it from a file.
+
+Verified via CDP: gold badge glass + rgb(207,181,59), info rgb(74,222,128), submit rgb(201,203,208),
+pill glass/8px/white. Screenshot: docs/screenshots/g2p1-after.png (local only).
