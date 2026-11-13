@@ -5,6 +5,10 @@ All notable changes to Slate. Versions follow [Semantic Versioning](https://semv
 The version lives in `theme.json` (shown by CSS Loader) and as a git tag `vX.Y.Z`.
 
 ## [Unreleased]
+### Added
+- **Hero** option in CSS Loader (Slate › Hero): **Full** (default — full-screen Home hero,
+  covers +12%) or **Compact** (Steam's hero height, What's New visible without scrolling).
+  Shared hero styling (art, transition, focus, colors) applies to both.
 
 ## [0.3.0] — 2026-11-13
 Verified on Steam Deck LCD, SteamOS 3.9.5, CSS Loader 2.1.3.

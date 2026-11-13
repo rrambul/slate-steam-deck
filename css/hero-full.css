@@ -1,0 +1,31 @@
+/* Slate — hero-full.css
+ * CSS Loader option: Hero = "Full" (default). Injected into: bigpicture.
+ * Full-screen Home hero: Recent Games + its art fill the viewport; What's New starts below
+ * the fold. Sizes use vh so it holds on LCD + OLED (854×534 CSS px @1.5×) and docked displays.
+ * Card positions stay owned by Steam's JS (virtualized carousel) — only container
+ * heights/padding change; covers grow via a visual transform (Recent Games cards draw their
+ * own focus outline, so the global focus ring isn't affected).
+ */
+
+.gamepadhome_RecentSection,
+.gamepadhomerecentgames_RecentGamesContainer {
+  min-height: 100vh;
+}
+.gamepadhomerecentgames_RecentGamesBackgroundContainer {
+  height: 100vh;
+}
+/* drop the carousel into the lower-middle of the hero (≈48px on a Deck) */
+.gamepadhomerecentgames_RecentGamesInnerContainer {
+  padding-top: 9vh;
+}
+/* bigger covers: +12% visual scale. Measured: cards 141×212 → 163×244;
+ * block bottom 453 < grid 482 < footer 492. Full-only: at Steam's hero height the
+ * scaled carousel would run into the What's New tabs. */
+.gamepadhomerecentgames_RecentGamesContainer .basicgamecarousel_BasicGameCarousel {
+  transform: scale(1.12);
+  transform-origin: 0 0;
+}
+/* title: 17px × 1.12 ≈ 19px on screen (Steam 18px; 20px rendered ≈22.4px — too big) */
+.gamepadhomerecentgames_RecentGamesContainer .marquee_Content {
+  font-size: 17px;
+}

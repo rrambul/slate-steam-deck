@@ -449,3 +449,12 @@ Also: Home hero title 20px → 17px (rendered ≈19px under the carousel's scale
   ring offset dx=0 dy=0; tallest card 326px. Tiles 6px radius + ring 6px (`:root:has(.tqaX… .gpfocus)`).
 - Steam scrolls the focused item into the full 534px viewport and ignores the 42px footer overlay,
   so items near the bottom can sit partly under the footer (Steam default behavior, not Slate).
+
+## O1 — "Hero" option (CSS Loader v9 patch, verified 2026-11-13)
+`theme.json` → `patches.Hero` (dropdown, default "Full"): Full injects `css/hero-full.css`
+(section/container `min-height:100vh`, art `height:100vh`, inner padding 9vh, carousel `scale(1.12)`,
+title 17px); Compact injects nothing. Carousel scale is Full-only (at Steam's 397px hero it would
+reach the tabs). CSS Loader stores the choice in the theme's `config_USER.json`.
+Verified by switching via `callPluginMethod("set_patch_of_theme",{themeName,patchName,value})`:
+Full → section 0..588, tabs 558, cards 163×244, title 17px; Compact → section 0..397, tabs 367,
+cards 141×212-class, title 18px, no carousel transform. Restored to Full.

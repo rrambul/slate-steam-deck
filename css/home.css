@@ -4,19 +4,10 @@
  */
 
 /* ── Home › hero ────────────────────────────────────────── */
-/* H1 — full-height hero: Recent Games + its art fill the screen; What's New starts
- * below the fold. Sizes use vh (not px) so it holds on LCD + OLED (both 1280×800,
- * 854×534 CSS px @1.5×) and on docked/external displays.
- * Card positions are left to Steam's JS (virtualized carousel) — only container
- * heights/padding change, the focused card grows via transform (no layout impact).
+/* H1 — hero (shared by both "Hero" options). The full-screen layout itself lives in
+ * css/hero-full.css and is injected only when the CSS Loader option Hero = "Full" (default);
+ * "Compact" keeps Steam's hero height with everything below.
  */
-.gamepadhome_RecentSection,
-.gamepadhomerecentgames_RecentGamesContainer {
-  min-height: 100vh;
-}
-.gamepadhomerecentgames_RecentGamesBackgroundContainer {
-  height: 100vh;
-}
 /* Steam: radial(75% 83% at 50% 18%) on both container + images → larger, softer reach */
 .gamepadhomerecentgames_RecentGamesBackgroundContainer,
 .gamepadhomerecentgames_RecentGamesBackgroundImages {
@@ -29,20 +20,7 @@
 .gamepadhomerecentgames_RecentGamesBackgroundImage {
   filter: brightness(80%);
 }
-/* drop the carousel into the lower-middle of the hero (≈48px on a Deck; the
- * carousel is scaled up below, so it needs less top padding) */
-.gamepadhomerecentgames_RecentGamesInnerContainer {
-  padding-top: 9vh;
-}
-/* bigger covers: scale the whole carousel visually (+12%). Card sizes stay owned by
- * Steam's virtualized grid, so scrolling + controller navigation are unaffected, and the
- * grid's clip box scales with it (focus-scale headroom is preserved).
- * Measured: cards 141×212 → 163×244; block bottom 453 < grid 482 < footer 492. */
-.gamepadhomerecentgames_RecentGamesContainer .basicgamecarousel_BasicGameCarousel {
-  transform: scale(1.12);
-  transform-origin: 0 0;
-}
-/* more air between cover and title (Steam 14px) — measured gap 1.5px → 12.9px */
+/* more air between cover and title (Steam 14px) */
 .gamepadhomerecentgames_RecentGamesContainer .basicgamecarousel_CarouselGameLabelWrapper {
   padding-top: 24px;
 }
@@ -54,11 +32,10 @@
   transform: translateZ(15px) scale(1.03);
   box-shadow: 0 18px 36px rgba(0, 0, 0, .6);
 }
-/* game title: Steam's marquee keeps scrolling long titles (don't touch width).
- * 17px × the carousel's 1.12 scale ≈ 19px on screen (Steam: 18px). 20px rendered ≈22.4px — too big. */
+/* game title legibility over the brighter art (size is set per option; Steam marquee keeps
+ * scrolling long titles — never touch its width) */
 .gamepadhomerecentgames_RecentGamesContainer .marquee_Content {
-  font-size: 17px;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, .7);   /* legibility over the brighter art */
+  text-shadow: 0 2px 12px rgba(0, 0, 0, .7);
 }
 
 /* H2 — hero art transition. Steam's incoming keyframes set `transform` twice

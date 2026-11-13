@@ -24,5 +24,19 @@
     "css/plugins.css": [
       "bigpicture"
     ]
+  },
+  "patches": {
+    "Hero": {
+      "type": "dropdown",
+      "default": "Full",
+      "values": {
+        "Full": {
+          "css/hero-full.css": [
+            "bigpicture"
+          ]
+        },
+        "Compact": {}
+      }
+    }
   }
 }

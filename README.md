@@ -41,12 +41,19 @@ if Node 22+ is installed and Decky's **Allow Remote CEF Debugging** is enabled
 Remote CEF debugging exposes the Steam UI on your network — turn it off when you're done,
 especially on untrusted networks.
 
+## Options
+In CSS Loader, open **Slate** to choose:
+| Option | Values |
+|---|---|
+| Hero | **Full** (default): Recent Games fills the screen, larger covers · **Compact**: Steam's hero height, What's New visible right away |
+
 ## Structure
 ```
 theme.json          CSS Loader manifest (v9) — injects css/* into Gaming Mode (bigpicture)
 css/tokens.css      design tokens (--slate-*): palette, canvas gradient, radius
 css/canvas.css      global charcoal canvas
-css/home.css        Home rows, cards and focus ring
+css/home.css        Home rows, cards, hero styling shared by both options, focus ring
+css/hero-full.css   Hero = Full: full-screen layout (patch, injected only when selected)
 css/library.css     Library background, placeholders, cards
 css/gamepage.css    game details page: backgrounds, action button, controls, activity
 css/plugins.css     third-party Decky plugin badges (protondb-decky, playcount-decky)
