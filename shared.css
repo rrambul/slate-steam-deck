@@ -4,11 +4,31 @@
  * CSS Loader translates them to Steam's hashed classes at injection time.
  */
 
+/* ── Tokens ─────────────────────────────────────────────── */
 :root {
+  /* Color — provisional palette from the handoff, refine on hardware */
+  --slate-bg:       #111214;  /* global charcoal canvas */
+  --slate-bg-deep:  #0B0C0E;  /* gradient origin, gives the canvas some depth */
+  --slate-surface:  #202226;  /* secondary panels, placeholders */
+  --slate-muted:    #575B63;  /* subtle outlines / muted surfaces */
+  --slate-text:     #F4F4F5;  /* main readable typography */
+
+  /* Shape */
   --slate-radius-card: 8px;
 }
 
-/* M1 — Home › Recent Games: round card corners.
+/* ── Canvas ─────────────────────────────────────────────── */
+/* M2 — swap Steam's navy radial gradient (rgb 6,10,14 → 14,20,27) for neutral
+ * charcoal with the same geometry. Only the OpaqueBackground variant is touched;
+ * Steam's black and transparent variants are left as-is.
+ */
+.gamepadui_BasicHome.gamepadui_OpaqueBackground {
+  background: radial-gradient(155.42% 100% at 0% 0%,
+              var(--slate-bg-deep) 0%, var(--slate-bg) 100%);
+}
+
+/* ── Home › Recent Games ────────────────────────────────── */
+/* M1 — round card corners.
  * The card, its image container and the image are each rounded so the art
  * clips cleanly without overflow:hidden on the focusable element (which
  * could clip Steam's own focus effects). Steam's focus outline follows
@@ -18,4 +38,9 @@
 .appportrait_InRecentGames .libraryassetimage_Container,
 .appportrait_InRecentGames .libraryassetimage_Image {
   border-radius: var(--slate-radius-card);
+}
+
+/* M2 — placeholder shown while art loads: navy → neutral surface. */
+.appportrait_InRecentGames .libraryassetimage_Container {
+  background-color: var(--slate-surface);
 }

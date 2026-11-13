@@ -51,3 +51,22 @@ Rationale:
 
 Verified via CDP: focused + unfocused cards and their `<img>` compute `border-radius: 8px`;
 focus outline follows the radius. Screenshots: docs/screenshots/m1-{before,after}.png (local only).
+
+## M2 — tokens + neutral canvas (verified 2026-11-13)
+
+| Stable name | Hashed (this build) | Steam default | Slate |
+|---|---|---|---|
+| `gamepadui_BasicHome.gamepadui_OpaqueBackground` | `_3LYP1SIxyoky-yW9Ug_1fq.b084mAvY8rgVMr3H04g9g` | radial-gradient rgb(6,10,14) → rgb(14,20,27) | `--slate-bg-deep` → `--slate-bg`, same geometry |
+| `appportrait_InRecentGames .libraryassetimage_Container` | `… ._1R9r2OBCxAmtuUVrgBEUBw` | rgb(14,20,27) placeholder | `--slate-surface` |
+
+Notes:
+- `gamepadui_BasicHome` has two other variants (`background: #000` and transparent);
+  the compound selector only touches the opaque one.
+- `gamepadui_BasicHome` is shared across Gaming Mode pages, so the canvas change is
+  global by design (Library etc.).
+- Untouched: hero art (`gamepadhomerecentgames_RecentGamesBackgroundContainer` /
+  `…BackgroundImages`, masked radial gradient, art at brightness 0.5),
+  `footer_BasicFooter` (rgba(0,0,0,.5)), `gamepadtabbedpage_TabsRowScroll`.
+
+Verified via CDP: canvas computes rgb(11,12,14) → rgb(17,18,20); placeholder rgb(32,34,38).
+Screenshots: docs/screenshots/m2-{before,after}.png (local only).
