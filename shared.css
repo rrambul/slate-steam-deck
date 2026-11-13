@@ -60,13 +60,23 @@
   overflow: hidden;
 }
 
+/* M3 — "Recently updated on this device" cards (all stable class names).
+ * overflow:hidden clips the lighter BottomSection strip to the rounded shape.
+ */
+.recentlycompleted_RecentlyCompletedItem {
+  border-radius: var(--slate-radius-card);
+  overflow: hidden;
+}
+
 /* Steam draws focus here with a single global overlay (focusring_FocusRing)
- * that follows whatever is focused. Round it only while a news card has focus,
+ * that follows whatever is focused. Round it only while a rounded Home card has focus,
  * so menus, lists and buttons elsewhere keep their square ring.
+ * Covers: news cards, Recently updated cards.
  * Note: :has() cannot be nested, hence the flat selector inside :root:has().
  */
 :root:has(.gamepadhomewhatsnew_LibraryHomeWhatsNew
-  .Focusable.gpfocus > div > img:not(.libraryassetimage_Image):not(.avatar))
+    .Focusable.gpfocus > div > img:not(.libraryassetimage_Image):not(.avatar),
+  .recentlycompleted_RecentlyCompletedItem.gpfocus)
   .focusring_FocusRing {
   border-radius: var(--slate-radius-card);
 }

@@ -95,3 +95,20 @@ Lessons:
 
 Verified via CDP with focus on a news card: 8 cards at 8px + overflow hidden, ring 8px,
 Recent Games cards still 8px. Screenshots: docs/screenshots/m3-{before,after}.png (local only).
+
+## M3b — "Recently updated on this device" cards (verified 2026-11-13)
+
+All stable names — no structural selector needed:
+
+| Stable name | Hashed (this build) |
+|---|---|
+| `recentlycompleted_RecentlyCompleted` (section) | `_3fDIRGKWUAQUCORORZWL_f` |
+| `recentlycompleted_RecentlyCompletedItem` (card, focusable) | `_3OC7iN2ubQiHWLB7r6Bugz` |
+| `recentlycompleted_TopSection` / `…_BottomSection` | `_2wVB-Jwr3riFpZ5WPITH4b` / `_3LyF6X2UzrKOnCPSpoVFeT` |
+| `recentlycompleted_GameIcon` / `…_GameIconAndName` | `DqP6rAoIUfL1XKDK0rQy7` / `_2RTo4iH5C026PtVTtWrBK3` |
+
+Card: `border-radius` + `overflow: hidden` (clips the rgba(255,255,255,.05) BottomSection).
+The item itself receives `gpfocus`, so it's added to the focus-ring `:root:has(...)` list.
+
+Verified via CDP: 8 items at 8px/hidden; with one focused, `focusring_FocusRing` = 8px.
+Not yet styled on Home: "Trending among friends" row.
