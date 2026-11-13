@@ -134,7 +134,7 @@ Screenshot: docs/screenshots/m3c-after.png (local only).
 All card rows on Home now share `--slate-radius-card`: Recent Games, What's New news,
 Recently updated, Trending among friends.
 
-### M3d — remaining navy tints on Home (commit ba3f345 says "M4" by mistake) (verified 2026-11-13)
+### M3d — remaining navy tints on Home (commit bcf6114 says "M4" by mistake) (verified 2026-11-13)
 - `gamecapsule_GameCapsule` background `rgb(35,38,46)` → `--slate-surface` ✅
 - `libraryassetimage_Container` placeholder `rgb(14,20,27)` in What's New → `--slate-surface` ✅
   (Recent Games was already covered by M2.)
@@ -222,7 +222,7 @@ Steam already uses white/#0e141b for the focused dropdown half — Slate extends
 Slate (revised same day, user choice "keep blue, but our blue"): focused → `--slate-blue` `#2D74C4`
 with white text (4.8:1; Steam's #1a9fff was 2.82:1). Play focused/hover → `--slate-green` `#2B8659`
 (white 4.5:1; Steam's #59bf40 was 2.35:1). Blue and green have matched luminance, so they read as a pair.
-First iteration (light `--slate-text` pill, commit 44b4c50) was replaced by this.
+First iteration (light `--slate-text` pill, commit 1760586) was replaced by this.
 The dropdown half keeps Steam's own focused style (white / #0e141b) — its rule (0,5,0) outranks
 the generic one (0,4,0), which is intended.
 

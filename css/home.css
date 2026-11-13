@@ -1,0 +1,86 @@
+/* Slate — home.css
+ * Home screen: Recent Games, What's New, Recently updated, store carousels, focus ring.
+ * Selectors use CSS Loader's stable class names (see docs/selectors.md).
+ */
+
+/* ── Home › Recent Games ────────────────────────────────── */
+/* M1 — round card corners.
+ * The card, its image container and the image are each rounded so the art
+ * clips cleanly without overflow:hidden on the focusable element (which
+ * could clip Steam's own focus effects). Steam's focus outline follows
+ * border-radius, so the focused state keeps its existing look.
+ */
+.appportrait_InRecentGames,
+.appportrait_InRecentGames .libraryassetimage_Container,
+.appportrait_InRecentGames .libraryassetimage_Image {
+  border-radius: var(--slate-radius-card);
+}
+
+/* M2 — placeholder shown while art loads: navy → neutral surface. */
+.appportrait_InRecentGames .libraryassetimage_Container {
+  background-color: var(--slate-surface);
+}
+
+/* ── Home › What's New ──────────────────────────────────── */
+/* M3 — round news cards to match the Recent Games cards.
+ * The news card wrappers have no stable class names, so cards are identified
+ * from the stable section root as "a Focusable whose direct child holds a news
+ * image" (game capsules = libraryassetimage, friend avatars = .avatar are
+ * excluded). Verified to match only the 300×265 news cards.
+ * overflow:hidden on the card clips the image and the text panel together;
+ * it does not clip the focus ring, which is a separate overlay (below).
+ */
+.gamepadhomewhatsnew_LibraryHomeWhatsNew
+  .Focusable:has(> div > img:not(.libraryassetimage_Image):not(.avatar)) {
+  border-radius: var(--slate-radius-card);
+  overflow: hidden;
+}
+
+/* M3 — "Recently updated on this device" cards (all stable class names).
+ * overflow:hidden clips the lighter BottomSection strip to the rounded shape.
+ */
+.recentlycompleted_RecentlyCompletedItem {
+  border-radius: var(--slate-radius-card);
+  overflow: hidden;
+}
+
+/* M3c — Home store carousels ("Trending among friends", …).
+ * gamecapsule_GameCapsule is a shared Steam component, so it's scoped to the
+ * Home store carousel container. overflow:hidden clips the capsule art and the
+ * friends BottomBar to the rounded shape.
+ */
+.homestorecarousel_StoreCarouselCtn .gamecapsule_GameCapsule {
+  border-radius: var(--slate-radius-card);
+  overflow: hidden;
+}
+
+/* M3d — neutralize remaining navy tints on Home.
+ * Capsule background rgb(35,38,46) and art placeholders rgb(14,20,27) → surface.
+ * (Recent Games placeholders are already covered by the M2 rule above.)
+ */
+.homestorecarousel_StoreCarouselCtn .gamecapsule_GameCapsule,
+.gamepadhomewhatsnew_LibraryHomeWhatsNew .libraryassetimage_Container {
+  background-color: var(--slate-surface);
+}
+
+/* M3d — Trending capsule friends/price bar: Steam blue rgb(60,93,132) → muted.
+ * Similar luminance to the blue, so white text stays as readable. The small
+ * "NEW" / "IN LIBRARY" badges keep their blue as the single status accent.
+ */
+.homestorecarousel_StoreCarouselCtn .gamecapsule_BottomBar {
+  background-color: var(--slate-muted);
+}
+
+/* Steam draws focus here with a single global overlay (focusring_FocusRing)
+ * that follows whatever is focused. Round it only while a rounded Home card has focus,
+ * so menus, lists and buttons elsewhere keep their square ring.
+ * Covers: news cards, Recently updated cards, Home store carousel capsules.
+ * Note: :has() cannot be nested, hence the flat selector inside :root:has().
+ */
+:root:has(.gamepadhomewhatsnew_LibraryHomeWhatsNew
+    .Focusable.gpfocus > div > img:not(.libraryassetimage_Image):not(.avatar),
+  .recentlycompleted_RecentlyCompletedItem.gpfocus,
+  .homestorecarousel_StoreCarouselCtn .gamecapsule_GameCapsule.gpfocus)
+  .focusring_FocusRing {
+  border-radius: var(--slate-radius-card);
+}

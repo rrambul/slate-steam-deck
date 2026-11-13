@@ -1,0 +1,45 @@
+/* Slate — plugins.css
+ * Third-party Decky plugin badges (protondb-decky, playcount-decky).
+ * Selectors use CSS Loader's stable class names (see docs/selectors.md).
+ */
+
+/* ── Third-party plugin badges (game page) ────────────── */
+/* P1 — ProtonDB (protondb-decky) and player count (playcount-decky) badges:
+ * dark glass, 8px corners, the plugin's meaning kept as an accent color
+ * (text/icon + faint ring) instead of a solid saturated fill.
+ * ProtonDB uses plain plugin classes → two-class selectors beat its rules.
+ * playcount-decky sets inline styles → !important is required there only.
+ */
+.protondb-decky-indicator.protondb-decky-indicator-regular,
+.protondb-decky-info-button.protondb-decky-indicator-regular,
+.protondb-decky-submit-button.protondb-decky-indicator-regular {
+  --slate-accent: var(--slate-text);
+  background: var(--slate-glass);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border-radius: var(--slate-radius-card);
+  color: var(--slate-accent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--slate-accent) 35%, transparent);
+}
+.protondb-decky-indicator-regular svg,
+.protondb-decky-indicator-regular svg path { fill: currentColor; }
+
+/* tier colors from protondb-decky; borked/pending/silver lightened for dark glass */
+.protondb-decky-indicator.protondb-decky-indicator-platinum { --slate-accent: rgb(180, 199, 220); }
+.protondb-decky-indicator.protondb-decky-indicator-gold     { --slate-accent: rgb(207, 181, 59); }
+.protondb-decky-indicator.protondb-decky-indicator-silver   { --slate-accent: rgb(190, 190, 190); }
+.protondb-decky-indicator.protondb-decky-indicator-bronze   { --slate-accent: rgb(205, 127, 50); }
+.protondb-decky-indicator.protondb-decky-indicator-borked   { --slate-accent: #f87171; }
+.protondb-decky-indicator.protondb-decky-indicator-pending  { --slate-accent: #A3A6AD; }
+.protondb-decky-info-button.protondb-decky-info-working     { --slate-accent: #4ade80; }
+.protondb-decky-info-button.protondb-decky-info-not-working { --slate-accent: #f87171; }
+.protondb-decky-submit-button.protondb-decky-indicator-regular { --slate-accent: #C9CBD0; }
+
+.playerBadge > button {
+  background-color: var(--slate-glass) !important;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border-radius: var(--slate-radius-card) !important;
+  box-shadow: inset 0 0 0 1px rgba(244, 244, 245, .12) !important;
+  color: var(--slate-text) !important;
+}

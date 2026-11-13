@@ -6,6 +6,23 @@
   "target": "Home",
   "manifest_version": 9,
   "inject": {
-    "shared.css": ["bigpicture"]
+    "css/tokens.css": [
+      "bigpicture"
+    ],
+    "css/canvas.css": [
+      "bigpicture"
+    ],
+    "css/home.css": [
+      "bigpicture"
+    ],
+    "css/library.css": [
+      "bigpicture"
+    ],
+    "css/gamepage.css": [
+      "bigpicture"
+    ],
+    "css/plugins.css": [
+      "bigpicture"
+    ]
   }
 }

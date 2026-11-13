@@ -24,8 +24,27 @@ To use a different host alias: `SLATE_HOST=myhost ./deploy.sh`
 ```sh
 ./deploy.sh
 ```
-Copies `theme.json` and `*.css` to `~/homebrew/themes/Slate/` on the Deck
-(repo tooling and docs are excluded). Then CSS Loader → Refresh, and enable **Slate**.
+Copies `theme.json` and `css/` to `~/homebrew/themes/Slate/` on the Deck
+(repo tooling, docs and LICENSE are excluded). Then CSS Loader → Refresh, and enable **Slate**.
+
+## Structure
+```
+theme.json          CSS Loader manifest (v9) — injects css/* into Gaming Mode (bigpicture)
+css/tokens.css      design tokens (--slate-*): palette, canvas gradient, radius
+css/canvas.css      global charcoal canvas
+css/home.css        Home rows, cards and focus ring
+css/library.css     Library background, placeholders, cards
+css/gamepage.css    game details page: backgrounds, action button, controls, activity
+css/plugins.css     third-party Decky plugin badges (protondb-decky, playcount-decky)
+docs/selectors.md   every selector, why it was chosen, and how it was verified
+deploy.sh           rsync deploy to the Deck
+```
+Selectors use CSS Loader's stable class names (e.g. `appportrait_InRecentGames`), which it
+translates to Steam's hashed classes at injection time.
 
 ## Status
 Home, Library and game page on neutral charcoal; Slate blue Install + Slate green Play; glass plugin badges; all Home card rows and Library cards rounded. Home neutralized (only blue left: small status badges). See docs/selectors.md.
+
+## License
+[MIT](LICENSE). Slate ships CSS only — no Steam, game or plugin assets. Screenshots used during
+development contain third-party game art and are intentionally not part of this repository.

@@ -1,0 +1,30 @@
+/* Slate — library.css
+ * Library: background, art placeholders, grid cards.
+ * Selectors use CSS Loader's stable class names (see docs/selectors.md).
+ */
+
+/* ── Library ────────────────────────────────────────────── */
+/* L1 — the Library paints its own copy of Steam's navy gradient on top of the
+ * canvas. Give it the same Slate canvas (explicit, not transparent: in the
+ * in-game overlay the canvas underneath is transparent).
+ */
+.gamepadlibrary_GamepadLibrary {
+  background: var(--slate-canvas);
+}
+
+/* L1 — art placeholders in the Library grid: navy → neutral surface. */
+.gamepadlibrary_GamepadLibrary .libraryassetimage_Container {
+  background-color: var(--slate-surface);
+}
+
+/* L2 — round Library grid cards to match Home (same appportrait component as
+ * Recent Games, same approach as M1: card + image container + image).
+ * No overflow:hidden: Steam deliberately sets
+ * `.BasicUI .appportrait_LibraryItemBox { overflow: visible }` in Gaming Mode,
+ * and the DEMO ribbon crosses the card away from the corner, so nothing pokes out.
+ */
+.appportrait_InCollection,
+.appportrait_InCollection .libraryassetimage_Container,
+.appportrait_InCollection .libraryassetimage_Image {
+  border-radius: var(--slate-radius-card);
+}

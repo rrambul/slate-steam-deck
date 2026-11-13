@@ -1,0 +1,13 @@
+/* Slate — canvas.css
+ * Global Gaming Mode canvas (charcoal background).
+ * Selectors use CSS Loader's stable class names (see docs/selectors.md).
+ */
+
+/* ── Canvas ─────────────────────────────────────────────── */
+/* M2 — swap Steam's navy radial gradient (rgb 6,10,14 → 14,20,27) for neutral
+ * charcoal with the same geometry. Only the OpaqueBackground variant is touched;
+ * Steam's black and transparent variants are left as-is.
+ */
+.gamepadui_BasicHome.gamepadui_OpaqueBackground {
+  background: var(--slate-canvas);
+}

@@ -1,0 +1,75 @@
+/* Slate — gamepage.css
+ * Game details page: backgrounds, action button, controls, activity cards.
+ * Selectors use CSS Loader's stable class names (see docs/selectors.md).
+ */
+
+/* ── Game details page ────────────────────────────────── */
+/* G1 — neutralize the blue-grey page and section tints (static, not per-game).
+ * Selectors mirror Steam's own specificity so no !important is needed.
+ * Hero art, Play/Install button and plugin badges are left untouched.
+ */
+.appdetails_ScrollContainer {                         /* Steam: #24282f */
+  background-color: var(--slate-bg);
+}
+.appdetails_ScrollContainer.appdetails_Glassy {       /* Steam: rgb(44,50,61) → rgb(21,22,22) */
+  background-image: radial-gradient(100% 100% at 45% 35%,
+                    var(--slate-surface) 0%, var(--slate-bg) 100%);
+}
+.BasicUI .basicappdetailssectionstyler_AppDetailsRoot {  /* Steam: rgba(14,20,27,.25) */
+  background: color-mix(in srgb, var(--slate-bg) 25%, transparent);
+}
+.BasicUI .appdetailssection_AppDetailsSectionContainer.appdetailssection_RightColumnSection {
+  /* Steam: rgba(103,112,123,.2) */
+  background: color-mix(in srgb, var(--slate-muted) 20%, transparent);
+}
+
+/* G2 — primary action button (Install / Update / Play …).
+ * In Gaming Mode the button is transparent until focused; Steam then paints it
+ * #1a9fff (or #59bf40 for Play), both with poor white-text contrast (2.8:1 / 2.35:1).
+ * Slate keeps the meaning (blue = act, green = play) with calmer, matched tones.
+ * Selectors mirror Steam's specificity (0,4,0 / 0,5,0), no !important.
+ */
+.BasicUI .appactionbutton_ButtonChild.Focusable:focus {
+  background: var(--slate-blue);
+  color: #fff;
+}
+.BasicUI .appactionbutton_Green .appactionbutton_ButtonChild.Focusable:focus,
+.BasicUI .appactionbutton_Green .appactionbutton_ButtonChild:hover {
+  background: var(--slate-green);
+  color: #fff;
+}
+
+/* G3 — game page shapes + last cool tints.
+ * Action button: round each half's outer corners (no overflow:hidden on the
+ * wrapper — Steam's streaming callout may render outside it). Mirrors Steam:
+ * PlayButton is fully rounded unless the streaming dropdown is showing.
+ */
+.BasicUI .basicappdetailssectionstyler_AppActionButton { border-radius: var(--slate-radius-card); }
+.appactionbutton_PlayButton { border-radius: var(--slate-radius-card); }
+.appactionbutton_ShowingStreaming .appactionbutton_PlayButton {
+  border-radius: var(--slate-radius-card) 0 0 var(--slate-radius-card);
+}
+.appactionbutton_StreamingSelector {
+  border-radius: 0 var(--slate-radius-card) var(--slate-radius-card) 0;
+}
+
+/* Gear / controller buttons: round + blue-grey rgba(172,178,201,.14) → neutral */
+.BasicUI .appdetailsplaysection_MenuButton {
+  border-radius: var(--slate-radius-card);
+  background-color: var(--slate-raised);
+}
+
+/* Info rows (e.g. "On their wishlist") */
+.BasicUI .appdetailssection_AppDetailsSectionContainer.appdetailssection_RightColumnSection {
+  border-radius: var(--slate-radius-card);
+}
+
+/* Activity feed cards: headline + body read as one rounded card (always paired) */
+.BasicUI .appactivityday_Event .appactivityday_EventHeadline {
+  background: var(--slate-raised);
+  border-radius: var(--slate-radius-card) var(--slate-radius-card) 0 0;
+}
+.BasicUI .appactivityday_Event .appactivityday_EventBody {
+  background: var(--slate-raised);
+  border-radius: 0 0 var(--slate-radius-card) var(--slate-radius-card);
+}

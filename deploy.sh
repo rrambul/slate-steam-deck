@@ -8,6 +8,6 @@ cd "$(dirname "$0")"
 ssh "$HOST" "mkdir -p '$DEST'"
 rsync -av \
   --exclude='.git' --exclude='.gitignore' --exclude='deploy.sh' \
-  --exclude='README.md' --exclude='config_*.json' --exclude='.DS_Store' \
+  --exclude='README.md' --exclude='LICENSE' --exclude='docs/' --exclude='config_*.json' --exclude='.DS_Store' \
   ./ "$HOST:$DEST"
 echo "Deployed to $HOST:$DEST — open CSS Loader and press Refresh."

@@ -1,0 +1,25 @@
+/* Slate — tokens.css
+ * Design tokens (--slate-*). Every other file uses only these variables.
+ * Selectors use CSS Loader's stable class names (see docs/selectors.md).
+ */
+
+/* ── Tokens ─────────────────────────────────────────────── */
+:root {
+  /* Color — provisional palette from the handoff, refine on hardware */
+  --slate-bg:       #111214;  /* global charcoal canvas */
+  --slate-bg-deep:  #0B0C0E;  /* gradient origin, gives the canvas some depth */
+  --slate-surface:  #202226;  /* secondary panels, placeholders */
+  --slate-muted:    #575B63;  /* subtle outlines / muted surfaces */
+  --slate-text:     #F4F4F5;  /* main readable typography */
+  --slate-blue:     #2D74C4;  /* primary action (Install/Update) — white text 4.8:1 */
+  --slate-green:    #2B8659;  /* "ready / Play" — white text 4.5:1, 4.2:1 vs --slate-bg */
+  --slate-glass:    rgba(17, 18, 20, .55);  /* translucent charcoal for overlays on art */
+  --slate-raised:   rgba(244, 244, 245, .10); /* raised controls/cards on charcoal (neutral overlay) */
+
+  /* Canvas — Steam's radial geometry, neutral charcoal colors */
+  --slate-canvas: radial-gradient(155.42% 100% at 0% 0%,
+                  var(--slate-bg-deep) 0%, var(--slate-bg) 100%);
+
+  /* Shape */
+  --slate-radius-card: 8px;
+}
