@@ -74,13 +74,15 @@
 /* M3e — status badges on Home store capsules → Slate blue.
  * IN LIBRARY: stable gamecapsule_InLibrary (Steam #4f95bd, black text → white on Slate blue).
  * NEW: no stable class; it's the first child of Steam's plain StoreSalePriceWidgetContainer
- * (Steam #3a9bed). Scoped to Home store carousels.
+ * (Steam #3a9bed). Scoped to Home store carousels. CSS Loader rewrites the literal name
+ * StoreSalePriceWidgetContainer everywhere — even inside [class~="…"] — to the hash of an
+ * unrelated salepreviewwidgets_ component. A substring that is not a translation name is safe.
  */
 .homestorecarousel_StoreCarouselCtn .gamecapsule_InLibrary {
   background-color: var(--slate-blue);
   color: #fff;
 }
-.homestorecarousel_StoreCarouselCtn .StoreSalePriceWidgetContainer > div:first-child:not(:only-child) {
+.homestorecarousel_StoreCarouselCtn [class*="SalePriceWidgetContainer"] > div:first-child:not(:only-child) {
   background-color: var(--slate-blue);
   color: #fff;
 }

@@ -310,8 +310,8 @@ their hue (ProtonDB tiers). A first pass mapped tiers to Slate status colors; re
 | ProtonDB info (working / not) | `.protondb-decky-info-button.protondb-decky-info-{working,not-working}` | #4ade80 / red | `--slate-green-light` / `--slate-red` | ✅ rgb(91,191,138) |
 | playcount online dot | `.playerBadge > button > div:first-child svg` (inline → `!important`) | rgb(76,175,80) | `--slate-green-light` | ✅ |
 | ProtonDB tiers | unchanged tier colors | — | — | ✅ platinum rgb(180,199,220) |
-| Home IN LIBRARY | `.homestorecarousel_StoreCarouselCtn .gamecapsule_InLibrary` | #4f95bd / black text | `--slate-blue` / white | pending (Home) |
-| Home NEW | `… .StoreSalePriceWidgetContainer > div:first-child:not(:only-child)` (no stable class) | #3a9bed | `--slate-blue` / white | pending (Home); watch for discount badges |
+| Home IN LIBRARY | `.homestorecarousel_StoreCarouselCtn .gamecapsule_InLibrary` | #4f95bd / black text | `--slate-blue` / white | ✅ rgb(45,116,196)/white |
+| Home NEW | `… [class*="SalePriceWidgetContainer"] > div:first-child:not(:only-child)` (no stable class) | #3a9bed | `--slate-blue` / white | ✅ rgb(45,116,196); only "New" matched (lone "To be announced" excluded) |
 
 Steam has its own token scale `--color-blue-1…12` on `:root`. Scoped re-pointing of a Steam token
 inside a stable container is the cleanest way to recolor new-style components without hashed classes.
@@ -323,3 +323,19 @@ name, no Steam token. If Steam renames it, the rule stops matching and the icon 
 Steam's #59bf40 (**fails safe**); a structural selector could recolor the yellow "Playable" icon.
 Verified via CDP: Game Info tab-header icons and the compatibility box icon = rgb(91,191,138).
 Battery icon (system status bar) intentionally untouched.
+
+## ⚠ CSS Loader rewrites short names — everywhere
+
+CSS Loader's translation replaces any **translation name** found in theme CSS with the current
+hash — including short names (`StoreSalePriceWidgetContainer`) and even text **inside quoted
+attribute selectors** (`[class~="…"]`). If that short name belongs to a *different* component,
+the selector silently targets the wrong element.
+
+- Lost two iterations on Home's NEW badge to this (`.StoreSalePriceWidgetContainer` and
+  `[class~="StoreSalePriceWidgetContainer"]` both became `_2s-O5T…` from `salepreviewwidgets_`).
+- Fix: `[class*="SalePriceWidgetContainer"]` — a substring that is *not* a translation name.
+- **Always verify against the injected CSS** (read `head style` text / computed style after Refresh),
+  not with a raw `querySelector` test, which bypasses CSS Loader's translation.
+- Check: every bare class in `css/*.css` was compared with the translation table; this was the
+  only collision. Hashed classes that are translation *values* (e.g. `kEODDe…`) map to themselves
+  and are tracked across Steam updates.
