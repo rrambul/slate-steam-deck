@@ -151,3 +151,27 @@
 .kEODDe6M5cuHWuPlcQexX {
   color: var(--slate-green-light);
 }
+
+/* G5 — Your Stuff › Media + DLC (last square cards on the game page).
+ * Media thumbnails: rounded, image clipped. DLC capsule: rounding on the art box clips
+ * both the art and Steam's absolute "gloss" sheen layer. "+N more" box: cool
+ * rgba(103,112,123,.2) → neutral (same treatment as G1 rows). */
+.appdetailsscreenshotssection_ScreenshotsSection .appdetailsscreenshotssection_Thumbnail {
+  border-radius: var(--slate-radius-card);
+  overflow: hidden;
+}
+.appdetailsdlcsection_DLCArt {
+  border-radius: var(--slate-radius-card);
+  overflow: hidden;
+}
+.appdetailsdlcsection_Remainder {
+  background-color: color-mix(in srgb, var(--slate-muted) 20%, transparent);
+  border-radius: var(--slate-radius-card);
+}
+/* round the global focus ring while a screenshot or DLC item has focus */
+:root:has(.appdetailsscreenshotssection_Thumbnail.gpfocus,
+          .appdetailsscreenshotssection_Thumbnail .gpfocus,
+          .appdetailsdlcsection_Item.gpfocus,
+          .appdetailsdlcsection_Item .gpfocus) .focusring_FocusRing {
+  border-radius: var(--slate-radius-card);
+}

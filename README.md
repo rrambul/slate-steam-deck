@@ -34,7 +34,12 @@ To use a different host alias: `SLATE_HOST=myhost ./deploy.sh`
 ./deploy.sh
 ```
 Copies `theme.json` and `css/` to `~/homebrew/themes/Slate/` on the Deck
-(repo tooling, docs and LICENSE are excluded). Then CSS Loader → Refresh, and enable **Slate**.
+(repo tooling, docs and LICENSE are excluded), then refreshes CSS Loader automatically
+if Node 22+ is installed and Decky's **Allow Remote CEF Debugging** is enabled
+(`tools/cssloader-refresh.mjs`). Otherwise: CSS Loader → Refresh. Enable **Slate** once.
+
+Remote CEF debugging exposes the Steam UI on your network — turn it off when you're done,
+especially on untrusted networks.
 
 ## Structure
 ```
@@ -52,7 +57,11 @@ Selectors use CSS Loader's stable class names (e.g. `appportrait_InRecentGames`)
 translates to Steam's hashed classes at injection time.
 
 ## Status
-Home, Library and game page on neutral charcoal; Slate blue Install + Slate green Play; glass plugin badges; all Home card rows and Library cards rounded. Home neutralized (only blue left: small status badges). See docs/selectors.md.
+v0.2.0 — Home, Library and game page on neutral charcoal; Slate blue Install + Slate green Play; glass plugin badges; all Home card rows and Library cards rounded. Home neutralized (only blue left: small status badges). See docs/selectors.md.
+
+## Versioning
+[Semantic Versioning](https://semver.org/): `0.x` during development, `1.0.0` for the first
+DeckThemes release. See [CHANGELOG.md](CHANGELOG.md); releases are tagged `vX.Y.Z`.
 
 ## License
 [MIT](LICENSE). Slate ships CSS only — no Steam, game or plugin assets. Screenshots used during

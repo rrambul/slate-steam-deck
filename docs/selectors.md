@@ -395,3 +395,18 @@ padding-top 14 → 24px.
 Verified via injected CSS: cards 163×244 (was 141×212), focus top room 1.1px (no clip), title gap
 17.4px (was 1.5px), label bottom 458 < footer 492, icon rgb(91,191,138), art animation .5s.
 Screenshot: docs/screenshots/h2-after.png (local only).
+
+## G5 — Media + DLC (verified 2026-11-13)
+`.appdetailsscreenshotssection_ScreenshotsSection .appdetailsscreenshotssection_Thumbnail` and
+`.appdetailsdlcsection_DLCArt` → 8px + `overflow:hidden` (clips the image and DLC's absolute
+`appdetailsdlcsection_Gloss` sheen). `.appdetailsdlcsection_Remainder` ("+N more") cool
+rgba(103,112,123,.2) → `--slate-muted` 20%. Focus ring rounded while a thumbnail/DLC item has focus.
+Verified via CDP on Expedition 33 (DOM loaded, off-screen): 3 thumbnails 8px/hidden with images
+inside bounds; DLC art 8px/hidden with gloss inside. Not yet seen on device: Remainder box
+(game had none) and the rounded ring on a focused thumbnail.
+
+## Tooling — remote CSS Loader refresh
+CSS Loader's Refresh button calls `reloadBackend()` → `callPluginMethod("reset")`. From the
+SharedJSContext CDP target the same call is
+`DeckyPluginLoader.createLegacyPluginAPI("CSS Loader").callPluginMethod("reset", {})`.
+`tools/cssloader-refresh.mjs` does this; `deploy.sh` runs it after rsync.
