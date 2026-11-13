@@ -87,6 +87,12 @@
   font-weight: 600;
   letter-spacing: .04em;
 }
+/* Steam pins the price box (19px) to the top of the 28px BottomBar, so NEW and the price sat
+ * ~4px high. Fill the bar's height and center the row → pill and price share the bar's midline. */
+.homestorecarousel_StoreCarouselCtn [class*="SalePriceWidgetContainer"] {
+  height: 100%;
+  align-items: center;
+}
 .homestorecarousel_StoreCarouselCtn [class*="SalePriceWidgetContainer"] > div:first-child:not(:only-child) {
   background-color: var(--slate-blue);
   color: #fff;

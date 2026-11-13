@@ -346,3 +346,7 @@ the selector silently targets the wrong element.
 - IN LIBRARY: same pill (999px radius) and inset `left: 8px` so it doesn't sit flush on the card edge.
 - Verified via injected CSS: NEW r=999px h=20 align=center; IN LIBRARY r=999px left=8px; both Slate blue.
   Screenshot: docs/screenshots/pill-after.png (local only).
+- Follow-up: Steam pins the price box (19px) to the top of the 28px BottomBar (block parent), so NEW
+  and the price sat ~4px high. `[class*="SalePriceWidgetContainer"] { height:100%; align-items:center }`
+  centers the row; `align-self` alone does nothing (parent is `display:block`). Verified: bar, pill and
+  price midpoints identical.
