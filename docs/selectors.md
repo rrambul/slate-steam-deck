@@ -134,7 +134,12 @@ Screenshot: docs/screenshots/m3c-after.png (local only).
 All card rows on Home now share `--slate-radius-card`: Recent Games, What's New news,
 Recently updated, Trending among friends.
 
-### Open follow-up: remaining navy tints on Home
-- `gamecapsule_GameCapsule` background `rgb(35,38,46)`
-- `libraryassetimage_Container` placeholder `rgb(14,20,27)` outside Recent Games
-- `gamecapsule_BottomBar` Steam blue `rgb(60,93,132)` — decide keep vs. neutralize
+### M4 — remaining navy tints on Home (verified 2026-11-13)
+- `gamecapsule_GameCapsule` background `rgb(35,38,46)` → `--slate-surface` ✅
+- `libraryassetimage_Container` placeholder `rgb(14,20,27)` in What's New → `--slate-surface` ✅
+  (Recent Games was already covered by M2.)
+- `gamecapsule_BottomBar` Steam blue `rgb(60,93,132)` — **pending decision**: keep blue vs.
+  `--slate-muted`. A/B: docs/screenshots/bar-A-keep-blue.png, bar-B-neutral.png (local only).
+
+Verified via CDP on Home: capsules and 20 What's New placeholders compute rgb(32,34,38);
+no navy left inside Home. Navy placeholders remain in Library (out of Home scope).

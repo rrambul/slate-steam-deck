@@ -78,6 +78,15 @@
   overflow: hidden;
 }
 
+/* M4 — neutralize remaining navy tints on Home.
+ * Capsule background rgb(35,38,46) and art placeholders rgb(14,20,27) → surface.
+ * (Recent Games placeholders are already covered by the M2 rule above.)
+ */
+.homestorecarousel_StoreCarouselCtn .gamecapsule_GameCapsule,
+.gamepadhomewhatsnew_LibraryHomeWhatsNew .libraryassetimage_Container {
+  background-color: var(--slate-surface);
+}
+
 /* Steam draws focus here with a single global overlay (focusring_FocusRing)
  * that follows whatever is focused. Round it only while a rounded Home card has focus,
  * so menus, lists and buttons elsewhere keep their square ring.
