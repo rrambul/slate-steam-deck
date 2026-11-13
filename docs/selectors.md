@@ -372,3 +372,26 @@ Lessons:
 - Name check: every class in home.css resolves to exactly one CSS Loader translation entry.
 Device: verified on LCD (Jupiter); OLED shares the 854×534 viewport. Controller down/up navigation to
 What's New still to be confirmed by the user on hardware.
+
+## H2 — hero transition, bigger covers, title spacing, play icon (verified 2026-11-13)
+
+**Transition.** Steam's art animations (from library.css):
+`.RecentGamesBackgroundImage { animation-duration:.3s }`; incoming
+`.…Image.gamepadhomerecentgames_MoveRight:not(.gamepadhomerecentgames_OffScreen)` → keyframes
+`from{transform:translateX(32px);transform:scale(1.03);opacity:0}` — **bug**: the second `transform`
+overrides the first, so the directional slide never happens. Outgoing (`.OffScreen.MoveLeft/Right`) is
+correct (`translateX(±32px) scale(1.08)` + fade). Slate: own keyframes `slate-art-in-from-{right,left}`
+combining translate+scale, duration .5s; `.LowPerfMode` keeps .3s. Steam's 25s Ken Burns
+(`gamepadhomerecentgames_RecentGamesBackground`) kept.
+
+**Bigger covers.** `.gamepadhomerecentgames_RecentGamesContainer .basicgamecarousel_BasicGameCarousel
+{ transform: scale(1.12); transform-origin: 0 0 }` — visual only; virtualized grid sizes untouched.
+Hero padding 13.5vh → 9vh to make room. Title wrapper (`basicgamecarousel_CarouselGameLabelWrapper`)
+padding-top 14 → 24px.
+
+**Play icon.** `.basicgamecarousel_Play .basicgamecarousel_ActionIcon` (Steam: same selector, #59bf40)
+→ `--slate-green-light`.
+
+Verified via injected CSS: cards 163×244 (was 141×212), focus top room 1.1px (no clip), title gap
+17.4px (was 1.5px), label bottom 458 < footer 492, icon rgb(91,191,138), art animation .5s.
+Screenshot: docs/screenshots/h2-after.png (local only).

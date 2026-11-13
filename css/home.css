@@ -29,9 +29,22 @@
 .gamepadhomerecentgames_RecentGamesBackgroundImage {
   filter: brightness(80%);
 }
-/* drop the carousel into the lower-middle of the hero (≈72px on a Deck) */
+/* drop the carousel into the lower-middle of the hero (≈48px on a Deck; the
+ * carousel is scaled up below, so it needs less top padding) */
 .gamepadhomerecentgames_RecentGamesInnerContainer {
-  padding-top: 13.5vh;
+  padding-top: 9vh;
+}
+/* bigger covers: scale the whole carousel visually (+12%). Card sizes stay owned by
+ * Steam's virtualized grid, so scrolling + controller navigation are unaffected, and the
+ * grid's clip box scales with it (focus-scale headroom is preserved).
+ * Measured: cards 141×212 → 163×244; block bottom 453 < grid 482 < footer 492. */
+.gamepadhomerecentgames_RecentGamesContainer .basicgamecarousel_BasicGameCarousel {
+  transform: scale(1.12);
+  transform-origin: 0 0;
+}
+/* more air between cover and title (Steam 14px) — measured gap 1.5px → 12.9px */
+.gamepadhomerecentgames_RecentGamesContainer .basicgamecarousel_CarouselGameLabelWrapper {
+  padding-top: 24px;
 }
 /* focused card: Steam lifts it translateZ(15px); Slate also grows it 3%.
  * Ceiling is tight: the carousel is a clipped virtualized grid with ~12px headroom.
@@ -45,6 +58,38 @@
 .gamepadhomerecentgames_RecentGamesContainer .marquee_Content {
   font-size: 20px;
   text-shadow: 0 2px 12px rgba(0, 0, 0, .7);   /* legibility over the brighter art */
+}
+
+/* H2 — hero art transition. Steam's incoming keyframes set `transform` twice
+ * (translateX then scale), so the directional slide is lost — art only fades/zooms.
+ * Slate restores the slide (art enters from the side you move toward; Steam's
+ * outgoing animations already exit the opposite way) and slows the crossfade
+ * 0.3s → 0.5s. Selectors mirror Steam's (0,3,0); transform/opacity only (GPU-cheap). */
+@keyframes slate-art-in-from-right {
+  from { transform: translateX(32px) scale(1.03); opacity: 0; }
+  to   { transform: translateX(0) scale(1); opacity: 1; }
+}
+@keyframes slate-art-in-from-left {
+  from { transform: translateX(-32px) scale(1.03); opacity: 0; }
+  to   { transform: translateX(0) scale(1); opacity: 1; }
+}
+.gamepadhomerecentgames_RecentGamesBackgroundImage {
+  animation-duration: .5s;
+}
+.gamepadhomerecentgames_RecentGamesBackgroundImage.gamepadhomerecentgames_MoveRight:not(.gamepadhomerecentgames_OffScreen) {
+  animation-name: slate-art-in-from-right;
+}
+.gamepadhomerecentgames_RecentGamesBackgroundImage.gamepadhomerecentgames_MoveLeft:not(.gamepadhomerecentgames_OffScreen) {
+  animation-name: slate-art-in-from-left;
+}
+/* Steam's low-performance mode: keep Steam's shorter timing */
+.LowPerfMode .gamepadhomerecentgames_RecentGamesBackgroundImage {
+  animation-duration: .3s;
+}
+
+/* C3 — carousel "▶ last played" icon → Slate green (Steam #59bf40; same selector as Steam) */
+.basicgamecarousel_Play .basicgamecarousel_ActionIcon {
+  color: var(--slate-green-light);
 }
 
 /* ── Home › Recent Games ────────────────────────────────── */
