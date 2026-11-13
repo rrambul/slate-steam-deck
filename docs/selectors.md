@@ -441,3 +441,11 @@ Also: Home hero title 20px → 17px (rendered ≈19px under the carousel's scale
   .carousel:has(.tqaX…) { transform: scale(.95); transform-origin: 0 0 }` (visual only; `carousel`
   is a literal pure-react-carousel class). Verified focused: tallest visible card top 140, h 321,
   bottom 461 (fits, 31px clear). Measure focused states *immediately* — pressing A opens the store.
+- **Superseded:** the 95% `transform: scale()` calendar fit misaligned Steam's global focus ring
+  (dx −26.8 to −28.2px, dw −12px): Steam positions `focusring_FocusRing` from layout, not from
+  transformed rects. Rule: **never use transforms on containers whose items use the global focus ring**
+  (Recent Games is fine — its cards draw their own outline). Replaced with a layout change:
+  `.gamepadhomerecommended_Recommended .tqaX… img { height:122px; object-fit:cover }` → focused,
+  ring offset dx=0 dy=0; tallest card 326px. Tiles 6px radius + ring 6px (`:root:has(.tqaX… .gpfocus)`).
+- Steam scrolls the focused item into the full 534px viewport and ignores the 42px footer overlay,
+  so items near the bottom can sit partly under the footer (Steam default behavior, not Slate).

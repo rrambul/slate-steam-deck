@@ -215,13 +215,21 @@
 .gamepadhomerecommended_Recommended .tqaXEuWN2wV5_8lmSkMng:not(._8UPO4fZBxxerbhcRBpAcc):not(._1beaDtCHZ3Kn9oAHWEKXMe) {
   background-image: linear-gradient(0deg, rgba(244, 244, 245, .06) 5%, rgba(244, 244, 245, .10) 95%);
 }
-/* Calendar fit: with a calendar card focused, Steam scrolls it to start ~160px down (below the
- * sticky tabs + section title); the tallest (two-game) card is 338px, ending at ~498 — behind the
- * 42px footer (top 492). Scale the calendar carousel to 95% (visual only; carousel layout, sliding
- * and focus navigation untouched) → 321px, ending ~481. `:has()` on a store hash: fails safe. */
-.gamepadhomerecommended_Recommended .carousel:has(.tqaXEuWN2wV5_8lmSkMng) {
-  transform: scale(.95);
-  transform-origin: 0 0;
+/* Calendar fit: with a calendar card focused, Steam scrolls it to start ~160px down; the
+ * two-game day card was 338px → ending ~498, behind the footer (top 492).
+ * NOT via transform: Steam positions its global focus ring from layout, so scaling the
+ * carousel misaligned the selection border (measured −27px). Instead shorten the tile art
+ * (layout change, ring stays aligned): 133px → 122px each, cropped with object-fit. */
+.gamepadhomerecommended_Recommended .tqaXEuWN2wV5_8lmSkMng img {
+  height: 122px;
+  object-fit: cover;
+}
+/* Calendar game tiles: nested radius (card 8px → tiles 6px) and a matching focus ring */
+.gamepadhomerecommended_Recommended .tqaXEuWN2wV5_8lmSkMng img {
+  border-radius: calc(var(--slate-radius-card) - 2px);
+}
+:root:has(.gamepadhomerecommended_Recommended .tqaXEuWN2wV5_8lmSkMng .gpfocus) .focusring_FocusRing {
+  border-radius: calc(var(--slate-radius-card) - 2px);
 }
 /* Discovery Queue widget: rounded; cool rgb(56,100,131) body → neutral control */
 .gamepadhomerecommended_DiscoveryQueueWidgetCtn {
