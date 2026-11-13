@@ -71,6 +71,20 @@
   background-color: var(--slate-muted);
 }
 
+/* M3e — status badges on Home store capsules → Slate blue.
+ * IN LIBRARY: stable gamecapsule_InLibrary (Steam #4f95bd, black text → white on Slate blue).
+ * NEW: no stable class; it's the first child of Steam's plain StoreSalePriceWidgetContainer
+ * (Steam #3a9bed). Scoped to Home store carousels.
+ */
+.homestorecarousel_StoreCarouselCtn .gamecapsule_InLibrary {
+  background-color: var(--slate-blue);
+  color: #fff;
+}
+.homestorecarousel_StoreCarouselCtn .StoreSalePriceWidgetContainer > div:first-child:not(:only-child) {
+  background-color: var(--slate-blue);
+  color: #fff;
+}
+
 /* Steam draws focus here with a single global overlay (focusring_FocusRing)
  * that follows whatever is focused. Round it only while a rounded Home card has focus,
  * so menus, lists and buttons elsewhere keep their square ring.

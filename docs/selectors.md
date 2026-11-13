@@ -298,3 +298,21 @@ Your Stuff panels via CDP (highlight rgb(32,34,38)/8px, tiles rgb(67,67,71)/8px)
 Open: Media thumbnails (`appdetailsscreenshotssection_Thumbnail` / `screenshots_ClickableScreenshot`)
 and DLC capsule still square; achievements progress fill still Steam blue rgb(26,159,255)
 (`_2YzOLNBx6TonKU0Zmp20l4`, unnamed yet).
+
+## C1 — "our colors" for generic badges/accents (2026-11-13)
+
+Rule (user decision): generic accents → Slate colors; colors that **are** the information keep
+their hue (ProtonDB tiers). A first pass mapped tiers to Slate status colors; reverted the same day.
+
+| Element | Selector | Steam/plugin | Slate | Verified |
+|---|---|---|---|---|
+| Achievements progress fill | `.appdetailsachievementssection_HighlightDiv { --color-blue-8: … }` | Steam token `--color-blue-8` #1A9FFF | `--slate-blue` | ✅ fill rgb(45,116,196); `:root` token untouched |
+| ProtonDB info (working / not) | `.protondb-decky-info-button.protondb-decky-info-{working,not-working}` | #4ade80 / red | `--slate-green-light` / `--slate-red` | ✅ rgb(91,191,138) |
+| playcount online dot | `.playerBadge > button > div:first-child svg` (inline → `!important`) | rgb(76,175,80) | `--slate-green-light` | ✅ |
+| ProtonDB tiers | unchanged tier colors | — | — | ✅ platinum rgb(180,199,220) |
+| Home IN LIBRARY | `.homestorecarousel_StoreCarouselCtn .gamecapsule_InLibrary` | #4f95bd / black text | `--slate-blue` / white | pending (Home) |
+| Home NEW | `… .StoreSalePriceWidgetContainer > div:first-child:not(:only-child)` (no stable class) | #3a9bed | `--slate-blue` / white | pending (Home); watch for discount badges |
+
+Steam has its own token scale `--color-blue-1…12` on `:root`. Scoped re-pointing of a Steam token
+inside a stable container is the cleanest way to recolor new-style components without hashed classes.
+New tokens: `--slate-green-light #5BBF8A`, `--slate-red #E07A7A`, `--slate-muted-light #A3A6AD`.

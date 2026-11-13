@@ -24,15 +24,17 @@
 .protondb-decky-indicator-regular svg,
 .protondb-decky-indicator-regular svg path { fill: currentColor; }
 
-/* tier colors from protondb-decky; borked/pending/silver lightened for dark glass */
+/* ProtonDB tiers keep protondb-decky's own tier colors — the color IS the meaning
+ * (user decision). Only borked/pending/silver are lightened for legibility on dark glass. */
 .protondb-decky-indicator.protondb-decky-indicator-platinum { --slate-accent: rgb(180, 199, 220); }
 .protondb-decky-indicator.protondb-decky-indicator-gold     { --slate-accent: rgb(207, 181, 59); }
 .protondb-decky-indicator.protondb-decky-indicator-silver   { --slate-accent: rgb(190, 190, 190); }
 .protondb-decky-indicator.protondb-decky-indicator-bronze   { --slate-accent: rgb(205, 127, 50); }
 .protondb-decky-indicator.protondb-decky-indicator-borked   { --slate-accent: #f87171; }
 .protondb-decky-indicator.protondb-decky-indicator-pending  { --slate-accent: #A3A6AD; }
-.protondb-decky-info-button.protondb-decky-info-working     { --slate-accent: #4ade80; }
-.protondb-decky-info-button.protondb-decky-info-not-working { --slate-accent: #f87171; }
+/* info/online are generic status, not tiers → Slate status colors */
+.protondb-decky-info-button.protondb-decky-info-working     { --slate-accent: var(--slate-green-light); }
+.protondb-decky-info-button.protondb-decky-info-not-working { --slate-accent: var(--slate-red); }
 .protondb-decky-submit-button.protondb-decky-indicator-regular { --slate-accent: #C9CBD0; }
 
 .playerBadge > button {
@@ -42,4 +44,10 @@
   border-radius: var(--slate-radius-card) !important;
   box-shadow: inset 0 0 0 1px rgba(244, 244, 245, .12) !important;
   color: var(--slate-text) !important;
+}
+
+/* playcount "online" dot: inline green rgb(76,175,80) + glow → Slate green */
+.playerBadge > button > div:first-child svg {
+  color: var(--slate-green-light) !important;
+  filter: drop-shadow(0 0 2px color-mix(in srgb, var(--slate-green-light) 50%, transparent)) !important;
 }
