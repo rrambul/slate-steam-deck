@@ -34,6 +34,9 @@
     "css/store.css": [
       "store"
     ],
+    "css/keyboard.css": [
+      "bigpicture"
+    ],
     "css/plugins.css": [
       "bigpicture"
     ],

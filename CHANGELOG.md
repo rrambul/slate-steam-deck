@@ -28,6 +28,8 @@ The version lives in `theme.json` (shown by CSS Loader) and as a git tag `vX.Y.Z
   neutral info panels and a matching rounded focus ring, neutral sale/discount/community/calendar
   panels, Slate-blue wishlist/in-library/NEW badges. Review-score colors kept. Light pass on the
   home page; purchase pages untouched.
+- **On-screen keyboard** (`css/keyboard.css`, Default theme only): charcoal panel and keys, Slate-blue
+  toggles, extra keys, pointer and key-press flash; Points Shop keyboard themes untouched.
 - **Notifications** (`css/notifications.css`, also injected into notification toasts): friend
   in-game strip, "Playing: <game>" text and the unread dot → light Slate green; online strip → Slate blue.
 

@@ -1,0 +1,47 @@
+/* Slate — keyboard.css
+ * On-screen keyboard, Default theme only (Points Shop keyboard themes are a user's choice and stay
+ * untouched). Injected into: bigpicture. Steam drives the Default theme with CSS variables on
+ * `.Keyboard.DefaultTheme` (0,2,0) → redefined here at 0,3,0. Same layering as Steam: panel lighter
+ * than letter keys, modifiers darkest, focused key white.
+ */
+
+/* K1 — Default theme palette: navy #0e141b / #23262e / Steam blue #1a9fff → Slate */
+.BasicUI .virtualkeyboard_Keyboard.DefaultTheme {
+  --background-color: var(--slate-surface);
+  --key-background-color: var(--slate-bg);
+  --key-spacebar-background-color: var(--slate-bg);
+  --key-meta-background-color: var(--slate-bg-deep);
+  --key-tab-background-color: var(--slate-bg-deep);
+  --key-caps-background-color: var(--slate-bg-deep);
+  --key-shift-background-color: var(--slate-bg-deep);
+  --key-enter-background-color: var(--slate-bg-deep);
+  --key-backspace-background-color: var(--slate-bg-deep);
+  --key-spacer-background-color: var(--slate-bg-deep);
+  --key-deadkey-background-color: var(--slate-bg-deep);
+  /* focused key stays white; its dark text/glyphs navy → charcoal */
+  --key-focused-color: var(--slate-bg);
+  --key-focused-action-button-left-color: var(--slate-bg);
+  --key-focused-action-button-right-color: var(--slate-bg);
+  --key-enter-action-button-glyph-color: var(--slate-bg);
+  --key-extendedkey-focused-color: var(--slate-bg);
+  --key-extendedkey-hover-color: var(--slate-bg);
+  --key-emoji-focused-color: var(--slate-bg);
+  /* accents */
+  --key-extendedkey-background-color: var(--slate-blue);
+  --key-toggleon-background-color: var(--slate-blue);
+  --key-toggleoneshot-color: var(--slate-blue-light);
+  --key-pointer-background-color: var(--slate-blue);
+  --key-deadkeyactive-color: var(--slate-blue-light);
+  /* emoji picker */
+  --key-emoji-category-highlight-background-color: var(--slate-control);
+  --key-emoji-focused-background-color: var(--slate-muted-light);
+}
+/* pressed-key flash: #1a9fff (literal, 0,4,0) → Slate blue */
+.BasicUI .virtualkeyboard_Keyboard.DefaultTheme .virtualkeyboard_KeyboardKey.virtualkeyboard_Touched {
+  background-color: var(--slate-blue);
+}
+
+/* K2 — text preview bar above the keyboard: #151f25 → surface (all themes; it isn't themed) */
+.BasicUI .virtualkeyboardcontainer_VirtualKeyboardTextBuffer {
+  background-color: var(--slate-surface);
+}

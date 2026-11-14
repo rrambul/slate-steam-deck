@@ -611,3 +611,13 @@ via `captureBeyondViewport`, no UI scrolling).
 Left as-is: category tiles (`content_hub_capsule_ctn .gradient` — the color is the category art), two
 unidentified store-hash widgets (`jxYpM-g5fRs-` teal gradient, `hjG2apu1gQc-`).
 
+## On-screen keyboard (`css/keyboard.css`) — 2026-11-14
+Injected into `bigpicture`. Default theme only: Steam drives it with variables on
+`.virtualkeyboard_Keyboard.DefaultTheme` (0,2,0) → redefined at `.BasicUI …` (0,3,0): panel #23262e →
+surface, keys #0e141b → `--slate-bg`, modifiers #000 → `--slate-bg-deep`, focused-key dark text navy →
+charcoal, extended keys / toggles / pointer #1a9fff → `--slate-blue`, one-shot + dead-key accents →
+`--slate-blue-light`, emoji highlight #3d4450 → control. Pressed-key flash (literal #1a9fff, 0,4,0) →
+`--slate-blue` at 0,5,0. Text preview bar `virtualkeyboardcontainer_VirtualKeyboardTextBuffer` #151f25 →
+surface. Points Shop keyboard themes untouched. Injection verified (translated selector present);
+visual check pending (keyboard can't be opened remotely).
+
