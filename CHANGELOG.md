@@ -20,6 +20,10 @@ The version lives in `theme.json` (shown by CSS Loader) and as a git tag `vX.Y.Z
 - Friends list presence: online names → pale Slate blue, online status/snooze → light Slate blue,
   in-game → Slate green; slider tracks (which set their own fill variable) → Slate blue.
 
+### Fixed
+- Home › Recommended: the "View more in your Library" tile at the end of the "Play next" row is now
+  rounded like the covers, and so is its focus ring.
+
 ## [0.3.0] — 2026-11-13
 Verified on Steam Deck LCD, SteamOS 3.9.5, CSS Loader 2.1.3.
 ### Added

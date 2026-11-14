@@ -431,6 +431,7 @@ Mostly embedded Steam **Store** UI; its classes are mostly absent from CSS Loade
 | `.gamepadhomerecommended_DiscoveryQueueWidgetCtn` | stable | square | 8px + overflow hidden |
 | `… ._3PAP1PfUymQrLEveRsxQxP`, `… ._1DaxYFphX9KPH-YWeuNTvO` | hashes that map to themselves in the table (tracked) | rgb(56,100,131) | `--slate-control` |
 | `.gamepadhomerecommended_PlayNextCarousel .marquee_Content` | stable | 18px/800 (inherited) | 16px |
+| `.basicgamecarousel_TextBoxCarouselContents` ("View more in your Library" end tile) | stable | square | 8px radius; added to the `:root:has` focus-ring list so the ring rounds too (verified on hardware 2026-11-14) |
 | `.gamepadhomerecommended_Recommended .libraryassetimage_Container` | stable | rgb(14,20,27) | `--slate-surface` |
 Event-colored calendar variants (pink, `_8UPO4…` / `_1beaDt…`) keep their colors (Steam event art), only rounded.
 Verified via injected CSS: 14 plain calendar cards 8px + neutral; event cards 8px with own gradient; queue 8px,
