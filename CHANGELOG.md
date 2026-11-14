@@ -5,6 +5,12 @@ All notable changes to Slate. Versions follow [Semantic Versioning](https://semv
 The version lives in `theme.json` (shown by CSS Loader) and as a git tag `vX.Y.Z`.
 
 ## [Unreleased]
+### Added
+- **Keyboard** option in CSS Loader (Slate › Keyboard: **Slate** / **Steam**) — keyboard theming can be
+  switched off (DeckThemes rule for system-wide themes).
+### Changed
+- Theme target `Home` → `System-Wide` (it styles every Gaming Mode screen); new description.
+- Removed the one universal selector (`*`) from the CSS. See `docs/deckthemes-checklist.md`.
 ### Fixed
 - Store home: the remaining game capsules (Recommended / Because you played / DLC / sale rows,
   community picks), price tags and list rows are now rounded, with a matching rounded focus ring;

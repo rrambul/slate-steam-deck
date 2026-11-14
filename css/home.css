@@ -183,7 +183,7 @@
  * written as hashes on purpose: if the store renames them the rule stops matching and Steam's
  * look returns (fails safe) — it can't hit the wrong element.
  */
-.gamepadhomerecommended_Recommended .carousel__inner-slide > * {
+.gamepadhomerecommended_Recommended .carousel__inner-slide > :is(div, a) {  /* no universal selector (DeckThemes rule) */
   border-radius: var(--slate-radius-card);
   overflow: hidden;
 }

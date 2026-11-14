@@ -1,6 +1,7 @@
 /* Slate — keyboard.css
  * On-screen keyboard, Default theme only (Points Shop keyboard themes are a user's choice and stay
- * untouched). Injected into: bigpicture. Steam drives the Default theme with CSS variables on
+ * untouched). Injected into: bigpicture — as the Keyboard patch (CSS Loader › Slate › Keyboard:
+ * Slate / Steam), so keyboard theming can be switched off (DeckThemes rule for system-wide themes). Steam drives the Default theme with CSS variables on
  * `.Keyboard.DefaultTheme` (0,2,0) → redefined here at 0,3,0. Same layering as Steam: panel lighter
  * than letter keys, modifiers darkest, focused key white.
  */

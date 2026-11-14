@@ -2,8 +2,8 @@
   "name": "Slate",
   "author": "rrambul",
   "version": "v0.5.0",
-  "description": "A minimal and clean Steam Deck Home theme.",
-  "target": "Home",
+  "description": "A minimal, clean Gaming Mode theme: neutral charcoal, rounded shapes and calm Slate accents. The games are the artwork; the interface disappears.",
+  "target": "System-Wide",
   "manifest_version": 9,
   "inject": {
     "css/tokens.css": [
@@ -34,9 +34,6 @@
     ],
     "css/store.css": [
       "store"
-    ],
-    "css/keyboard.css": [
-      "bigpicture"
     ],
     "css/search.css": [
       "bigpicture"
@@ -78,6 +75,18 @@
           ]
         },
         "Compact": {}
+      }
+    },
+    "Keyboard": {
+      "type": "dropdown",
+      "default": "Slate",
+      "values": {
+        "Slate": {
+          "css/keyboard.css": [
+            "bigpicture"
+          ]
+        },
+        "Steam": {}
       }
     }
   }

@@ -42,6 +42,7 @@ Remote CEF debugging exposes the Steam UI on your network — turn it off when y
 especially on untrusted networks.
 
 ## Options
+- **Keyboard** — Slate (default) or Steam: turns the on-screen keyboard styling on or off.
 In CSS Loader, open **Slate** to choose:
 | Option | Values |
 |---|---|
@@ -59,7 +60,7 @@ css/gamepage.css    game details page: backgrounds, action button, controls, act
 css/settings.css    Settings + Game Properties (and the shared full-screen page shell)
 css/downloads.css   Downloads page + top-bar download progress
 css/store.css       Store home (Gaming Mode only; light pass on the website)
-css/keyboard.css    on-screen keyboard (Default theme only)
+css/keyboard.css    on-screen keyboard (Default theme only; Keyboard option)
 css/search.css      top-bar search results
 css/media.css       Media (screenshots & recordings grid)
 css/contextmenu.css game context menus (≡ Options)
@@ -69,6 +70,7 @@ css/quickaccess.css Quick Access menu (… button; injected into the QuickAccess
 css/notifications.css  notification list + toasts (friend presence, unread dot; also injected into toasts)
 css/accents.css     Steam blue/green accents → Slate colors on all pages
 docs/selectors.md   every selector, why it was chosen, and how it was verified
+docs/deckthemes-checklist.md  DeckThemes submission requirements audit
 deploy.sh           rsync deploy to the Deck
 ```
 Selectors use CSS Loader's stable class names (e.g. `appportrait_InRecentGames`), which it
