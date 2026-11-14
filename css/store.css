@@ -241,3 +241,25 @@ html.client.GamepadMode [class*="LXuyTO7ejPo-"] { border-radius: 6px; }
  * light Slate blue for links ("IGN", "Read more", the "+" expander); relevance tags → neutral text */
 html.client.GamepadMode :is([class*="V-l7vWhrqVo-"], [class*="ZTOMwbUkto4-"], [class*="oGgdefKPK7A-"]) { color: var(--slate-blue-light); }
 html.client.GamepadMode [class*="_3qdZjzvKgfw-"] { color: #dcdedf; }
+
+/* ST14 — store home: the remaining capsule types (most rows — "Recommended based on…", "Because you
+ * played…", DLC, sale rows — use `.sale_capsule`; community picks use their own) → rounded; price blocks
+ * rounded; tabbed-list rows rounded; the store focus ring rounds on any of these. */
+html.client.GamepadMode :is(.sale_capsule, .community_recommendation_capsule, .community_recommendation_app) {
+  border-radius: var(--slate-radius-card);
+  overflow: hidden;
+}
+html.client.GamepadMode .discount_block { border-radius: 6px; overflow: hidden; }
+html.client.GamepadMode .tab_row_item { border-radius: 6px; }
+html.client.GamepadMode:has(:is(.sale_capsule, .community_recommendation_capsule, .community_recommendation_app, .tab_row_item):is(.gpfocus, :focus)) [class*="bXqaBMkoZYQ-"] {
+  border-radius: var(--slate-radius-card);
+}
+/* Discovery Queue widget: teal-blue body #386483 → control; purple→blue header gradient → neutral
+ * (same treatment as the client's Home widget). "WidgetHeaderCtn" is a CSS Loader translation name →
+ * matched by its store hash. Sale labels ("Franchise sale", "Weekend deal"…) are Valve's deal branding
+ * and keep their colors. */
+html.client.GamepadMode :is([class*="q6mo6TFfdDs-"], [class*="tyZYjXnErOU-"]) { background-color: var(--slate-control); }
+html.client.GamepadMode [class*="q6mo6TFfdDs-"] { border-radius: var(--slate-radius-card); overflow: hidden; }
+html.client.GamepadMode [class*="dycaOmod9zw-"] {
+  background-image: linear-gradient(77deg, #2f3034 0%, var(--slate-control) 50%, rgba(67, 67, 71, 0) 70%);
+}

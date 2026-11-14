@@ -5,6 +5,10 @@ All notable changes to Slate. Versions follow [Semantic Versioning](https://semv
 The version lives in `theme.json` (shown by CSS Loader) and as a git tag `vX.Y.Z`.
 
 ## [Unreleased]
+### Fixed
+- Store home: the remaining game capsules (Recommended / Because you played / DLC / sale rows,
+  community picks), price tags and list rows are now rounded, with a matching rounded focus ring;
+  the store's Discovery Queue widget is neutral.
 
 ## [0.5.0] — 2026-11-14
 Verified on Steam Deck LCD, SteamOS 3.9.5, CSS Loader 2.1.3. Slate now covers every screen CSS Loader

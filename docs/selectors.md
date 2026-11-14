@@ -725,3 +725,12 @@ install/update-type → `--slate-blue`, destructive (Stop/Cancel) keeps Steam re
 escape (`.Pl\61 y`) does NOT work — CSS Loader doubles backslashes when injecting. Use a partial-word
 substring that isn't a name: `[class^="Pla"]`, `[class*=" Pla"]` (also matches PlayMusic), `"Launc"`, `"Paus"`.
 
+### Store home leftovers (ST14) — 2026-11-14
+`.sale_capsule` (85 on home: "Recommended based on…", "Because you played…", DLC, sale rows),
+`.community_recommendation_capsule/_app` → 8px; `.discount_block` 6px; `.tab_row_item` 6px; store focus ring
+`[class*="bXqaBMkoZYQ-"]` rounds when any of these is focused. Discovery Queue widget (store version):
+body `q6mo6TFfdDs-` / `tyZYjXnErOU-` #386483 → control, header `dycaOmod9zw-` purple→blue gradient →
+neutral (**`WidgetHeaderCtn` collides** with a translation name). Kept: sale labels (`jxYpM-g5fRs-`
+"Franchise sale"… — Valve deal branding), artwork frames (e.g. Once Human's gold border is in the image).
+Full-page scan clean; verified on hardware.
+
