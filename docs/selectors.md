@@ -635,5 +635,22 @@ dark). ST11 tag chips `bEoYeP62vKg-` → neutral pills. ST12 links/text `oDEFTUu
 `QilvZ2g5iKM-` → Slate blue. Kept: prices, discount green, review scores, Deck-compat status colors,
 ProtonDB tier badge. Collisions found and avoided: `StoreSalePriceWidgetContainer`,
 `StoreSaleDiscountBox`, `ActiveTab`, `v6` are CSS Loader translation names.
-Verified: Deck Compatibility dialog on hardware; page behind the dialog pending.
+Verified on hardware (dialog + full game page via full-page capture).
+
+### Store palette variables + game page polish (ST0, ST13) — 2026-11-14
+~20 store stylesheets are cross-origin (CDP can't read their rules), but they resolve the store's Gaming
+Mode palette on `html`: `--gpBackground-{DarkHard,DarkMedium,DarkSoft,DarkSofter,LightSofter,LightSoft,
+LightMedium,LightHard}`, `--gpStore{Darkest,Darker,Dark,,Light}Grey`, `--gpGradient-StoreBackground`,
+`--gpColor-{Blue,BlueHi,ChalkyBlue,DustyBlue,Green,GreenHi}` → overridden (ST0) with neutral/Slate values
+of the same lightness/alpha. Red/Orange/Yellow kept. Values are read with
+`getComputedStyle(html).getPropertyValue(name)` (custom props don't enumerate). ST13 rounds and
+neutralizes the game page: media frames `zveLzqpea5Q-`, purchase boxes `FneGtSBNXCI-`, DLC rows
+`k4U-U7-NtBA-`, `.OtherEvents_EventCtn`, sidebar rows `vEPSMT4v-yc-`/`RAdU2xWu3-4-`, relevance tags
+`_3qdZjzvKgfw-`, panels `yDw9gqlgbxM-`/`dA19VXylzCQ-`/`jzzyZV9Ndlw-`/`ftI4LxM9C-k-`, buttons
+`j8iZOirRLc8-` + legacy `.btnv6_blue_hoverfade`, price block `ZLlm68-AqhM-`, capsules `mspnwaz0EAg-`
+(**`CapsuleImageCtn` collides** with a translation name), Metacritic `LXuyTO7ejPo-` (color kept).
+Text: generic blue text `oDEFTUumdv8-` → neutral #c7c9cd (Steam colors the whole review line one blue
+regardless of score, so it isn't score information), headers muted, title white, links light Slate
+blue, body text #ccd8e3 → #d4d6d9; score-coded `.ddSW8NTrpmA-` kept. Trailer progress: only the played
+part (`eBjRkRA8NpA-`) → Slate blue.
 

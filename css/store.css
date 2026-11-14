@@ -11,6 +11,7 @@
 /* ST1 — page canvas: navy #0f1924 → charcoal */
 html.client.GamepadMode body {
   background: var(--slate-bg);
+  color: #d4d6d9;  /* Steam's body text #ccd8e3 (pale blue-grey) → neutral; inherited text follows */
 }
 
 /* ST2 — main game cards (Featured & Recommended…): rounded; info panel's blue gradient + inner blue
@@ -87,6 +88,34 @@ html.client.GamepadMode .LoadingThrobber .Bar {
  * class selectors here; use a non-name substring.
  */
 
+/* ST0 — the store's Gaming Mode palette (--gp*). Many store sheets are cross-origin (unreadable via
+ * CDP), but they resolve these variables, so overriding them restyles pages we can't inspect rule by
+ * rule. Same lightness/alpha, no hue: navy "Dark" overlays → charcoal; blue-grey "Light" overlays →
+ * neutral; store grey ramp → neutral ramp; blues/greens → Slate versions. Red/orange/yellow (warnings)
+ * are information and stay Steam's. */
+html.client.GamepadMode {
+  --gpBackground-DarkHard: rgba(17, 18, 20, .8);
+  --gpBackground-DarkMedium: rgba(17, 18, 20, .6);
+  --gpBackground-DarkSoft: rgba(17, 18, 20, .4);
+  --gpBackground-DarkSofter: rgba(17, 18, 20, .2);
+  --gpBackground-LightSofter: rgba(244, 244, 245, .08);
+  --gpBackground-LightSoft: rgba(72, 74, 80, .5);
+  --gpBackground-LightMedium: rgba(140, 142, 148, .44);
+  --gpBackground-LightHard: rgba(184, 186, 192, .5);
+  --gpStoreDarkestGrey: #0b0c0e;
+  --gpStoreDarkerGrey: #1d1e22;
+  --gpStoreDarkGrey: #34363b;
+  --gpStoreGrey: #5d6066;
+  --gpStoreLightGrey: #8e9196;
+  --gpGradient-StoreBackground: linear-gradient(180deg, #34363b 0%, #1d1e22 80%);
+  --gpColor-Blue: var(--slate-blue);
+  --gpColor-BlueHi: var(--slate-blue-light);
+  --gpColor-ChalkyBlue: var(--slate-blue-light);
+  --gpColor-DustyBlue: color-mix(in srgb, var(--slate-blue) 60%, #5d6066);
+  --gpColor-Green: var(--slate-green);
+  --gpColor-GreenHi: var(--slate-green-light);
+}
+
 /* ST8 — store color variables (used by some components): navy greys + Steam blue → Slate */
 html.client.GamepadMode {
   --color-greyneutral-2: var(--slate-bg);
@@ -138,7 +167,16 @@ html.client.GamepadMode [class*="bEoYeP62vKg-"] [class*="oDEFTUumdv8-"] { color:
 
 /* ST12 — accents: links/highlighted text #1a9fff / #56abff → light Slate blue; "Learn more" button
  * and small blue badges #1a9fff → Slate blue. */
-html.client.GamepadMode [class*="oDEFTUumdv8-"],
+/* `oDEFTUumdv8-` is the store's generic "blue text" (description, labels, section headers, title) →
+ * neutral text so the page doesn't read blue; headers muted, title white. Links stay light Slate blue. */
+html.client.GamepadMode [class*="oDEFTUumdv8-"] { color: #c7c9cd; }
+html.client.GamepadMode [class*="onLSYXBtvEU-"] { color: var(--slate-text); }
+html.client.GamepadMode [class*="PvkZ1H4YD7c-"],
+html.client.GamepadMode [class*="alRCY87ae-s-"] > [class*="oDEFTUumdv8-"] { color: var(--slate-muted-light); }
+/* trailer progress: played part (modifier eBjRkRA8NpA-) #1a9fff → Slate blue; buffered part untouched.
+ * Review panel text: Steam colors the whole "ALL TIME: Very Positive…" line one blue regardless of the
+ * score, so neutral is right there; score-coded text elsewhere (`.ddSW8NTrpmA-` #67c1f5) is kept. */
+html.client.GamepadMode [class*="BffT7IQWKYg-"][class*="eBjRkRA8NpA-"] { background-color: var(--slate-blue); }
 html.client.GamepadMode [class*="GeWSoC6e568-"],
 html.client.GamepadMode [class*="WGUFkBLPn8E-"],
 html.client.GamepadMode [class*="heKA7rr02xo-"] { color: var(--slate-blue-light); }  /* + "40 FPS" and its chevron */
@@ -147,3 +185,59 @@ html.client.GamepadMode [class*="QilvZ2g5iKM-"] {
   background-color: var(--slate-blue);
   border-radius: 8px;
 }
+
+/* ST13 — game page polish: Slate shapes (8px cards/buttons/media, 6px rows, pill tags) and the
+ * remaining navy / blue-tinted surfaces → neutral. Kept: Metacritic score, discount green, the EULA
+ * notice's warm tone (information). Hash substrings throughout (fail safe). */
+/* page shell */
+html.client.GamepadMode :is(.page_content.middle_page, .block_content.page_content) { background-color: rgba(17, 18, 20, .8); }
+html.client.GamepadMode .game_background_lighten {
+  background: radial-gradient(1000px 153px at 50% top, rgb(44, 46, 51), rgba(0, 0, 0, 0));
+}
+/* media: trailer/screenshot frame, header capsule column, description images & videos */
+html.client.GamepadMode [class*="zveLzqpea5Q-"] { border-radius: var(--slate-radius-card); overflow: hidden; }
+html.client.GamepadMode [class*="JHqvAwJwrJY-"] :is(img, video) { border-radius: var(--slate-radius-card); }
+/* purchase option boxes: blue gradient → neutral, rounded */
+html.client.GamepadMode [class*="FneGtSBNXCI-"] {
+  background: linear-gradient(rgba(244, 244, 245, .10) 0%, rgba(244, 244, 245, .05) 100%);
+  border-radius: var(--slate-radius-card);
+}
+/* info panels (Reviews / Deck compat / Tags / Game info) */
+html.client.GamepadMode [class*="alRCY87ae-s-"] { border-radius: var(--slate-radius-card); }
+/* DLC list rows (+ featured row image) cool .14 → neutral */
+html.client.GamepadMode [class*="k4U-U7-NtBA-"] { background-color: rgba(244, 244, 245, .06); border-radius: 6px; }
+html.client.GamepadMode [class*="k4U-U7-NtBA-"] img { border-radius: 6px; }
+/* news/event cards: cool radial → neutral, rounded */
+html.client.GamepadMode .OtherEvents_EventCtn {
+  background: radial-gradient(at 0 0, #44464b, #25272b);
+  border-radius: var(--slate-radius-card);
+  overflow: hidden;
+}
+/* sidebar: feature rows + languages (#67c1f5/.1), relevance tags (.2), news/links box, other panels */
+html.client.GamepadMode :is([class*="vEPSMT4v-yc-"], [class*="RAdU2xWu3-4-"]) {
+  background-color: rgba(244, 244, 245, .06);
+  border-radius: 6px;
+}
+html.client.GamepadMode [class*="_3qdZjzvKgfw-"] { background-color: rgba(244, 244, 245, .10); border-radius: 999px; }
+html.client.GamepadMode [class*="yDw9gqlgbxM-"] { background-color: rgba(244, 244, 245, .08); border-radius: var(--slate-radius-card); }
+html.client.GamepadMode [class*="dA19VXylzCQ-"] { background-color: var(--slate-surface); border-radius: var(--slate-radius-card); }
+html.client.GamepadMode [class*="jzzyZV9Ndlw-"] { border-radius: var(--slate-radius-card); }
+/* off-topic review notice: cool grey .36 → neutral */
+html.client.GamepadMode [class*="ftI4LxM9C-k-"] { background-color: rgba(244, 244, 245, .08); border-radius: var(--slate-radius-card); }
+/* buttons: store buttons 2px → 8px; legacy Follow/Ignore (btnv6) cool .44 → neutral */
+html.client.GamepadMode [class*="j8iZOirRLc8-"] { border-radius: 8px; }
+html.client.GamepadMode .btnv6_blue_hoverfade,
+html.client.GamepadMode .btnv6_blue_hoverfade > span { background: rgba(244, 244, 245, .12); border-radius: 8px; }
+/* price block: round so the discount box corners clip with it */
+html.client.GamepadMode [class*="ZLlm68-AqhM-"] { border-radius: 6px; overflow: hidden; }
+/* section headers' blue rule (rgba(84,116,140,.4)) → neutral */
+html.client.GamepadMode [class*="PvkZ1H4YD7c-"] { border-color: rgba(244, 244, 245, .12); }
+/* "More from…" / "More like this" capsules */
+/* ("CapsuleImageCtn" is a CSS Loader translation name — matched by its hash instead) */
+html.client.GamepadMode [class*="mspnwaz0EAg-"] { border-radius: var(--slate-radius-card); overflow: hidden; }
+/* Metacritic score keeps its color, just rounded */
+html.client.GamepadMode [class*="LXuyTO7ejPo-"] { border-radius: 6px; }
+/* small link text: --gpColor-Blue (now Slate blue #2D74C4) is too dark for small text on charcoal →
+ * light Slate blue for links ("IGN", "Read more", the "+" expander); relevance tags → neutral text */
+html.client.GamepadMode :is([class*="V-l7vWhrqVo-"], [class*="ZTOMwbUkto4-"], [class*="oGgdefKPK7A-"]) { color: var(--slate-blue-light); }
+html.client.GamepadMode [class*="_3qdZjzvKgfw-"] { color: #dcdedf; }

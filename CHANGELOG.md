@@ -29,7 +29,9 @@ The version lives in `theme.json` (shown by CSS Loader) and as a git tag `vX.Y.Z
   panels, Slate-blue wishlist/in-library/NEW badges. Review-score colors kept. Light pass on the
   home page; purchase pages untouched. Game pages: charcoal Steam Deck Compatibility dialog (selected
   tab stays white), neutral info panels, purchase box and tag chips, light Slate-blue links;
-  compatibility status colors kept.
+  compatibility status colors kept. The store's Gaming Mode color palette is remapped to Slate
+  neutrals (reaches parts of the store whose styles can't be inspected), and game pages get Slate
+  shapes throughout (rounded media, cards, rows, buttons, capsules) with neutral text.
 - **On-screen keyboard** (`css/keyboard.css`, Default theme only): charcoal panel and keys, Slate-blue
   toggles, extra keys, pointer and key-press flash; Points Shop keyboard themes untouched.
 - **Notifications** (`css/notifications.css`, also injected into notification toasts): friend
