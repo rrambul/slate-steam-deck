@@ -5,6 +5,15 @@ All notable changes to Slate. Versions follow [Semantic Versioning](https://semv
 The version lives in `theme.json` (shown by CSS Loader) and as a git tag `vX.Y.Z`.
 
 ## [Unreleased]
+
+## [0.5.0] — 2026-11-14
+Verified on Steam Deck LCD, SteamOS 3.9.5, CSS Loader 2.1.3. Slate now covers every screen CSS Loader
+can reach in Gaming Mode.
+### Known limits
+- The controller layout editor can't be themed (it isn't exposed to CSS Loader).
+- Store pages use classes Valve regenerates on store updates; those rules fail safe (Steam's look
+  returns for that part) and may need touch-ups after store redeploys.
+- Notification toasts are styled but not yet seen on hardware.
 ### Changed
 - Tab "new" dot (What's New on Home) and the online avatar strip (top-bar profile picture, friends
   list) → Slate blue `#2D74C4`, the same blue as Install and the toggles (the strip was light Slate blue).

@@ -75,7 +75,7 @@ Selectors use CSS Loader's stable class names (e.g. `appportrait_InRecentGames`)
 translates to Steam's hashed classes at injection time.
 
 ## Status
-v0.4.0 — Home (incl. Recommended, with a Full/Compact hero option), Library, game page, main menu and Quick Access on neutral charcoal; Slate blue/green accents everywhere (toggles, sliders, progress bars, battery, friends presence); ProtonDB tiers keep their own colours; glass plugin badges; all cards rounded. See docs/selectors.md.
+v0.5.0 — every Gaming Mode screen CSS Loader can reach: Home (Full/Compact hero), Library, game page, Settings + Game Properties, Downloads (card layout), Search, Media, Store (home + game pages), main menu + in-game pages (Achievements, Guides, Notes), Quick Access + Friends & Chat, context menus, on-screen keyboard, notifications. Neutral charcoal, rounded shapes, Slate blue/green accents; colours that carry meaning (ProtonDB tiers, review scores, warnings) kept. Not themeable: the controller layout editor. See docs/selectors.md.
 
 ## Versioning
 [Semantic Versioning](https://semver.org/): `0.x` during development, `1.0.0` for the first
