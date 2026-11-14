@@ -685,3 +685,12 @@ neutral; `FriendChatTypingNotification` navy fade → charcoal; chat entry shado
 QA6: selected Quick Access tab fades in via keyframes (#3d4450 → #23262e, forwards) → swapped for
 `slate-qa-tab-select` (control → surface). Verified on hardware.
 
+## In-game STEAM menu (MM5, `mainmenu.css`) — 2026-11-14
+With a game running, the MainMenu window adds a game submenu column and a controller-layout preview.
+No stable names (substrings, fail safe): NavigationColumn `_12NNtyso3nbzJGi2XxHzcN` blue-tinted
+gradient + light-blue ::before glow → neutral gradient + white glow; AppColumn `RAI0lLN8sCtqCMI36rLiB`
+navy .9 (/.8 with `_3moC2Hs…`) → charcoal; ScrollMask `sfthxkhui6WSgvnbllI_n` + Visible
+`_3iEm9LzlOoh8dkVkWV5Ep-` #0e141b → `--slate-bg`. `mainmenu_RunnningAppSeparator` (sic) #3d4450 →
+white .15; running-app icon placeholder (`libraryassetimage_GreyBackground`, MainMenu window) → surface.
+Verified on hardware (Final Fantasy Resonance running).
+

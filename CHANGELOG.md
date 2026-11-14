@@ -35,6 +35,8 @@ The version lives in `theme.json` (shown by CSS Loader) and as a git tag `vX.Y.Z
 - **On-screen keyboard** (`css/keyboard.css`, Default theme only): charcoal panel and keys, Slate-blue
   toggles, extra keys, pointer and key-press flash; rounded keys; Points Shop keyboard themes
   untouched.
+- **In-game STEAM menu** (game running): neutral game submenu glow, charcoal controller-layout preview,
+  neutral separator.
 - **Friends & Chat**: chat header with Slate green/blue presence accent, Slate presence colors for
   names (incl. away and focused rows), neutral dividers, buttons, history and entry; selected Quick
   Access tab neutral (its fade-in animation swapped for a Slate one).
