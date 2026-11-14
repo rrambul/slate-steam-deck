@@ -42,11 +42,12 @@ Remote CEF debugging exposes the Steam UI on your network — turn it off when y
 especially on untrusted networks.
 
 ## Options
-- **Keyboard** — Slate (default) or Steam: turns the on-screen keyboard styling on or off.
 In CSS Loader, open **Slate** to choose:
+
 | Option | Values |
 |---|---|
 | Hero | **Full** (default): Recent Games fills the screen, larger covers · **Compact**: Steam's hero height, What's New visible right away |
+| Keyboard | **Slate** (default): charcoal keyboard with Slate accents · **Steam**: Steam's default keyboard look |
 
 ## Structure
 ```
