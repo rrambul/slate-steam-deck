@@ -9,7 +9,8 @@
     "css/tokens.css": [
       "bigpicture",
       "MainMenu",
-      "QuickAccess"
+      "QuickAccess",
+      "notificationtoasts_.*"
     ],
     "css/canvas.css": [
       "bigpicture"
@@ -36,6 +37,11 @@
       "bigpicture",
       "MainMenu",
       "QuickAccess"
+    ],
+    "css/notifications.css": [
+      "bigpicture",
+      "QuickAccess",
+      "notificationtoasts_.*"
     ]
   },
   "patches": {

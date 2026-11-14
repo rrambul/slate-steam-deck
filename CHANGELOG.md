@@ -8,6 +8,10 @@ The version lives in `theme.json` (shown by CSS Loader) and as a git tag `vX.Y.Z
 ### Changed
 - Tab "new" dot (What's New on Home) and the online avatar strip (top-bar profile picture, friends
   list) → Slate blue `#2D74C4`, the same blue as Install and the toggles (the strip was light Slate blue).
+- Quick Access title: its navy glow (bands above/below the title) → charcoal.
+### Added
+- **Notifications** (`css/notifications.css`, also injected into notification toasts): friend
+  in-game strip, "Playing: <game>" text and the unread dot → light Slate green; online strip → Slate blue.
 
 ## [0.4.0] — 2026-11-14
 Verified on Steam Deck LCD, SteamOS 3.9.5, CSS Loader 2.1.3.

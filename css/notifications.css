@@ -1,0 +1,38 @@
+/* Slate — notifications (Quick Access › Notifications, notification toasts, Home)
+ *
+ * Steam builds notifications from four copies of the same templates (standard, short, steam,
+ * notificationcontent), each with its own hashed classes — so every rule lists all four names.
+ * Injected into bigpicture, QuickAccess and the toast windows (notificationtoasts_*), which have
+ * no .BasicUI root — so specificity comes from :root + doubled classes, not .BasicUI.
+ */
+
+/* N1 — friend avatar presence strip: in-game #59bf40 → light Slate green, online #4cb4ff →
+ * Slate blue (same as the top-bar avatar). Steam: `.X.ingame` (0,2,0) → ours 0,3,0. */
+:root :is(.standardtemplates_AvatarStatus, .shorttemplates_AvatarStatus,
+    .steamtemplates_AvatarStatus, .notificationcontent_AvatarStatus).ingame {
+  background-color: var(--slate-green-light);
+}
+:root :is(.standardtemplates_AvatarStatus, .shorttemplates_AvatarStatus,
+    .steamtemplates_AvatarStatus, .notificationcontent_AvatarStatus).online {
+  background-color: var(--slate-blue);
+}
+
+/* N2 — "Playing: <game>" name: Steam's in-game text green #91c257 → light Slate green.
+ * Steam: `.parent .X` (0,2,0) → ours `:root .X.X` (0,3,0). */
+:root .standardtemplates_FriendInGameAppColor.standardtemplates_FriendInGameAppColor,
+:root .shorttemplates_FriendInGameAppColor.shorttemplates_FriendInGameAppColor,
+:root .steamtemplates_FriendInGameAppColor.steamtemplates_FriendInGameAppColor,
+:root .notificationcontent_FriendInGameAppColor.notificationcontent_FriendInGameAppColor {
+  color: var(--slate-green-light);
+}
+
+/* N3 — unread dot (top-right of a new notification): #57a11c + matching glow → light Slate green.
+ * Steam: `.X svg` (0,1,1) for the color, `.X` (0,1,0) for the glow. */
+:root :is(.standardtemplates_NewIndicator, .shorttemplates_NewIndicator,
+    .steamtemplates_NewIndicator, .notificationcontent_NewIndicator) svg {
+  color: var(--slate-green-light);
+}
+:root :is(.standardtemplates_NewIndicator, .shorttemplates_NewIndicator,
+    .steamtemplates_NewIndicator, .notificationcontent_NewIndicator) {
+  filter: drop-shadow(0 0 4px color-mix(in srgb, var(--slate-green-light) 80%, transparent));
+}

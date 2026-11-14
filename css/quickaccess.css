@@ -9,6 +9,11 @@
 .BasicUI .quickaccessmenu_Title {
   background: var(--slate-bg);
 }
+/* The title's soft edge is a navy glow (`box-shadow: 0 0 7px 12px #0e141b`) that left navy bands
+ * above and below it on the charcoal panel → same glow in charcoal (keeps the fade, loses the tint). */
+.BasicUI .quickaccessmenu_Title {
+  box-shadow: 0 0 7px 12px var(--slate-bg);
+}
 .BasicUI .quickaccessmenu_QuickAccessMenu .quickaccessmenu_Menu::before,
 .BasicUI .quickaccessmenu_QuickAccessMenu .quickaccessmenu_Menu::after {
   background: rgba(244, 244, 245, .08);

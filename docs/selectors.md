@@ -517,3 +517,21 @@ Verified by a full-page color scan of all three pages: no Steam blue/green left 
   `.friendGroup.onlineFriends` border rgba(76,180,255,.3). Slate: names `--slate-blue-pale` #B9CFEA (new token,
   11.8:1), status `--slate-blue-light`, in-game `--slate-green-light`; doubled classes for 0,4,0+ (Steam loads after).
   Verified: online name rgb(185,207,234), status rgb(111,163,223); full scan of the open Friends tab finds no Steam blue/green.
+
+## Notifications (`css/notifications.css`) — 2026-11-14
+Injected into `bigpicture`, `QuickAccess` and `notificationtoasts_.*` (raw tab-title regex — CSS Loader
+passes unknown inject keys through as `^(…)$` title matches; `tokens.css` is injected there too).
+Toast windows have no `.BasicUI` root, so specificity uses `:root` + doubled classes.
+Steam ships four copies of the notification templates (`standardtemplates_`, `shorttemplates_`,
+`steamtemplates_`, `notificationcontent_`); each rule lists all four. All single-hash entries.
+
+| Selector | Steam | Slate |
+|---|---|---|
+| `*_AvatarStatus.ingame` / `.online` (friend avatar strip) | #59bf40 / #4cb4ff (0,2,0) | `--slate-green-light` / `--slate-blue` (0,3,0) |
+| `*_FriendInGameAppColor` ("Playing: <game>") | #91c257 (0,2,0) | `--slate-green-light` via `:root .X.X` |
+| `*_NewIndicator svg` + `*_NewIndicator` filter (unread dot + glow) | #57a11c | `--slate-green-light`, glow at 80% |
+
+Verified in Quick Access › Notifications on hardware; toasts not yet seen live.
+Also: `quickaccessmenu_Title` navy glow `box-shadow: 0 0 7px 12px #0e141b` → same glow in `--slate-bg`
+(it drew navy bands above/below the Quick Access title).
+
