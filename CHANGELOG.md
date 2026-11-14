@@ -34,6 +34,9 @@ The version lives in `theme.json` (shown by CSS Loader) and as a git tag `vX.Y.Z
   shapes throughout (rounded media, cards, rows, buttons, capsules) with neutral text.
 - **On-screen keyboard** (`css/keyboard.css`, Default theme only): charcoal panel and keys, Slate-blue
   toggles, extra keys, pointer and key-press flash; Points Shop keyboard themes untouched.
+- **Search** (`css/search.css`): charcoal results page, rounded result capsules and focus ring.
+- **Game Properties**: neutral betas table, controller status panel and dividers; Slate-blue
+  highlights and selected/connected markers.
 - **Notifications** (`css/notifications.css`, also injected into notification toasts): friend
   in-game strip, "Playing: <game>" text and the unread dot → light Slate green; online strip → Slate blue.
 

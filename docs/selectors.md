@@ -654,3 +654,15 @@ regardless of score, so it isn't score information), headers muted, title white,
 blue, body text #ccd8e3 → #d4d6d9; score-coded `.ddSW8NTrpmA-` kept. Trailer progress: only the played
 part (`eBjRkRA8NpA-`) → Slate blue.
 
+## Search (`css/search.css`) + Game Properties (S13) — 2026-11-14
+Search: `.gamepadsearch_GamepadSearch` navy radial → canvas; `.gamepadsearch_ResultTemplateImage` 8px
++ focus ring rounded via `:root:has(… ResultTemplate(Image).gpfocus)`. Verified.
+Game Properties reuses the paged settings dialog (S1–S5 apply). Per-tab (scanned all 9 tabs):
+`appproperties_BlueHighlight` #1a9fff → light Slate blue; `appproperties_SectionTopLine` cool → neutral;
+`appproperties_SteamInputStatusGrid` cool .2 → neutral 8px; connected `appproperties_ControllerPip`
+#3a7fd5 → Slate blue (0,7,0 vs 0,6,0); betas table (no stable names: `_3jWpi0kJp…` table, `X3pN_ESh…`
+header, `_1LCoWsUr…` rows with `_2fy9…`/`_231y…` stripes, `_2d_FE9TO…` radio) → neutral, rounded, Slate-blue
+selected bar. Steam's high-contrast (black/white) variants left alone. Verified.
+Not reachable by route: Friends & Chat (`/friends` renders empty — separate web view) and Media
+(`/media` renders empty) — check when the user opens them from the menu.
+

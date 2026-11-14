@@ -1,0 +1,18 @@
+/* Slate — search.css
+ * Top-bar search (magnifier): results page. Injected into: bigpicture.
+ */
+
+/* SE1 — page: navy radial #060a0e→#0e141b → canvas (Steam single class → .BasicUI 0,2,0) */
+.BasicUI .gamepadsearch_GamepadSearch {
+  background: var(--slate-canvas);
+}
+
+/* SE2 — result capsules: square → rounded; Steam's global focus ring rounds with them while a
+ * result has focus (same pattern as Home rows). */
+.BasicUI .gamepadsearch_ResultTemplateImage {
+  border-radius: var(--slate-radius-card);
+  overflow: hidden;
+}
+:root:has(.gamepadsearch_GamepadSearch :is(.gamepadsearch_ResultTemplate, .gamepadsearch_ResultTemplateImage).gpfocus) .focusring_FocusRing {
+  border-radius: var(--slate-radius-card);
+}

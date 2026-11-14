@@ -37,6 +37,9 @@
     "css/keyboard.css": [
       "bigpicture"
     ],
+    "css/search.css": [
+      "bigpicture"
+    ],
     "css/plugins.css": [
       "bigpicture"
     ],

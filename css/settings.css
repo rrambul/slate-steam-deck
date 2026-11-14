@@ -113,3 +113,28 @@
 .BasicUI .familysharedcomponents_MeBadge {
   background-color: var(--slate-green-light);
 }
+
+/* S13 — Game Properties (⚙ on a game; same paged dialog as Settings, so S1–S5 already apply).
+ * Per-tab leftovers. Steam: `.AppProperties .DialogBody .X` (0,3,0), betas rows 0,5,0, pips/radio
+ * 0,6,0 → each rule here is one step stronger. Betas table parts have no stable names (substrings). */
+/* Installed Files: disk-size text #1a9fff → light Slate blue; section top line cool → neutral */
+.BasicUI .DialogBody .appproperties_BlueHighlight.appproperties_BlueHighlight { color: var(--slate-blue-light); }
+.BasicUI .DialogBody .appproperties_SectionTopLine.appproperties_SectionTopLine { border-top-color: rgba(244, 244, 245, .08); }
+/* Controller: status grid cool .2 → neutral; "connected" pip #3a7fd5 → Slate blue (status keeps its hue) */
+.BasicUI .DialogBody .appproperties_SteamInputStatusGrid.appproperties_SteamInputStatusGrid { background-color: rgba(244, 244, 245, .05); border-radius: var(--slate-radius-card); }
+.BasicUI .DialogBody .appproperties_SteamInputStatusGrid .appproperties_ControllerPip.appproperties_ControllerPip.appproperties_ControllerConnected.appproperties_ControllerConnected {
+  background-color: var(--slate-blue);
+}
+/* Game Versions & Betas table: #0e141b border → neutral, rounded; header #3d4450 → control; row
+ * stripes #23262e / #2c303a → neutral; selected radio bar #1c9fff → Slate blue */
+.BasicUI .DialogBody [class*="_3jWpi0kJp_piNEvdMufMmy"][class*="_3jWpi0kJp_piNEvdMufMmy"] {
+  border-color: rgba(244, 244, 245, .08);
+  border-radius: var(--slate-radius-card);
+  overflow: hidden;
+}
+.BasicUI .DialogBody [class*="X3pN_ESh0aoxmm2nK65Hu"][class*="X3pN_ESh0aoxmm2nK65Hu"] { background-color: var(--slate-control); }
+.BasicUI .DialogBody.DialogBody [class*="_3jWpi0kJp_piNEvdMufMmy"] [class*="_1LCoWsUrJmZHr7SVX0luaG"][class*="_2fy9Xqi70es7wkqy4iOvBE"] { background-color: var(--slate-surface); }
+.BasicUI .DialogBody.DialogBody [class*="_3jWpi0kJp_piNEvdMufMmy"] [class*="_1LCoWsUrJmZHr7SVX0luaG"][class*="_231y-BrqpRH85PNLgfseSR"] { background-color: #2a2c30; }
+.BasicUI .DialogBody.DialogBody [class*="_3jWpi0kJp_piNEvdMufMmy"] [class*="_1LCoWsUrJmZHr7SVX0luaG"].appproperties_Selected [class*="_2d_FE9TOpHt1FsYhLEpjCp"] {
+  border-left-color: var(--slate-blue);
+}
