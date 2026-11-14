@@ -574,8 +574,18 @@ paused/queued states keep their grey (meaning). Unnamed variants via hash substr
 | `downloadgraph_GraphBarDownload` / `GraphLine` / `Network svg` / `Disk` (D4) | #1a9fff .5 / #59bf40 | Slate blue 75% / green-light | ✓ |
 | `.downloads_ProgressBar` ×2 `:not([class*="_2Xedpg…"]) div` + variants `_2mLZnQ…` (downloading), `HifZB5…` (disk) (D5) | #1a9fff / .5 / #59bf40; grey paused | Slate blue / 75% / green-light; grey kept | ✓ |
 | `.downloads_SectionItem .downloads_Button.DialogButton:enabled` + active variant (D6) | #3d4450 / #1a9fff | control / `--slate-blue` (focus white left to Steam) | ✓ |
-| `.downloads_SectionItem.downloads_Active` (+ focused) (D7) | #0e141b (#3d4450) | `--slate-bg` (control) | pending |
-| `downloadgraph_HeroGradient` (D7) | multiply → rgb(0,86,214) (blue tint on art) | multiply → `--slate-bg` | pending |
+| `.downloads_SectionItem.downloads_Active` (+ focused) (D7) | #0e141b (#3d4450) | `--slate-surface` card (control) | ✓ (focus pending) |
+| `downloadgraph_HeroGradient` → none + mask on `downloadgraph_HeroAndLogo` (D7) | multiply → rgb(0,86,214) (blue tint on art) | art fades to transparent (mask 45%→100%) into the card | ✓ |
 | `downloads_SectionList.downloads_DropOption.downloads_DragOver` (D7) | blue radial | Slate-blue radial | not seen |
 | `header_HeaderDownloadProgressBar` (D8, top bar) | #1a9fff (0,4,0) | `--slate-blue` | ✓ |
+
+**D9 layout (2026-11-14, verified on hardware):** active download = inset card — TopSection
+`[class*="_373v1eWNyaPKhgnea9FZSt"]` padding 48px 12px 4px + `box-shadow: none` (Steam's full-width
+shadow), card radius 12px + own shadow, HoverRing `[class*="_3B3J2qtE6ozU_VXMMN2L51"]` 12px,
+`downloads_TopBar` (1px white .1 rule at the seam) hidden; device label RemoteClientManagementRow/
+Background → glass pill at the card's corner; `downloads_Title`/`Count` tracking 1px → 0 (title 500);
+progress bars 6px fully rounded; item buttons + Clear All 8px; rows 8px; thumbnails
+(`.downloads_SectionItem .appportrait_LibraryItemBox`, 0,3,0 vs Steam's overflow:visible 0,2,0) 6px.
+Tooling note: CDP preview CSS must be run through a name→hash translation (scratchpad translate.mjs)
+— raw stable names only work after CSS Loader injects them.
 

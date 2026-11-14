@@ -84,17 +84,22 @@
   background: var(--slate-blue);
 }
 
-/* D7 — active download panel: #0e141b → charcoal; focused #3d4450 → control (Steam 0,5,0 → 0,6,0). */
+/* D7 — active download as a card (see D9 for layout): surface fill; focused → control
+ * (Steam: #0e141b / focused #3d4450 at 0,5,0 → 0,6,0). */
 .BasicUI .downloads_SectionItem.downloads_Active {
-  background-color: var(--slate-bg);
+  background-color: var(--slate-surface);
 }
 .BasicUI .downloads_SectionItemWrapper.downloads_SectionItemWrapper.gpfocus .downloads_SectionItem.downloads_Active {
   background-color: var(--slate-control);
 }
-/* Hero art fade: a multiply gradient to Steam blue rgb(0,86,214) tinted the art's right side blue →
- * multiply to charcoal, so the art fades into the stats panel without a hue. (Steam 0,3,0) */
+/* Hero art fade: Steam multiplies a gradient to blue rgb(0,86,214) over the art (blue tint) →
+ * removed; the art box is masked instead so it fades into the card with no hue (Steam 0,3,0). */
 .BasicUI .downloadgraph_HeroAndLogo .downloadgraph_HeroContainer .downloadgraph_HeroGradient {
-  background: linear-gradient(to right, transparent 15%, var(--slate-bg) 90%);
+  background: none;
+}
+.BasicUI .downloads_DownloadsPage .downloadgraph_HeroAndLogo {
+  -webkit-mask-image: linear-gradient(to right, #000 45%, transparent 100%);
+  mask-image: linear-gradient(to right, #000 45%, transparent 100%);
 }
 /* Drag-to-reorder drop target (touch): blue radial → Slate blue radial (Steam 0,3,0 → 0,4,0). */
 .BasicUI .downloads_SectionList.downloads_DropOption.downloads_DragOver {
@@ -106,3 +111,53 @@
 .BasicUI .header_HeaderDownloadContainer .header_HeaderAppPortraitContainer .header_HeaderDownloadProgressBarBackground .header_HeaderDownloadProgressBar {
   background-color: var(--slate-blue);
 }
+
+/* D9 — layout polish (Slate look: rounded cards, calm type).
+ * Active download: Steam draws it full-bleed under the top bar with a full-width shadow and a 1px
+ * TopBar rule → inset card (top-bar clearance 48px, 12px gutters like the list), 12px radius, own
+ * soft shadow. TopSection / RemoteClient* / HoverRing have no stable names → hash substrings. */
+.BasicUI .downloads_DownloadsPage [class*="_373v1eWNyaPKhgnea9FZSt"] {
+  padding: 48px 12px 4px;
+  box-shadow: none;
+}
+.BasicUI .downloads_DownloadsPage [class*="_373v1eWNyaPKhgnea9FZSt"] .downloads_SectionItem.downloads_Active {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .35);
+}
+.BasicUI .downloads_DownloadsPage [class*="_373v1eWNyaPKhgnea9FZSt"] [class*="_3B3J2qtE6ozU_VXMMN2L51"] {
+  border-radius: 12px;  /* hover/focus ring follows the card */
+}
+.BasicUI .downloads_DownloadsPage .downloads_TopBar {
+  display: none;
+}
+/* "Managing downloads for THIS DEVICE": black box → glass pill inside the card's corner */
+.BasicUI .downloads_DownloadsPage [class*="_3skWnzTCiOu9dX2bUXjVeK"] {
+  left: 24px;
+  bottom: 16px;
+  margin: 0;
+}
+.BasicUI .downloads_DownloadsPage [class*="_32eLZRkdi_FgZPoefB5zMS"] {
+  background: var(--slate-glass);
+  backdrop-filter: blur(10px);
+  border-radius: 999px;
+  padding: 6px 14px;
+}
+/* Section titles ("Up Next", "Scheduled"…): 1px tracking at 400 → no tracking, 500 */
+.BasicUI .downloads_Title { letter-spacing: 0; font-weight: 500; }
+.BasicUI .downloads_Count { letter-spacing: 0; }
+/* Progress bars: 4px / 3px radius → 6px, fully rounded */
+.BasicUI .downloads_ProgressBar.downloads_ProgressBar { height: 6px; border-radius: 999px; }
+.BasicUI .downloads_ProgressBar.downloads_ProgressBar div { border-radius: 999px; }
+/* Shapes: buttons 2px → 8px; list rows and thumbnails rounded. Thumbnails: Steam's
+ * `.BasicUI .LibraryItemBox { overflow: visible }` (0,2,0) → 0,3,0 here. */
+.BasicUI .downloads_SectionItem .downloads_Button.DialogButton,
+.BasicUI .downloads_RemoveAllButton.DialogButton {
+  border-radius: 8px;
+}
+.BasicUI .downloads_SectionItem:not(.downloads_Active) { border-radius: 8px; }
+.BasicUI .downloads_SectionItem .appportrait_LibraryItemBox {
+  border-radius: 6px;
+  overflow: hidden;
+}
+

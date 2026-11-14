@@ -21,7 +21,9 @@ The version lives in `theme.json` (shown by CSS Loader) and as a git tag `vX.Y.Z
 - **Downloads** (`css/downloads.css`): charcoal page and lists, neutral dividers and buttons;
   download graph, progress bars and the active download's button in Slate blue/green (paused grey
   kept); Patch Notes and device name in light Slate blue; the blue tint over the game art → neutral
-  fade; top-bar download progress line → Slate blue.
+  fade; top-bar download progress line → Slate blue. Layout: the active download is an inset,
+  rounded card (art fades into it, soft shadow, no full-width seam), glass "managing downloads" pill,
+  calmer section titles, rounded progress bars, buttons, rows and thumbnails.
 - **Notifications** (`css/notifications.css`, also injected into notification toasts): friend
   in-game strip, "Playing: <game>" text and the unread dot → light Slate green; online strip → Slate blue.
 
