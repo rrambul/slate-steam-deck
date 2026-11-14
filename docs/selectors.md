@@ -663,11 +663,25 @@ Game Properties reuses the paged settings dialog (S1–S5 apply). Per-tab (scann
 #3a7fd5 → Slate blue (0,7,0 vs 0,6,0); betas table (no stable names: `_3jWpi0kJp…` table, `X3pN_ESh…`
 header, `_1LCoWsUr…` rows with `_2fy9…`/`_231y…` stripes, `_2d_FE9TO…` radio) → neutral, rounded, Slate-blue
 selected bar. Steam's high-contrast (black/white) variants left alone. Verified.
-Not reachable by route: Friends & Chat (`/friends` renders empty — separate web view); check when the
-user opens it from the menu. Media renders only when opened from the menu (route `/media/grid`).
+Friends & Chat renders inside the QuickAccess window (full width) when opened from the menu — CDP
+target `QuickAccess_uid2`; `/friends` by route renders empty. Media renders only when opened from the menu (route `/media/grid`).
 
 ## Media (`css/media.css`) — 2026-11-14
 Screenshots/recordings grid. Colors already neutral; shape only. No stable names: item
 `[class*="_2-7fqz03LhYHKEBI-HwIPq"]` (wEPhzApt_ListItem — draws its own 2px white focus border) → 10px;
 thumbnail `[class*="_2hcrnBEslc1Awh2IFpGA7W"]` → 8px inside it. Verified on hardware (focused item).
+
+## Friends & Chat (QA5) + selected QA tab (QA6) — 2026-11-14
+Friends UI classes are classic unhashed names (checked: only `playerName` collides → stable
+`personanameandstatus_playerName`). Chat header (`.chatWindow .chatHeader`, + `.InGameHeader`) accent
+gradient blue #4469a5 / green #2d6020 into cool #24252d, border #639eff / #59bf40 → Slate blue/green
+mixed into surface, light Slate borders (0,4,0/0,5,0 vs Steam 0,3,0/0,4,0). Names: in-game #c2ffb3 →
+#c4e6d3; away in-game #59bf40 / away online #4cb4ff → light Slate green/blue, incl. focused-row variants
+(Steam 0,7,0 → 0,8,0). In-game group counts/footer → Slate greens; group dividers + offline divider
+(Steam 0,5,0) → white .10; focused group header → control; Add friend / New group chat buttons
+(Steam 0,4,0) → white .12, 8px; header buttons #282b33 → #2a2c30, 8px; `ChatHistorySelector` glow →
+neutral; `FriendChatTypingNotification` navy fade → charcoal; chat entry shadow #0e141b (Steam
+`.chatEntry > :not(.chatUploadContainer)` 0,4,0) → black; send button (unfocused) → control.
+QA6: selected Quick Access tab fades in via keyframes (#3d4450 → #23262e, forwards) → swapped for
+`slate-qa-tab-select` (control → surface). Verified on hardware.
 

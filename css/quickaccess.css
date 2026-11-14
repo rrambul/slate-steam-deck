@@ -50,3 +50,60 @@
 .BasicUI .GamepadMode .insetshadow_FriendListInsetShadowTop {
   background: linear-gradient(to bottom, var(--slate-bg) 0%, rgba(17, 18, 20, .5) 25%, rgba(0, 0, 0, 0) 100%);
 }
+
+/* QA5 — Friends & Chat (opens inside the Quick Access window, full width). Steam's friends UI uses
+ * classic unhashed classes (checked: none collide with CSS Loader names, except `playerName` — the
+ * stable `personanameandstatus_playerName` is used instead). Presence colors map to Slate versions:
+ * in-game → green, online/away → blue. Steam rules are `.GamepadMode …`; each rule here is stronger. */
+/* chat header: blue / in-game green accent gradient into cool #24252d → Slate accent into surface */
+.BasicUI .chatWindow .chatHeader.chatHeader {
+  background: linear-gradient(90deg, color-mix(in srgb, var(--slate-blue) 45%, var(--slate-surface)) 0, var(--slate-surface) 60px, var(--slate-surface) 100%);
+  border-left-color: var(--slate-blue-light);
+}
+.BasicUI .chatWindow .chatHeader.chatHeader.InGameHeader {
+  background: linear-gradient(90deg, color-mix(in srgb, var(--slate-green) 55%, var(--slate-surface)) 0, var(--slate-surface) 60px, var(--slate-surface) 100%);
+  border-left-color: var(--slate-green-light);
+}
+.BasicUI .RightSideButtonContainer :is(.FriendActionsButton, .oneOnOneVoiceChatButton, .inviteAnotherFriendButton) {
+  background-color: #2a2c30;
+  border-radius: 8px;
+}
+/* names: in-game pale green #c2ffb3 → pale Slate green; away/snooze in-game #59bf40 → light Slate
+ * green, away online #4cb4ff → light Slate blue (also the focused-row variants, Steam 0,7,0) */
+.BasicUI .ingame .personanameandstatus_playerName.personanameandstatus_playerName { color: #c4e6d3; }
+.BasicUI .ingame.awayOrSnooze .personanameandstatus_playerName.personanameandstatus_playerName { color: var(--slate-green-light); }
+.BasicUI .online.awayOrSnooze .personanameandstatus_playerName.personanameandstatus_playerName { color: var(--slate-blue-light); }
+.BasicUI .friend.gpfocus .labelHolder.ingame.awayOrSnooze .personanameandstatus_playerName.personanameandstatus_playerName { color: var(--slate-green-light); }
+.BasicUI .friend.gpfocus .labelHolder.online.awayOrSnooze .personanameandstatus_playerName.personanameandstatus_playerName { color: var(--slate-blue-light); }
+/* friends list: in-game group counts green → Slate green; group dividers #3d4450 → neutral;
+ * focused group header #3d4450 → control; add-friend button cool → neutral */
+.BasicUI .friendGroup.gameGroup .groupName .groupCount.groupCount { color: var(--slate-green-light); }
+.BasicUI .friendGroup.gameGroup:not(.OtherGamesGroup) .SteamPlayerGroupFooter.lastInGroup .count.count { color: var(--slate-green-light); }
+.BasicUI .friendGroup.gameGroup:not(.OtherGamesGroup) .SteamPlayerGroupFooter.lastInGroup .SteamPlayerGroupFooterLabel.SteamPlayerGroupFooterLabel { color: var(--slate-green); }
+.BasicUI .friendGroup.friendGroup:is(.taggedGroup, .gameGroup) { border-top-color: rgba(244, 244, 245, .10); }
+.BasicUI .FriendsListContent .friendlistListContainer .friendGroup.friendGroup.offlineFriends { border-top-color: rgba(244, 244, 245, .10); }
+.BasicUI :is(.gpfocus .friendGroup .groupName, .friendGroup .groupName.gpfocus) { background: var(--slate-control); }
+.BasicUI .TabPanelHeader .friendListButton.friendListButton:is(.NewChatGroupButton, .AddFriendButton) { background-color: rgba(244, 244, 245, .12); border-radius: 8px; }
+.BasicUI .dropTargetBox { border-color: color-mix(in srgb, var(--slate-blue-light) 40%, transparent); }
+/* chat body: history glow #3d4450 → neutral; typing-notification fade navy → charcoal;
+ * entry shadow #0e141b → black; send button (unfocused) #67707b → control (focused stays white) */
+.BasicUI .ChatHistorySelector { background: radial-gradient(120% 160% at 40% 50%, #434347 0%, transparent 75%); }
+.BasicUI .FriendChatTypingNotification {
+  background: linear-gradient(to top, rgba(17, 18, 20, .9) 0%, rgba(17, 18, 20, .9) 12px, rgba(17, 18, 20, 0) 80%);
+}
+.BasicUI .chatWindow .chatEntry > .chatentry_chatEntryControls.chatentry_chatEntryControls { box-shadow: 0 0 10px rgba(0, 0, 0, .5); }
+.BasicUI .chatentry_chatEntryControls [class*="RVIs84dAE6wHcjH9tkinc"]:not([class*="jaQN2IyN4P8LZXJ6P11qy"]):not(.gpfocus) {
+  background-color: var(--slate-control);
+}
+
+/* QA6 — selected Quick Access tab icon background. Steam fades it in with a keyframe animation
+ * (#3d4450 → #23262e, fill forwards) that beats normal declarations → swapped for a Slate keyframe
+ * with the same fade (control → surface). Steam: `.Tab.Selected` (0,2,0). */
+@keyframes slate-qa-tab-select {
+  0%   { background: var(--slate-control); }
+  100% { background: var(--slate-surface); }
+}
+.BasicUI .quickaccessmenu_Tab.quickaccessmenu_Tab.quickaccessmenu_Selected {
+  background-color: var(--slate-surface);
+  animation-name: slate-qa-tab-select;
+}
