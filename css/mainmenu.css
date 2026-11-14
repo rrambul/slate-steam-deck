@@ -63,3 +63,15 @@
 /* in-game submenu active dot #1a9fff → Slate blue (Steam 0,2,0) */
 .BasicUI [class*="_2b6L36XnXUqFHHkGE4_2mv"] [class*="_3Il1BD4p9lccpjISQKhR1X"] { background: var(--slate-blue); }
 
+
+/* MM6 — in-game Guides (STEAM menu → Guides, game running): list sections #0e141b → charcoal; guide
+ * cards #23262e → surface, rounded; pager buttons 2px → 8px. */
+.BasicUI .overlayguides_OverlayGuidesHome .overlayguides_GuideList { background-color: var(--slate-bg); }
+.BasicUI .overlayguides_OverlayGuidesHome .overlayguides_GuideListItemBase {
+  background-color: var(--slate-surface);
+  border-radius: var(--slate-radius-card);
+}
+.BasicUI .overlayguides_OverlayGuidesHome button.DialogButton,
+.BasicUI .overlayguides_OverlayGuidesHome button.DialogButton:enabled { border-radius: 8px; }
+/* Steam's global focus ring rounds while focus is inside Guides (cards, empty box, pager are all rounded) */
+:root:has(.overlayguides_OverlayGuidesHome .gpfocus) .focusring_FocusRing { border-radius: var(--slate-radius-card); }

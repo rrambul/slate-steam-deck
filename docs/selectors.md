@@ -704,3 +704,8 @@ Slate green scale. Values read with `getComputedStyle(html).getPropertyValue()` 
 enumerate). Achievements (MainMenu window, game running) verified neutral on hardware; in-game submenu
 active dot `[class*="_3Il1BD4p9lccpjISQKhR1X"]` → Slate blue.
 
+### In-game Guides (MM6) — 2026-11-14
+`overlayguides_OverlayGuidesHome` › `overlayguides_GuideList` #0e141b → charcoal; `overlayguides_GuideListItemBase`
+#23262e → surface 8px; pager `button.DialogButton` 8px; global `focusring_FocusRing` rounded via
+`:root:has(.overlayguides_OverlayGuidesHome .gpfocus)` (MainMenu window). Verified on hardware.
+
