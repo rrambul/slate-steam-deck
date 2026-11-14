@@ -1,0 +1,44 @@
+/* Slate — contextmenu.css
+ * Game context menu (≡ Options on a game: Play / Add to Favorites / Manage / Properties…) and other
+ * gamepad context menus. Injected into: bigpicture.
+ * NOTE: the action classes Play / Launch / Pause / Cancel are CSS Loader translation names (it would
+ * rewrite them to unrelated hashes). A CSS escape (.Pl\61 y) doesn't work either: CSS Loader doubles
+ * backslashes on injection. So they're matched by a partial-word substring that isn't a name:
+ * [class^="Pla"] / [class*=" Pla"] (Play, PlayMusic), "Launc", "Paus". Stream / Connect / Resume /
+ * Download / Update / PreLoad / Install don't collide and are used as normal classes. Status hues keep their meaning: play-type → Slate green, install/update → Slate blue,
+ * stop/cancel (destructive) → Steam's red stays.
+ */
+
+/* CM1 — menu: square → rounded; items #23262e → surface (focused white, active white and Selected
+ * keep their own rules); separators black → charcoal */
+/* (the contents box starts above the first item, so rounding it clips nothing — round the first and
+ * last items instead) */
+.BasicUI .gamepadcontextmenu_contextMenuContents > .gamepadcontextmenu_contextMenuItem:first-child {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+.BasicUI .gamepadcontextmenu_contextMenuContents > .gamepadcontextmenu_contextMenuItem:last-child {
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+.BasicUI .gamepadcontextmenu_contextMenuItem:not(.gamepadcontextmenu_Focused):not(.gamepadcontextmenu_active):not(.gamepadcontextmenu_Selected) {
+  background: var(--slate-surface);
+}
+.BasicUI .gamepadcontextmenu_contextMenuItem.gamepadcontextmenu_Selected:not(.gamepadcontextmenu_Focused) {
+  background: var(--slate-control);
+}
+.BasicUI .gamepadcontextmenu_ContextMenuSeparator { background-color: var(--slate-bg); }
+
+/* CM2 — focused action items. Steam: `.Item.Focused.<action>` (0,3,0) → 0,4,0 here. */
+.BasicUI .gamepadcontextmenu_contextMenuItem.gamepadcontextmenu_Focused:is(.gamepadcontextmenu_Positive, [class^="Pla"], [class*=" Pla"], [class^="Launc"], [class*=" Launc"], .Stream, .Connect, .Resume) {
+  background: var(--slate-green);
+  color: #fff;
+}
+.BasicUI .gamepadcontextmenu_contextMenuItem.gamepadcontextmenu_Focused:is(.gamepadcontextmenu_Emphasis, .Download, .Update, .PreLoad, .Install, [class^="Paus"], [class*=" Paus"]) {
+  background: var(--slate-blue);
+  color: #fff;
+}
+
+/* CM3 — checked items: #6dcff6 text + check mark → light Slate blue (Steam 0,2,0 → 0,3,0) */
+.BasicUI .gamepadcontextmenu_contextMenuItem.menuChecked { color: var(--slate-blue-light); }
+.BasicUI .gamepadcontextmenu_contextMenuItem .contextMenuCheckMark { background-color: var(--slate-blue-light); }

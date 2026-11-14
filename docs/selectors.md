@@ -714,3 +714,14 @@ Notes reuse the paged settings dialog inside the MainMenu window → `settings.c
 into `MainMenu` (all its rules carry `.BasicUI` +1 class, which MainMenu needs since Steam's sheets load
 after CSS Loader's there). Verified on hardware: neutral sidebar + Slate-blue marker, charcoal editor.
 
+## Context menus (`css/contextmenu.css`) — 2026-11-14
+`gamepadcontextmenu_*` (stable). Items `.contextMenuItem` #23262e → surface, excluding `Focused`
+(white), `active` (white) and `Selected` (#3d4450 → control). First/last item 12px corners (the
+contents box starts above the first item, so rounding it clips nothing). Separators black → charcoal.
+Focused action items (Steam `.Item.Focused.<action>` 0,3,0 → 0,4,0): play-type → `--slate-green`,
+install/update-type → `--slate-blue`, destructive (Stop/Cancel) keeps Steam red. Checked items
+#6dcff6 → light Slate blue. Verified on hardware (game ≡ menu).
+**Pitfalls:** the action classes `Play`, `Launch`, `Pause`, `Cancel` are translation names. A CSS
+escape (`.Pl\61 y`) does NOT work — CSS Loader doubles backslashes when injecting. Use a partial-word
+substring that isn't a name: `[class^="Pla"]`, `[class*=" Pla"]` (also matches PlayMusic), `"Launc"`, `"Paus"`.
+

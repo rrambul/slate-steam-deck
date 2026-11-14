@@ -44,6 +44,9 @@
     "css/media.css": [
       "bigpicture"
     ],
+    "css/contextmenu.css": [
+      "bigpicture"
+    ],
     "css/plugins.css": [
       "bigpicture"
     ],

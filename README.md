@@ -62,6 +62,7 @@ css/store.css       Store home (Gaming Mode only; light pass on the website)
 css/keyboard.css    on-screen keyboard (Default theme only)
 css/search.css      top-bar search results
 css/media.css       Media (screenshots & recordings grid)
+css/contextmenu.css game context menus (≡ Options)
 css/plugins.css     third-party Decky plugin badges (protondb-decky, playcount-decky)
 css/mainmenu.css    STEAM-button side menu (injected into the MainMenu page)
 css/quickaccess.css Quick Access menu (… button; injected into the QuickAccess page)
