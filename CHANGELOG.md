@@ -35,6 +35,8 @@ The version lives in `theme.json` (shown by CSS Loader) and as a git tag `vX.Y.Z
 - **On-screen keyboard** (`css/keyboard.css`, Default theme only): charcoal panel and keys, Slate-blue
   toggles, extra keys, pointer and key-press flash; rounded keys; Points Shop keyboard themes
   untouched.
+- **Steam's color scales remapped** (navy greys → neutral, blues → Slate blue, lime greens → Slate
+  green), which reaches newer client components — e.g. the in-game Achievements panel and its toggles.
 - **In-game STEAM menu** (game running): neutral game submenu glow, charcoal controller-layout preview,
   neutral separator.
 - **Friends & Chat**: chat header with Slate green/blue presence accent, Slate presence colors for

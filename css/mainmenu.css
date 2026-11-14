@@ -60,3 +60,6 @@
   background: linear-gradient(90deg, transparent 2%, rgba(244, 244, 245, .15) 50%, transparent 98%);
 }
 .BasicUI .libraryassetimage_GreyBackground.libraryassetimage_GreyBackground { background-color: var(--slate-surface); }
+/* in-game submenu active dot #1a9fff → Slate blue (Steam 0,2,0) */
+.BasicUI [class*="_2b6L36XnXUqFHHkGE4_2mv"] [class*="_3Il1BD4p9lccpjISQKhR1X"] { background: var(--slate-blue); }
+

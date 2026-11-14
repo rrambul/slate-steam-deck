@@ -694,3 +694,13 @@ navy .9 (/.8 with `_3moC2Hs…`) → charcoal; ScrollMask `sfthxkhui6WSgvnbllI_n
 white .15; running-app icon placeholder (`libraryassetimage_GreyBackground`, MainMenu window) → surface.
 Verified on hardware (Final Fantasy Resonance running).
 
+## Steam palette scales (A8, `accents.css`) + in-game Achievements — 2026-11-14
+Newer client components (in-game Achievements panel `#171d25`, pill toggles `--color-accent-8` /
+`--color-dull-8`, …) take colors from Steam's 12-step scales on `:root`: `--color-greyneutral-1…12` and
+`--color-dull-1…12` (navy greys #060a0e…#b8bcbf), `--color-accent-1…12` = `--color-blue-1…12`
+(#0d1520…#c2e6ff), `--color-green-1…12` (lime; 1/2/6 are #00ff00 placeholders). All remapped on
+`.BasicUI` (bigpicture, MainMenu, QuickAccess) to same-lightness neutral greys / Slate blue scale /
+Slate green scale. Values read with `getComputedStyle(html).getPropertyValue()` (custom props don't
+enumerate). Achievements (MainMenu window, game running) verified neutral on hardware; in-game submenu
+active dot `[class*="_3Il1BD4p9lccpjISQKhR1X"]` → Slate blue.
+

@@ -94,3 +94,39 @@
   background: var(--slate-control);
   animation-name: slate-row-focus;
 }
+
+/* A8 — Steam's 12-step palette scales (used by newer components: in-game Achievements panel,
+ * pill toggles, etc.). Remapped at the root of each page, same lightness per step, no hue:
+ * greyneutral/dull (navy greys) → neutral greys; accent/blue → Slate blue scale; green (lime) →
+ * Slate green scale. Steps 1/2/6 of green are #00ff00 placeholders in Steam and are left alone. */
+.BasicUI {
+  --color-greyneutral-1: #08090a;   --color-dull-1: #08090a;
+  --color-greyneutral-2: var(--slate-bg);       --color-dull-2: var(--slate-bg);
+  --color-greyneutral-3: #16171a;   --color-dull-3: #16171a;
+  --color-greyneutral-4: #1a1b1e;   --color-dull-4: #1a1b1e;
+  --color-greyneutral-5: #1d1e21;   --color-dull-5: #1d1e21;
+  --color-greyneutral-6: var(--slate-surface);  --color-dull-6: var(--slate-surface);
+  --color-greyneutral-7: #303236;   --color-dull-7: #303236;
+  --color-greyneutral-8: var(--slate-control);  --color-dull-8: var(--slate-control);
+  --color-greyneutral-9: #4f5156;   --color-dull-9: #4f5156;
+  --color-greyneutral-10: #6c6e73;  --color-dull-10: #6c6e73;
+  --color-greyneutral-11: #919396;  --color-dull-11: #919396;
+  --color-greyneutral-12: #bbbcbe;  --color-dull-12: #bbbcbe;
+  --color-accent-1: #0f1318;  --color-blue-1: #0f1318;
+  --color-accent-2: #12171e;  --color-blue-2: #12171e;
+  --color-accent-3: #15233a;  --color-blue-3: #15233a;
+  --color-accent-4: #172c4a;  --color-blue-4: #172c4a;
+  --color-accent-5: #1b355a;  --color-blue-5: #1b355a;
+  --color-accent-6: #214370;  --color-blue-6: #214370;
+  --color-accent-7: #285c9c;  --color-blue-7: #285c9c;
+  --color-accent-8: var(--slate-blue);          /* --color-blue-8 already set above */
+  --color-accent-9: #4a86cc;  --color-blue-9: #4a86cc;
+  --color-accent-10: #5d95d6; --color-blue-10: #5d95d6;
+  --color-accent-11: var(--slate-blue-light);   --color-blue-11: var(--slate-blue-light);
+  --color-accent-12: var(--slate-blue-pale);    --color-blue-12: var(--slate-blue-pale);
+  --color-green-3: #24412f;  --color-green-4: #2a4d38;  --color-green-5: #2f5a40;
+  --color-green-7: #2b7a52;  --color-green-8: var(--slate-green);
+  --color-green-9: #3a9a68;  --color-green-10: #4aad78;
+  --color-green-11: var(--slate-green-light);  --color-green-12: #b5e2c9;
+}
+
