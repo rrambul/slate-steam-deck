@@ -1,0 +1,13 @@
+/* Slate — media.css
+ * Media (screenshots & recordings grid). Injected into: bigpicture. Colors are already neutral here;
+ * this is shape only. No stable translation names → hash substrings (fail safe).
+ * Each item draws its own 2px focus border (white), so rounding the item rounds the focus with it.
+ */
+
+/* MD1 — grid items: square → rounded (item 10px with its 2px border; thumbnail 8px inside it) */
+.BasicUI [class*="_2-7fqz03LhYHKEBI-HwIPq"] {
+  border-radius: calc(var(--slate-radius-card) + 2px);
+}
+.BasicUI [class*="_2-7fqz03LhYHKEBI-HwIPq"] [class*="_2hcrnBEslc1Awh2IFpGA7W"] {
+  border-radius: var(--slate-radius-card);
+}

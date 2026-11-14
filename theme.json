@@ -40,6 +40,9 @@
     "css/search.css": [
       "bigpicture"
     ],
+    "css/media.css": [
+      "bigpicture"
+    ],
     "css/plugins.css": [
       "bigpicture"
     ],

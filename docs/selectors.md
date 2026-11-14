@@ -663,6 +663,11 @@ Game Properties reuses the paged settings dialog (S1–S5 apply). Per-tab (scann
 #3a7fd5 → Slate blue (0,7,0 vs 0,6,0); betas table (no stable names: `_3jWpi0kJp…` table, `X3pN_ESh…`
 header, `_1LCoWsUr…` rows with `_2fy9…`/`_231y…` stripes, `_2d_FE9TO…` radio) → neutral, rounded, Slate-blue
 selected bar. Steam's high-contrast (black/white) variants left alone. Verified.
-Not reachable by route: Friends & Chat (`/friends` renders empty — separate web view) and Media
-(`/media` renders empty) — check when the user opens them from the menu.
+Not reachable by route: Friends & Chat (`/friends` renders empty — separate web view); check when the
+user opens it from the menu. Media renders only when opened from the menu (route `/media/grid`).
+
+## Media (`css/media.css`) — 2026-11-14
+Screenshots/recordings grid. Colors already neutral; shape only. No stable names: item
+`[class*="_2-7fqz03LhYHKEBI-HwIPq"]` (wEPhzApt_ListItem — draws its own 2px white focus border) → 10px;
+thumbnail `[class*="_2hcrnBEslc1Awh2IFpGA7W"]` → 8px inside it. Verified on hardware (focused item).
 
