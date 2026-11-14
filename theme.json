@@ -26,7 +26,8 @@
       "bigpicture"
     ],
     "css/settings.css": [
-      "bigpicture"
+      "bigpicture",
+      "MainMenu"
     ],
     "css/downloads.css": [
       "bigpicture"

@@ -709,3 +709,8 @@ active dot `[class*="_3Il1BD4p9lccpjISQKhR1X"]` → Slate blue.
 #23262e → surface 8px; pager `button.DialogButton` 8px; global `focusring_FocusRing` rounded via
 `:root:has(.overlayguides_OverlayGuidesHome .gpfocus)` (MainMenu window). Verified on hardware.
 
+### In-game Notes — 2026-11-14
+Notes reuse the paged settings dialog inside the MainMenu window → `settings.css` is now also injected
+into `MainMenu` (all its rules carry `.BasicUI` +1 class, which MainMenu needs since Steam's sheets load
+after CSS Loader's there). Verified on hardware: neutral sidebar + Slate-blue marker, charcoal editor.
+

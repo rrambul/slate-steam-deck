@@ -38,7 +38,8 @@ The version lives in `theme.json` (shown by CSS Loader) and as a git tag `vX.Y.Z
 - **Steam's color scales remapped** (navy greys → neutral, blues → Slate blue, lime greens → Slate
   green), which reaches newer client components — e.g. the in-game Achievements panel and its toggles.
 - **In-game STEAM menu** (game running): neutral game submenu glow, charcoal controller-layout preview,
-  neutral separator; Guides with charcoal lists, rounded neutral cards, pager and focus ring.
+  neutral separator; Guides with charcoal lists, rounded neutral cards, pager and focus ring; Notes
+  styled like Settings.
 - **Friends & Chat**: chat header with Slate green/blue presence accent, Slate presence colors for
   names (incl. away and focused rows), neutral dividers, buttons, history and entry; selected Quick
   Access tab neutral (its fade-in animation swapped for a Slate one).

@@ -1,6 +1,6 @@
 /* Slate — settings.css
  * Gaming Mode Settings (STEAM › Settings) and the generic full-screen Gamepad page shell that hosts it.
- * Injected into: bigpicture. Steam's cool blue-greys → Slate neutrals, same layering:
+ * Injected into: bigpicture + MainMenu (in-game Notes reuse the paged dialog there). Steam's cool blue-greys → Slate neutrals, same layering:
  *   page shell (navy) → canvas, content column → --slate-bg, sidebar + rows → --slate-surface.
  * Rules carry .BasicUI (+1 class) so they win regardless of sheet order. See docs/selectors.md.
  */
