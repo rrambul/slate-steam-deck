@@ -91,7 +91,10 @@
 .BasicUI .FriendChatTypingNotification {
   background: linear-gradient(to top, rgba(17, 18, 20, .9) 0%, rgba(17, 18, 20, .9) 12px, rgba(17, 18, 20, 0) 80%);
 }
-.BasicUI .chatWindow .chatEntry > .chatentry_chatEntryControls.chatentry_chatEntryControls { box-shadow: 0 0 10px rgba(0, 0, 0, .5); }
+.BasicUI .chatWindow .chatEntry > .chatentry_chatEntryControls.chatentry_chatEntryControls {
+  box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+  background-color: rgba(32, 34, 38, .45);  /* cool rgba(35,38,46,.45) → neutral */
+}
 .BasicUI .chatentry_chatEntryControls [class*="RVIs84dAE6wHcjH9tkinc"]:not([class*="jaQN2IyN4P8LZXJ6P11qy"]):not(.gpfocus) {
   background-color: var(--slate-control);
 }

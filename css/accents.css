@@ -130,3 +130,13 @@
   --color-green-11: var(--slate-green-light);  --color-green-12: #b5e2c9;
 }
 
+
+/* A9 — small status labels:
+ * DEMO banner on capsules #8bba52 → Slate green (white text 4.5:1);
+ * "friends playing now" badge #59bf40 / in Friends tab #236c39 (focused #59bf40) → Slate greens;
+ * Recently-updated event-type labels are a category palette (beige / blue / pale green / wheat /
+ * purple) — only the blue types (#5fa3d3: patch notes, …) → light Slate blue, the rest keep theirs. */
+.BasicUI .appdetailsheader_DemoBanner { background-color: var(--slate-green); }
+.BasicUI .appdetailsfriendssection_FriendsPlayingNowBadge.appdetailsfriendssection_FriendsPlayingNowBadge { background-color: var(--slate-green); }
+.BasicUI .appdetailsfriendssection_FriendsPlayingNowBadge.appdetailsfriendssection_InFriendsTab:not([class*="mHKj-UeGQdjT9lC0rOGdq"]) { background-color: #22684a; }
+.BasicUI .recentlycompleted_EventType.recentlycompleted_EventType:is(.recentlycompleted_EventType13, [class*="_3MFItBS7mzl0KUY8rGlRVR"]) { color: var(--slate-blue-light); }

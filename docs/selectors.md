@@ -734,3 +734,23 @@ neutral (**`WidgetHeaderCtn` collides** with a translation name). Kept: sale lab
 "Franchise sale"… — Valve deal branding), artwork frames (e.g. Once Human's gold border is in the image).
 Full-page scan clean; verified on hardware.
 
+## Full sweep (2026-11-14, before 0.5.1)
+- Scope fix: store rules now use `html.GamepadMode` (the wishlist page's root has no `client` class, so
+  `html.client.GamepadMode` missed it entirely). The desktop client's store never has `GamepadMode`.
+- Power menu: same component as context menus → already styled. Quick Access tabs (Notifications,
+  Friends, Settings, Performance, Help, Music, Decky): clean; chat entry box cool .45 → neutral.
+- Library tabs (Great on Deck, All, Installed, Favorites, Non-Steam, Soundtracks): clean except the
+  "friends playing" dot `appportrait_FriendsBar .appportrait_SummaryLeader` #a1f410 → light Slate green (L3).
+- Home/game page status labels (A9): `appdetailsheader_DemoBanner` → Slate green;
+  `appdetailsfriendssection_FriendsPlayingNowBadge` → Slate greens; `recentlycompleted_EventType` blue
+  types (EventType13, `_3MFItBS…`) → light Slate blue, other category colors kept.
+- Store search / category / wishlist / specials (ST15): wishlist header, nav (`WCG-2-OYepA-`), buttons,
+  input, section bar + underline, count badge; category tab strip, video rows, tab underline, price-row
+  chips. Colliding names avoided: `SaleSectionCtn`, `SaleSectionTabListContainer`,
+  `SaleSectionTabContainer`, `AppVideoCtn`, `StoreSalePrepurchaseLabel`.
+- Left on purpose: colors a page sets **inline** from its own configuration (category/sale page
+  background, specials section strip, wishlist per-game placeholder colors from the art) — same rule as
+  branded sales.
+- Not reachable remotely: Library Filter/Sort dialog (Y button), confirmation dialogs (not triggered —
+  destructive actions), lock screen.
+

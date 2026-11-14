@@ -1,6 +1,6 @@
 /* Slate — store.css
  * The Steam Store in Gaming Mode (store.steampowered.com in the client's browser view).
- * Injected into: store. Scoped to `html.client.GamepadMode` so the desktop client's store is untouched.
+ * Injected into: store. Scoped to `html.GamepadMode` (Gaming Mode store + wishlist pages; the wishlist root has no `client` class) so the desktop client's store is untouched.
  * The store is a website Valve changes often, so this is a light pass on long-stable, unhashed
  * classes only (no store React hashes — they're not in CSS Loader's table and churn): canvas, game
  * cards, small badges. Purchase/checkout pages aren't targeted. Review-score colors (Very Positive
@@ -9,34 +9,34 @@
  */
 
 /* ST1 — page canvas: navy #0f1924 → charcoal */
-html.client.GamepadMode body {
+html.GamepadMode body {
   background: var(--slate-bg);
   color: #d4d6d9;  /* Steam's body text #ccd8e3 (pale blue-grey) → neutral; inherited text follows */
 }
 
 /* ST2 — main game cards (Featured & Recommended…): rounded; info panel's blue gradient + inner blue
  * glow → neutral raised gradient, no glow. */
-html.client.GamepadMode .store_main_capsule {
+html.GamepadMode .store_main_capsule {
   border-radius: var(--slate-radius-card);
   overflow: hidden;
 }
-html.client.GamepadMode .store_main_capsule .info {
+html.GamepadMode .store_main_capsule .info {
   background: linear-gradient(0deg, rgba(244, 244, 245, .05) 5%, rgba(244, 244, 245, .09) 65%, rgba(244, 244, 245, .07) 100%);
   box-shadow: none;
 }
 
 /* ST3 — small badges on cards (all rows): Deck-compat chip navy glass → charcoal glass; wishlist flag
  * #03628b and "in library" flag #4f95bd → Slate blue (as on Home). */
-html.client.GamepadMode .ds_steam_deck_compat {
+html.GamepadMode .ds_steam_deck_compat {
   background-color: var(--slate-glass);
 }
-html.client.GamepadMode .ds_flag:is(.ds_wishlist_flag, .ds_owned_flag) {
+html.GamepadMode .ds_flag:is(.ds_wishlist_flag, .ds_owned_flag) {
   background-color: var(--slate-blue);
 }
 
 /* ST4 — store nav bar (Browse / Recommendations / … / Wishlist): navy radial → same radial in
  * surface grey. Store React hash (not in CSS Loader's table) → substring, fails safe. */
-html.client.GamepadMode [class*="XLbP8xOkCYw-"] {
+html.GamepadMode [class*="XLbP8xOkCYw-"] {
   background-image: radial-gradient(107.95% 57.49% at 50% 100%,
     rgba(32, 34, 38, .2) 0%, rgba(32, 34, 38, .52) 5%, rgba(32, 34, 38, .85) 20%,
     rgb(32, 34, 38) 60%, rgb(29, 30, 34) 100%);
@@ -44,7 +44,7 @@ html.client.GamepadMode [class*="XLbP8xOkCYw-"] {
 
 /* ST5 — the store's own focus ring (a separate element with a 2px outline over the focused item):
  * rounded only while a rounded game card has focus, like the client's Home rows. */
-html.client.GamepadMode:has(.store_main_capsule:is(.gpfocus, :focus)) [class*="bXqaBMkoZYQ-"] {
+html.GamepadMode:has(.store_main_capsule:is(.gpfocus, :focus)) [class*="bXqaBMkoZYQ-"] {
   border-radius: var(--slate-radius-card);
 }
 
@@ -52,29 +52,29 @@ html.client.GamepadMode:has(.store_main_capsule:is(.gpfocus, :focus)) [class*="b
  * sale-card description panels (creator / tags / recently updated) blue radial; discount blocks'
  * blue gradient; community recommendation cards #000f18; Personal Calendar day cards (store React
  * hash, substring) blue gradient. */
-html.client.GamepadMode .sale_capsule :is(.creator_capsule_ctn, .deep_dive_key_tags, .recently_updated_desc) {
+html.GamepadMode .sale_capsule :is(.creator_capsule_ctn, .deep_dive_key_tags, .recently_updated_desc) {
   background: radial-gradient(161.29% 1235.17% at -3.1% 130.83%, #2c2e33 0%, #1d1e22 60%, #25272b 100%);
 }
-html.client.GamepadMode .home_discount_games_ctn {
+html.GamepadMode .home_discount_games_ctn {
   background: linear-gradient(0deg, rgba(244, 244, 245, .05) 5%, rgba(244, 244, 245, .09) 65%, rgba(244, 244, 245, .07) 100%);
 }
-html.client.GamepadMode .community_recommendation_app {
+html.GamepadMode .community_recommendation_app {
   background-color: var(--slate-surface);
 }
-html.client.GamepadMode [class*="maxz19gKOQc-"] {
+html.GamepadMode [class*="maxz19gKOQc-"] {
   background-image: linear-gradient(rgba(244, 244, 245, .10) 0%, rgba(244, 244, 245, .06) 100%);
 }
 /* Tabbed list (Popular New Releases / Top Sellers…): focused row cool rgba(115,150,184,.25) → neutral */
-html.client.GamepadMode .tab_row_item.focus {
+html.GamepadMode .tab_row_item.focus {
   background-color: rgba(244, 244, 245, .12);
 }
 
 /* ST7 — accents: calendar "NEW" chip #1a9fff (store hash, substring) → Slate blue; loading throbber
  * #67c1f5 → light Slate blue. */
-html.client.GamepadMode [class*="x8jWPgfdVoI-"] {
+html.GamepadMode [class*="x8jWPgfdVoI-"] {
   background-color: var(--slate-blue);
 }
-html.client.GamepadMode .LoadingThrobber .Bar {
+html.GamepadMode .LoadingThrobber .Bar {
   background-color: var(--slate-blue-light);
 }
 
@@ -93,7 +93,7 @@ html.client.GamepadMode .LoadingThrobber .Bar {
  * rule. Same lightness/alpha, no hue: navy "Dark" overlays → charcoal; blue-grey "Light" overlays →
  * neutral; store grey ramp → neutral ramp; blues/greens → Slate versions. Red/orange/yellow (warnings)
  * are information and stay Steam's. */
-html.client.GamepadMode {
+html.GamepadMode {
   --gpBackground-DarkHard: rgba(17, 18, 20, .8);
   --gpBackground-DarkMedium: rgba(17, 18, 20, .6);
   --gpBackground-DarkSoft: rgba(17, 18, 20, .4);
@@ -117,7 +117,7 @@ html.client.GamepadMode {
 }
 
 /* ST8 — store color variables (used by some components): navy greys + Steam blue → Slate */
-html.client.GamepadMode {
+html.GamepadMode {
   --color-greyneutral-2: var(--slate-bg);
   --color-greyneutral-4: #18191c;
   --color-greyneutral-6: var(--slate-surface);
@@ -127,61 +127,61 @@ html.client.GamepadMode {
 
 /* ST9 — dialogs (e.g. Steam Deck Compatibility): #0e141b + #23262e border → charcoal + neutral edge;
  * the scroll fades at top/bottom follow. */
-html.client.GamepadMode .DialogContent {
+html.GamepadMode .DialogContent {
   background-color: var(--slate-bg);
   border-color: rgba(244, 244, 245, .08);
   border-radius: 12px;
 }
 /* The Deck Compatibility dialog forces #0e141b with !important → answered with !important (the one
  * case where Slate uses it: overriding Steam's own !important). */
-html.client.GamepadMode :is(.DeckVerifiedModalDialogClient, .DeckVerifiedModalDialog) .DialogContent._DialogLayout {
+html.GamepadMode :is(.DeckVerifiedModalDialogClient, .DeckVerifiedModalDialog) .DialogContent._DialogLayout {
   background: var(--slate-bg) !important;
 }
-html.client.GamepadMode .DialogContent_InnerWidth > [class*="Z8zypUObkYE-"]::before {
+html.GamepadMode .DialogContent_InnerWidth > [class*="Z8zypUObkYE-"]::before {
   background-image: linear-gradient(var(--slate-bg), transparent);
 }
-html.client.GamepadMode .DialogContent_InnerWidth > [class*="Z8zypUObkYE-"]::after {
+html.GamepadMode .DialogContent_InnerWidth > [class*="Z8zypUObkYE-"]::after {
   background-image: linear-gradient(transparent, var(--slate-bg));
 }
 
 /* ST10 — game page surfaces: info panels navy .5 → charcoal .5; purchase box blue gradient →
  * neutral; side panel #17202c → surface; price row #071d35 → deep charcoal. */
-html.client.GamepadMode [class*="alRCY87ae-s-"] { background-color: rgba(17, 18, 20, .5); }
-html.client.GamepadMode [class*="icJTR-r-wDw-"] {
+html.GamepadMode [class*="alRCY87ae-s-"] { background-color: rgba(17, 18, 20, .5); }
+html.GamepadMode [class*="icJTR-r-wDw-"] {
   background-image: linear-gradient(rgba(244, 244, 245, .10) 0%, rgba(244, 244, 245, .05) 100%);
   border-radius: var(--slate-radius-card);
 }
 /* compat dialog tab pills #17202c → surface; the active pill (modifier hash Tw-TchJW1T8-) and the
  * focused one keep Steam's white. ("ActiveTab" is a CSS Loader translation name — not usable.) */
-html.client.GamepadMode [class*="AYShSUpazpQ-"]:not([class*="Tw-TchJW1T8-"]):not(.gpfocus) {
+html.GamepadMode [class*="AYShSUpazpQ-"]:not([class*="Tw-TchJW1T8-"]):not(.gpfocus) {
   background-color: var(--slate-surface);
 }
-html.client.GamepadMode [class*="icJTR-r-wDw-"] [class*="SalePriceWidgetContainer"] { background-color: var(--slate-bg-deep); }
+html.GamepadMode [class*="icJTR-r-wDw-"] [class*="SalePriceWidgetContainer"] { background-color: var(--slate-bg-deep); }
 
 /* ST11 — user tag chips: blue #004074 + Steam-blue text → neutral chip, light text */
-html.client.GamepadMode [class*="bEoYeP62vKg-"] {
+html.GamepadMode [class*="bEoYeP62vKg-"] {
   background-color: rgba(244, 244, 245, .08);
   border-radius: 999px;
 }
-html.client.GamepadMode [class*="bEoYeP62vKg-"] [class*="oDEFTUumdv8-"] { color: #dcdedf; }
+html.GamepadMode [class*="bEoYeP62vKg-"] [class*="oDEFTUumdv8-"] { color: #dcdedf; }
 
 /* ST12 — accents: links/highlighted text #1a9fff / #56abff → light Slate blue; "Learn more" button
  * and small blue badges #1a9fff → Slate blue. */
 /* `oDEFTUumdv8-` is the store's generic "blue text" (description, labels, section headers, title) →
  * neutral text so the page doesn't read blue; headers muted, title white. Links stay light Slate blue. */
-html.client.GamepadMode [class*="oDEFTUumdv8-"] { color: #c7c9cd; }
-html.client.GamepadMode [class*="onLSYXBtvEU-"] { color: var(--slate-text); }
-html.client.GamepadMode [class*="PvkZ1H4YD7c-"],
-html.client.GamepadMode [class*="alRCY87ae-s-"] > [class*="oDEFTUumdv8-"] { color: var(--slate-muted-light); }
+html.GamepadMode [class*="oDEFTUumdv8-"] { color: #c7c9cd; }
+html.GamepadMode [class*="onLSYXBtvEU-"] { color: var(--slate-text); }
+html.GamepadMode [class*="PvkZ1H4YD7c-"],
+html.GamepadMode [class*="alRCY87ae-s-"] > [class*="oDEFTUumdv8-"] { color: var(--slate-muted-light); }
 /* trailer progress: played part (modifier eBjRkRA8NpA-) #1a9fff → Slate blue; buffered part untouched.
  * Review panel text: Steam colors the whole "ALL TIME: Very Positive…" line one blue regardless of the
  * score, so neutral is right there; score-coded text elsewhere (`.ddSW8NTrpmA-` #67c1f5) is kept. */
-html.client.GamepadMode [class*="BffT7IQWKYg-"][class*="eBjRkRA8NpA-"] { background-color: var(--slate-blue); }
-html.client.GamepadMode [class*="GeWSoC6e568-"],
-html.client.GamepadMode [class*="WGUFkBLPn8E-"],
-html.client.GamepadMode [class*="heKA7rr02xo-"] { color: var(--slate-blue-light); }  /* + "40 FPS" and its chevron */
-html.client.GamepadMode [class*="S0TPsOpik3c-"],
-html.client.GamepadMode [class*="QilvZ2g5iKM-"] {
+html.GamepadMode [class*="BffT7IQWKYg-"][class*="eBjRkRA8NpA-"] { background-color: var(--slate-blue); }
+html.GamepadMode [class*="GeWSoC6e568-"],
+html.GamepadMode [class*="WGUFkBLPn8E-"],
+html.GamepadMode [class*="heKA7rr02xo-"] { color: var(--slate-blue-light); }  /* + "40 FPS" and its chevron */
+html.GamepadMode [class*="S0TPsOpik3c-"],
+html.GamepadMode [class*="QilvZ2g5iKM-"] {
   background-color: var(--slate-blue);
   border-radius: 8px;
 }
@@ -190,76 +190,114 @@ html.client.GamepadMode [class*="QilvZ2g5iKM-"] {
  * remaining navy / blue-tinted surfaces → neutral. Kept: Metacritic score, discount green, the EULA
  * notice's warm tone (information). Hash substrings throughout (fail safe). */
 /* page shell */
-html.client.GamepadMode :is(.page_content.middle_page, .block_content.page_content) { background-color: rgba(17, 18, 20, .8); }
-html.client.GamepadMode .game_background_lighten {
+html.GamepadMode :is(.page_content.middle_page, .block_content.page_content) { background-color: rgba(17, 18, 20, .8); }
+html.GamepadMode .game_background_lighten {
   background: radial-gradient(1000px 153px at 50% top, rgb(44, 46, 51), rgba(0, 0, 0, 0));
 }
 /* media: trailer/screenshot frame, header capsule column, description images & videos */
-html.client.GamepadMode [class*="zveLzqpea5Q-"] { border-radius: var(--slate-radius-card); overflow: hidden; }
-html.client.GamepadMode [class*="JHqvAwJwrJY-"] :is(img, video) { border-radius: var(--slate-radius-card); }
+html.GamepadMode [class*="zveLzqpea5Q-"] { border-radius: var(--slate-radius-card); overflow: hidden; }
+html.GamepadMode [class*="JHqvAwJwrJY-"] :is(img, video) { border-radius: var(--slate-radius-card); }
 /* purchase option boxes: blue gradient → neutral, rounded */
-html.client.GamepadMode [class*="FneGtSBNXCI-"] {
+html.GamepadMode [class*="FneGtSBNXCI-"] {
   background: linear-gradient(rgba(244, 244, 245, .10) 0%, rgba(244, 244, 245, .05) 100%);
   border-radius: var(--slate-radius-card);
 }
 /* info panels (Reviews / Deck compat / Tags / Game info) */
-html.client.GamepadMode [class*="alRCY87ae-s-"] { border-radius: var(--slate-radius-card); }
+html.GamepadMode [class*="alRCY87ae-s-"] { border-radius: var(--slate-radius-card); }
 /* DLC list rows (+ featured row image) cool .14 → neutral */
-html.client.GamepadMode [class*="k4U-U7-NtBA-"] { background-color: rgba(244, 244, 245, .06); border-radius: 6px; }
-html.client.GamepadMode [class*="k4U-U7-NtBA-"] img { border-radius: 6px; }
+html.GamepadMode [class*="k4U-U7-NtBA-"] { background-color: rgba(244, 244, 245, .06); border-radius: 6px; }
+html.GamepadMode [class*="k4U-U7-NtBA-"] img { border-radius: 6px; }
 /* news/event cards: cool radial → neutral, rounded */
-html.client.GamepadMode .OtherEvents_EventCtn {
+html.GamepadMode .OtherEvents_EventCtn {
   background: radial-gradient(at 0 0, #44464b, #25272b);
   border-radius: var(--slate-radius-card);
   overflow: hidden;
 }
 /* sidebar: feature rows + languages (#67c1f5/.1), relevance tags (.2), news/links box, other panels */
-html.client.GamepadMode :is([class*="vEPSMT4v-yc-"], [class*="RAdU2xWu3-4-"]) {
+html.GamepadMode :is([class*="vEPSMT4v-yc-"], [class*="RAdU2xWu3-4-"]) {
   background-color: rgba(244, 244, 245, .06);
   border-radius: 6px;
 }
-html.client.GamepadMode [class*="_3qdZjzvKgfw-"] { background-color: rgba(244, 244, 245, .10); border-radius: 999px; }
-html.client.GamepadMode [class*="yDw9gqlgbxM-"] { background-color: rgba(244, 244, 245, .08); border-radius: var(--slate-radius-card); }
-html.client.GamepadMode [class*="dA19VXylzCQ-"] { background-color: var(--slate-surface); border-radius: var(--slate-radius-card); }
-html.client.GamepadMode [class*="jzzyZV9Ndlw-"] { border-radius: var(--slate-radius-card); }
+html.GamepadMode [class*="_3qdZjzvKgfw-"] { background-color: rgba(244, 244, 245, .10); border-radius: 999px; }
+html.GamepadMode [class*="yDw9gqlgbxM-"] { background-color: rgba(244, 244, 245, .08); border-radius: var(--slate-radius-card); }
+html.GamepadMode [class*="dA19VXylzCQ-"] { background-color: var(--slate-surface); border-radius: var(--slate-radius-card); }
+html.GamepadMode [class*="jzzyZV9Ndlw-"] { border-radius: var(--slate-radius-card); }
 /* off-topic review notice: cool grey .36 → neutral */
-html.client.GamepadMode [class*="ftI4LxM9C-k-"] { background-color: rgba(244, 244, 245, .08); border-radius: var(--slate-radius-card); }
+html.GamepadMode [class*="ftI4LxM9C-k-"] { background-color: rgba(244, 244, 245, .08); border-radius: var(--slate-radius-card); }
 /* buttons: store buttons 2px → 8px; legacy Follow/Ignore (btnv6) cool .44 → neutral */
-html.client.GamepadMode [class*="j8iZOirRLc8-"] { border-radius: 8px; }
-html.client.GamepadMode .btnv6_blue_hoverfade,
-html.client.GamepadMode .btnv6_blue_hoverfade > span { background: rgba(244, 244, 245, .12); border-radius: 8px; }
+html.GamepadMode [class*="j8iZOirRLc8-"] { border-radius: 8px; }
+html.GamepadMode .btnv6_blue_hoverfade,
+html.GamepadMode .btnv6_blue_hoverfade > span { background: rgba(244, 244, 245, .12); border-radius: 8px; }
 /* price block: round so the discount box corners clip with it */
-html.client.GamepadMode [class*="ZLlm68-AqhM-"] { border-radius: 6px; overflow: hidden; }
+html.GamepadMode [class*="ZLlm68-AqhM-"] { border-radius: 6px; overflow: hidden; }
 /* section headers' blue rule (rgba(84,116,140,.4)) → neutral */
-html.client.GamepadMode [class*="PvkZ1H4YD7c-"] { border-color: rgba(244, 244, 245, .12); }
+html.GamepadMode [class*="PvkZ1H4YD7c-"] { border-color: rgba(244, 244, 245, .12); }
 /* "More from…" / "More like this" capsules */
 /* ("CapsuleImageCtn" is a CSS Loader translation name — matched by its hash instead) */
-html.client.GamepadMode [class*="mspnwaz0EAg-"] { border-radius: var(--slate-radius-card); overflow: hidden; }
+html.GamepadMode [class*="mspnwaz0EAg-"] { border-radius: var(--slate-radius-card); overflow: hidden; }
 /* Metacritic score keeps its color, just rounded */
-html.client.GamepadMode [class*="LXuyTO7ejPo-"] { border-radius: 6px; }
+html.GamepadMode [class*="LXuyTO7ejPo-"] { border-radius: 6px; }
 /* small link text: --gpColor-Blue (now Slate blue #2D74C4) is too dark for small text on charcoal →
  * light Slate blue for links ("IGN", "Read more", the "+" expander); relevance tags → neutral text */
-html.client.GamepadMode :is([class*="V-l7vWhrqVo-"], [class*="ZTOMwbUkto4-"], [class*="oGgdefKPK7A-"]) { color: var(--slate-blue-light); }
-html.client.GamepadMode [class*="_3qdZjzvKgfw-"] { color: #dcdedf; }
+html.GamepadMode :is([class*="V-l7vWhrqVo-"], [class*="ZTOMwbUkto4-"], [class*="oGgdefKPK7A-"]) { color: var(--slate-blue-light); }
+html.GamepadMode [class*="_3qdZjzvKgfw-"] { color: #dcdedf; }
 
 /* ST14 — store home: the remaining capsule types (most rows — "Recommended based on…", "Because you
  * played…", DLC, sale rows — use `.sale_capsule`; community picks use their own) → rounded; price blocks
  * rounded; tabbed-list rows rounded; the store focus ring rounds on any of these. */
-html.client.GamepadMode :is(.sale_capsule, .community_recommendation_capsule, .community_recommendation_app) {
+html.GamepadMode :is(.sale_capsule, .community_recommendation_capsule, .community_recommendation_app) {
   border-radius: var(--slate-radius-card);
   overflow: hidden;
 }
-html.client.GamepadMode .discount_block { border-radius: 6px; overflow: hidden; }
-html.client.GamepadMode .tab_row_item { border-radius: 6px; }
-html.client.GamepadMode:has(:is(.sale_capsule, .community_recommendation_capsule, .community_recommendation_app, .tab_row_item):is(.gpfocus, :focus)) [class*="bXqaBMkoZYQ-"] {
+html.GamepadMode .discount_block { border-radius: 6px; overflow: hidden; }
+html.GamepadMode .tab_row_item { border-radius: 6px; }
+html.GamepadMode:has(:is(.sale_capsule, .community_recommendation_capsule, .community_recommendation_app, .tab_row_item):is(.gpfocus, :focus)) [class*="bXqaBMkoZYQ-"] {
   border-radius: var(--slate-radius-card);
 }
 /* Discovery Queue widget: teal-blue body #386483 → control; purple→blue header gradient → neutral
  * (same treatment as the client's Home widget). "WidgetHeaderCtn" is a CSS Loader translation name →
  * matched by its store hash. Sale labels ("Franchise sale", "Weekend deal"…) are Valve's deal branding
  * and keep their colors. */
-html.client.GamepadMode :is([class*="q6mo6TFfdDs-"], [class*="tyZYjXnErOU-"]) { background-color: var(--slate-control); }
-html.client.GamepadMode [class*="q6mo6TFfdDs-"] { border-radius: var(--slate-radius-card); overflow: hidden; }
-html.client.GamepadMode [class*="dycaOmod9zw-"] {
+html.GamepadMode :is([class*="q6mo6TFfdDs-"], [class*="tyZYjXnErOU-"]) { background-color: var(--slate-control); }
+html.GamepadMode [class*="q6mo6TFfdDs-"] { border-radius: var(--slate-radius-card); overflow: hidden; }
+html.GamepadMode [class*="dycaOmod9zw-"] {
   background-image: linear-gradient(77deg, #2f3034 0%, var(--slate-control) 50%, rgba(67, 67, 71, 0) 70%);
 }
+
+/* ST15 — wishlist + category (content hub) pages. Store hashes by substring (fail safe); colliding
+ * names (SaleSectionCtn, SaleSectionTab*Container, AppVideoCtn, StoreSalePrepurchaseLabel) avoided.
+ * Branded seasonal sale pages keep their own art/colors — only the default content-hub page is touched. */
+/* category hub background #0f1924 → charcoal */
+html.GamepadMode .react_landing_background,
+html.GamepadMode .ContentHubSalePage .SaleCustomCSS { background-color: var(--slate-bg); }
+/* section tab strip gradient → neutral; active tab underline #1a9fff → Slate blue */
+html.GamepadMode [class*="_5uN-ZG0AdmQ-"] { background-image: linear-gradient(0deg, #2c2d31 0%, #55575c 100%); }
+html.GamepadMode [class*="i8Nz35tfmTA-"] { background-image: linear-gradient(0deg, #222326 0%, rgba(44, 46, 51, .5) 100%); }
+html.GamepadMode [class*="lCddIzY8s9c-"]::after { background-color: var(--slate-blue); }
+/* video rows + video overlay + small capsule glass → neutral; video progress #99d4ff → light Slate blue */
+html.GamepadMode [class*="nCkAuTRum5w-"] { background-image: radial-gradient(at 0 0, var(--slate-control) 0%, var(--slate-surface) 90%); }
+html.GamepadMode [class*="NH1MEWmeFeg-"] { background-color: rgba(32, 34, 38, .6); }
+html.GamepadMode [class*="-D61WKs-ZxQ-"] { background-color: var(--slate-blue-light); }
+html.GamepadMode [class*="BD3vXqZ-6yI-"] .ImpressionTrackedElement { background-image: radial-gradient(at 0 0, rgba(110, 112, 116, .6), rgba(70, 72, 76, .4)); }
+html.GamepadMode [class*="_5F2vJItlDB0-"] { background-color: rgba(17, 18, 20, .3); }
+/* price-row accents: blue chip #3a9bed → Slate blue; prepurchase label #2c3c49 → neutral */
+html.GamepadMode [class*="eNdjZ1XB-fk-"] { background-color: var(--slate-blue); }
+html.GamepadMode [class*="DfwzMU92EL4-"] span { background-color: #2a2c30; }
+html.GamepadMode [class*="JuZBiq95wYE-"] button.DialogButton { background-color: var(--slate-control); border-radius: 8px; }
+/* wishlist: header gradient navy → neutral; its own nav bar (same radial as the store nav) and
+ * search-row glass → neutral; buttons / input / section bar → neutral, rounded; count badge and
+ * section underline #1a9fff → Slate blue; image placeholder gradients (teal) → neutral */
+html.GamepadMode [class*="PE-3oq-yIvg-"] { background-image: linear-gradient(340deg, #1b1c1f 10%, #232427 50%, #26282b 80%, #1e1f22 95%); }
+html.GamepadMode [class*="WCG-2-OYepA-"] {
+  background-image: radial-gradient(107.95% 57.49% at 50% 100%,
+    rgba(32, 34, 38, .2) 0%, rgba(32, 34, 38, .52) 5%, rgba(32, 34, 38, .85) 20%,
+    rgb(32, 34, 38) 60%, rgb(29, 30, 34) 100%);
+}
+html.GamepadMode :is([class*="rGuH1gD4ryg-"], [class*="hjG2apu1gQc-"]) { background-color: rgba(32, 34, 38, .6); }
+html.GamepadMode :is([class*="U3ndjc3qoW8-"], [class*="PzuczM6OUSY-"]) { background-color: var(--slate-control); border-radius: 8px; }
+html.GamepadMode [class*="QoJP0e0vzFA-"] { background-color: #3a3b3f; border-radius: 8px; }
+html.GamepadMode [class*="t-LlQicBZjE-"] { background-color: #3e3f43; }
+html.GamepadMode [class*="t-LlQicBZjE-"]::after { background-color: var(--slate-blue); }
+html.GamepadMode [class*="O7UR3Sc3EmM-"] { background-color: var(--slate-blue); }
+html.GamepadMode [class*="mpKocPQdcN4-"],
+html.GamepadMode [class*="cFn3BDbAK-g-"] { background-image: linear-gradient(#5d6066 5%, #45474b 95%); }

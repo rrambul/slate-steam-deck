@@ -12,6 +12,12 @@ The version lives in `theme.json` (shown by CSS Loader) and as a git tag `vX.Y.Z
 - Theme target `Home` → `System-Wide` (it styles every Gaming Mode screen); new description.
 - Removed the one universal selector (`*`) from the CSS. See `docs/deckthemes-checklist.md`.
 ### Fixed
+- Store: wishlist pages weren't styled at all (their page root lacks a class the store rules required) —
+  now covered; wishlist header, nav, buttons, search and badges, and category pages' tab strip, video rows
+  and accents are neutral / Slate.
+- Small status labels: DEMO banner, "friends playing now" badge and the friends-playing dot on Library
+  capsules → Slate greens; blue "patch notes" event labels → light Slate blue.
+- Friends & Chat: chat entry box neutral.
 - Store home: the remaining game capsules (Recommended / Because you played / DLC / sale rows,
   community picks), price tags and list rows are now rounded, with a matching rounded focus ring;
   the store's Discovery Queue widget is neutral.

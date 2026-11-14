@@ -28,3 +28,7 @@
 .appportrait_InCollection .libraryassetimage_Image {
   border-radius: var(--slate-radius-card);
 }
+
+/* L3 — "friends playing" counter on capsules: lime dot #a1f410 → light Slate green (in-game status).
+ * Steam: `.FriendsBar .SummaryLeader` (0,2,0) → 0,3,0. */
+.BasicUI .appportrait_FriendsBar .appportrait_SummaryLeader { background-color: var(--slate-green-light); }
