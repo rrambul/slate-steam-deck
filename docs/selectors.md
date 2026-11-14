@@ -589,3 +589,25 @@ progress bars 6px fully rounded; item buttons + Clear All 8px; rows 8px; thumbna
 Tooling note: CDP preview CSS must be run through a name→hash translation (scratchpad translate.mjs)
 — raw stable names only work after CSS Loader injects them.
 
+## Store (`css/store.css`) — 2026-11-14
+Injected into CSS Loader's `store` target (store.steampowered.com / steamcommunity.com tabs; `tokens.css`
+too). Scoped to `html.client.GamepadMode` (the desktop client's store is untouched). The store is a
+website: classes are unhashed long-lived names (checked: none collide with CSS Loader translation
+names) plus a few store React hashes (`XLbP8xOkCYw-` nav, `bXqaBMkoZYQ-` focus ring, `maxz19gKOQc-`
+calendar card, `x8jWPgfdVoI-` NEW chip) matched by substring — fail safe. Review-score colors kept.
+Light pass: home page only; purchase/checkout not targeted. Verified on hardware (full-page capture
+via `captureBeyondViewport`, no UI scrolling).
+
+| Selector | Steam | Slate |
+|---|---|---|
+| `body` (ST1) | #0f1924 | `--slate-bg` |
+| `.store_main_capsule` / `.info` (ST2) | square / blue gradient + inner blue glow | 8px / neutral gradient, no glow |
+| `.ds_steam_deck_compat` / `.ds_flag.ds_wishlist_flag`, `.ds_owned_flag` (ST3) | navy glass / #03628b, #4f95bd | `--slate-glass` / `--slate-blue` |
+| nav `[class*="XLbP8xOkCYw-"]` (ST4) | navy radial | surface radial |
+| focus ring `[class*="bXqaBMkoZYQ-"]` while a `.store_main_capsule` is focused (ST5) | square | 8px |
+| `.sale_capsule :is(.creator_capsule_ctn, .deep_dive_key_tags, .recently_updated_desc)`, `.home_discount_games_ctn`, `.community_recommendation_app`, calendar `[class*="maxz19gKOQc-"]`, `.tab_row_item.focus` (ST6) | blue radials/gradients, #000f18, cool .25 | neutral equivalents |
+| NEW chip `[class*="x8jWPgfdVoI-"]`, `.LoadingThrobber .Bar` (ST7) | #1a9fff, #67c1f5 | `--slate-blue`, `--slate-blue-light` |
+
+Left as-is: category tiles (`content_hub_capsule_ctn .gradient` — the color is the category art), two
+unidentified store-hash widgets (`jxYpM-g5fRs-` teal gradient, `hjG2apu1gQc-`).
+

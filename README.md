@@ -49,7 +49,7 @@ In CSS Loader, open **Slate** to choose:
 
 ## Structure
 ```
-theme.json          CSS Loader manifest (v9) — injects css/* into Gaming Mode (bigpicture, MainMenu, QuickAccess, notification toasts)
+theme.json          CSS Loader manifest (v9) — injects css/* into Gaming Mode (bigpicture, MainMenu, QuickAccess, notification toasts, store)
 css/tokens.css      design tokens (--slate-*): palette, canvas gradient, radius
 css/canvas.css      global charcoal canvas
 css/home.css        Home rows, cards, hero styling shared by both options, focus ring
@@ -58,6 +58,7 @@ css/library.css     Library background, placeholders, cards
 css/gamepage.css    game details page: backgrounds, action button, controls, activity
 css/settings.css    Settings (and the shared full-screen page shell)
 css/downloads.css   Downloads page + top-bar download progress
+css/store.css       Store home (Gaming Mode only; light pass on the website)
 css/plugins.css     third-party Decky plugin badges (protondb-decky, playcount-decky)
 css/mainmenu.css    STEAM-button side menu (injected into the MainMenu page)
 css/quickaccess.css Quick Access menu (… button; injected into the QuickAccess page)

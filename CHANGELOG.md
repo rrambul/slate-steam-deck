@@ -24,6 +24,10 @@ The version lives in `theme.json` (shown by CSS Loader) and as a git tag `vX.Y.Z
   fade; top-bar download progress line → Slate blue. Layout: the active download is an inset,
   rounded card (art fades into it, soft shadow, no full-width seam), glass "managing downloads" pill,
   calmer section titles, rounded progress bars, buttons, rows and thumbnails.
+- **Store** (`css/store.css`, Gaming Mode only): charcoal page and nav bar, rounded game cards with
+  neutral info panels and a matching rounded focus ring, neutral sale/discount/community/calendar
+  panels, Slate-blue wishlist/in-library/NEW badges. Review-score colors kept. Light pass on the
+  home page; purchase pages untouched.
 - **Notifications** (`css/notifications.css`, also injected into notification toasts): friend
   in-game strip, "Playing: <game>" text and the unread dot → light Slate green; online strip → Slate blue.
 

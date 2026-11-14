@@ -1,0 +1,79 @@
+/* Slate — store.css
+ * The Steam Store in Gaming Mode (store.steampowered.com in the client's browser view).
+ * Injected into: store. Scoped to `html.client.GamepadMode` so the desktop client's store is untouched.
+ * The store is a website Valve changes often, so this is a light pass on long-stable, unhashed
+ * classes only (no store React hashes — they're not in CSS Loader's table and churn): canvas, game
+ * cards, small badges. Purchase/checkout pages aren't targeted. Review-score colors (Very Positive
+ * blue, Mixed tan, Negative red) are the information and stay Steam's.
+ * Checked: none of these class names collide with CSS Loader translation names.
+ */
+
+/* ST1 — page canvas: navy #0f1924 → charcoal */
+html.client.GamepadMode body {
+  background: var(--slate-bg);
+}
+
+/* ST2 — main game cards (Featured & Recommended…): rounded; info panel's blue gradient + inner blue
+ * glow → neutral raised gradient, no glow. */
+html.client.GamepadMode .store_main_capsule {
+  border-radius: var(--slate-radius-card);
+  overflow: hidden;
+}
+html.client.GamepadMode .store_main_capsule .info {
+  background: linear-gradient(0deg, rgba(244, 244, 245, .05) 5%, rgba(244, 244, 245, .09) 65%, rgba(244, 244, 245, .07) 100%);
+  box-shadow: none;
+}
+
+/* ST3 — small badges on cards (all rows): Deck-compat chip navy glass → charcoal glass; wishlist flag
+ * #03628b and "in library" flag #4f95bd → Slate blue (as on Home). */
+html.client.GamepadMode .ds_steam_deck_compat {
+  background-color: var(--slate-glass);
+}
+html.client.GamepadMode .ds_flag:is(.ds_wishlist_flag, .ds_owned_flag) {
+  background-color: var(--slate-blue);
+}
+
+/* ST4 — store nav bar (Browse / Recommendations / … / Wishlist): navy radial → same radial in
+ * surface grey. Store React hash (not in CSS Loader's table) → substring, fails safe. */
+html.client.GamepadMode [class*="XLbP8xOkCYw-"] {
+  background-image: radial-gradient(107.95% 57.49% at 50% 100%,
+    rgba(32, 34, 38, .2) 0%, rgba(32, 34, 38, .52) 5%, rgba(32, 34, 38, .85) 20%,
+    rgb(32, 34, 38) 60%, rgb(29, 30, 34) 100%);
+}
+
+/* ST5 — the store's own focus ring (a separate element with a 2px outline over the focused item):
+ * rounded only while a rounded game card has focus, like the client's Home rows. */
+html.client.GamepadMode:has(.store_main_capsule:is(.gpfocus, :focus)) [class*="bXqaBMkoZYQ-"] {
+  border-radius: var(--slate-radius-card);
+}
+
+/* ST6 — other home rows' navy panels → neutral:
+ * sale-card description panels (creator / tags / recently updated) blue radial; discount blocks'
+ * blue gradient; community recommendation cards #000f18; Personal Calendar day cards (store React
+ * hash, substring) blue gradient. */
+html.client.GamepadMode .sale_capsule :is(.creator_capsule_ctn, .deep_dive_key_tags, .recently_updated_desc) {
+  background: radial-gradient(161.29% 1235.17% at -3.1% 130.83%, #2c2e33 0%, #1d1e22 60%, #25272b 100%);
+}
+html.client.GamepadMode .home_discount_games_ctn {
+  background: linear-gradient(0deg, rgba(244, 244, 245, .05) 5%, rgba(244, 244, 245, .09) 65%, rgba(244, 244, 245, .07) 100%);
+}
+html.client.GamepadMode .community_recommendation_app {
+  background-color: var(--slate-surface);
+}
+html.client.GamepadMode [class*="maxz19gKOQc-"] {
+  background-image: linear-gradient(rgba(244, 244, 245, .10) 0%, rgba(244, 244, 245, .06) 100%);
+}
+/* Tabbed list (Popular New Releases / Top Sellers…): focused row cool rgba(115,150,184,.25) → neutral */
+html.client.GamepadMode .tab_row_item.focus {
+  background-color: rgba(244, 244, 245, .12);
+}
+
+/* ST7 — accents: calendar "NEW" chip #1a9fff (store hash, substring) → Slate blue; loading throbber
+ * #67c1f5 → light Slate blue. */
+html.client.GamepadMode [class*="x8jWPgfdVoI-"] {
+  background-color: var(--slate-blue);
+}
+html.client.GamepadMode .LoadingThrobber .Bar {
+  background-color: var(--slate-blue-light);
+}
+

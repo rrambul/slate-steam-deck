@@ -10,7 +10,8 @@
       "bigpicture",
       "MainMenu",
       "QuickAccess",
-      "notificationtoasts_.*"
+      "notificationtoasts_.*",
+      "store"
     ],
     "css/canvas.css": [
       "bigpicture"
@@ -29,6 +30,9 @@
     ],
     "css/downloads.css": [
       "bigpicture"
+    ],
+    "css/store.css": [
+      "store"
     ],
     "css/plugins.css": [
       "bigpicture"
