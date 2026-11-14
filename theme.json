@@ -24,6 +24,9 @@
     "css/gamepage.css": [
       "bigpicture"
     ],
+    "css/settings.css": [
+      "bigpicture"
+    ],
     "css/plugins.css": [
       "bigpicture"
     ],

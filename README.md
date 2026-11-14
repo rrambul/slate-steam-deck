@@ -56,6 +56,7 @@ css/home.css        Home rows, cards, hero styling shared by both options, focus
 css/hero-full.css   Hero = Full: full-screen layout (patch, injected only when selected)
 css/library.css     Library background, placeholders, cards
 css/gamepage.css    game details page: backgrounds, action button, controls, activity
+css/settings.css    Settings (and the shared full-screen page shell)
 css/plugins.css     third-party Decky plugin badges (protondb-decky, playcount-decky)
 css/mainmenu.css    STEAM-button side menu (injected into the MainMenu page)
 css/quickaccess.css Quick Access menu (… button; injected into the QuickAccess page)

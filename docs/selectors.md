@@ -535,3 +535,28 @@ Verified in Quick Access › Notifications on hardware; toasts not yet seen live
 Also: `quickaccessmenu_Title` navy glow `box-shadow: 0 0 7px 12px #0e141b` → same glow in `--slate-bg`
 (it drew navy bands above/below the Quick Access title).
 
+## Settings (`css/settings.css`) — 2026-11-14
+Injected into `bigpicture`. Steam's cool blue-greys → Slate neutrals with the same layering.
+
+| Selector | Steam | Slate | Verified |
+|---|---|---|---|
+| `.gamepadpage_GamepadPage.gamepadpage_DialogBackground` (S1, full-screen page shell) | navy radial | `--slate-canvas` | ✓ |
+| `.gamepadpagedsettings_PagedSettingsDialog` / `…_ContentColumn` (S2) | #0e141b / #1a1c21 | `--slate-bg` | ✓ |
+| `.gamepadpagedsettings_PagedSettingsDialog_PageListColumn` (S2, sidebar) | #2b2d33 | `--slate-surface` | ✓ |
+| `…_PageListItem.gamepadpagedsettings_Active` / `:focus` (S3) | blue gradient .22/.40 + #1a9fff bar | neutral gradient .08/.16 + `--slate-blue` bar | ✓ |
+| `.gamepaddialog_Field[class*="_2CCdODv0vfzOMrEBUzZwfI"]` (S4, boxed row; modifier `Background` has no stable name) | #23262e, square | `--slate-surface`, 8px (rows sit 6px apart) | ✓ |
+| `PagedSettingsDialog button.DialogButton(:enabled)` (S5) | 2px | 8px (0,4,1) | ✓ |
+| `networksettings_Checkmark`, `customizationsettings_Checkmark` (S6) | #59bf40 | `--slate-green-light` | pending |
+| `contentmanagement_DriveUsage{Games,Workshop,FreeSpace,Indicator}`, Media `[class*="_2h-2O3n134sdwgtdM_Fuqr"]` (S7) | #1a9fff / #59bf40 / #3d4450 / cool stripes / #236c39 | Slate blue / green-light / control / neutral stripes / Slate green; DLC + shader purples kept (category colors are the information) | pending |
+| `.libraryassetimage_GreyBackground` doubled (S7) | `.BasicUI` #0e141b (0,2,0) | `--slate-surface` (0,3,0) | pending |
+| `gamepadslider_SliderNotchTick.gamepadslider_TickActive` (S8) | #1a9fff (0,2,0) | `--slate-blue` (0,3,0) | pending |
+| `gamepaddialog_FieldDescription a` (S9) | #6dcff6 | `--slate-blue-light` | pending |
+| `[class*="_3Vl2zkYPoCpw1q_1n28D3z"]` (S10, Downloads panel, `FakeContainer`) | #23262e | surface, 8px | pending |
+| `[class*="_7EGqd8bdiXJBd2fj5Hh8r"]` + `MYyv…` active + `_1gKI…` pip (S11, Game Recording) | #23262e, cool overlays, #1a9fff pip | surface, neutral overlays .08/.14, `--slate-blue` pip | pending |
+| `familysharedcomponents_MeBadge` (S12) | #59bf40 + dark text | `--slate-green-light` + dark text | pending |
+
+Focused dialog row (A7, `accents.css`): Steam sets #3d4450 *and* runs `ItemFocusAnim-darkGreySettings`
+(fill-mode forwards, ends #383a41). Animations beat normal declarations, so the rule swaps
+`animation-name` for `slate-row-focus` (surface → `--slate-control`, muted → white). Verified ✓.
+Gotcha: when a color won't change although the rule wins the cascade, check `el.getAnimations()`.
+

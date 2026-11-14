@@ -9,7 +9,15 @@ The version lives in `theme.json` (shown by CSS Loader) and as a git tag `vX.Y.Z
 - Tab "new" dot (What's New on Home) and the online avatar strip (top-bar profile picture, friends
   list) → Slate blue `#2D74C4`, the same blue as Install and the toggles (the strip was light Slate blue).
 - Quick Access title: its navy glow (bands above/below the title) → charcoal.
+- Focused rows in Steam dialogs (Settings, Quick Access settings…): blue-grey highlight → neutral,
+  same fade-in.
 ### Added
+- **Settings** (`css/settings.css`): charcoal page and content, surface sidebar and rounded rows,
+  neutral sidebar highlight with a Slate-blue marker, 8px buttons. Per tab: Wi-Fi and Customization
+  checkmarks → Slate green; Storage chart in Slate hues (purples kept) with neutral free space;
+  active slider ticks, Game Recording selection and description links → Slate blue; Downloads and
+  Game Recording panels neutral; Family "Me" badge → light Slate green. The full-screen page shell
+  shared by other pages also gets the charcoal canvas.
 - **Notifications** (`css/notifications.css`, also injected into notification toasts): friend
   in-game strip, "Playing: <game>" text and the unread dot → light Slate green; online strip → Slate blue.
 

@@ -1,0 +1,110 @@
+/* Slate — settings.css
+ * Gaming Mode Settings (STEAM › Settings) and the generic full-screen Gamepad page shell that hosts it.
+ * Injected into: bigpicture. Steam's cool blue-greys → Slate neutrals, same layering:
+ *   page shell (navy) → canvas, content column → --slate-bg, sidebar + rows → --slate-surface.
+ * Rules carry .BasicUI (+1 class) so they win regardless of sheet order. See docs/selectors.md.
+ */
+
+/* S1 — page shell: navy radial #060a0e→#0e141b (`.GamepadPage.DialogBackground`, 0,2,0) → canvas.
+ * Shared by other full-screen pages (Downloads, Store hub, …) — same swap everywhere. */
+.BasicUI .gamepadpage_GamepadPage.gamepadpage_DialogBackground {
+  background: var(--slate-canvas);
+}
+
+/* S2 — settings dialog: frame #0e141b, content column #1a1c21, page list (sidebar) #2b2d33 */
+.BasicUI .gamepadpagedsettings_PagedSettingsDialog {
+  background: var(--slate-bg);
+}
+.BasicUI .gamepadpagedsettings_PagedSettingsDialog .gamepadpagedsettings_PagedSettingDialog_ContentColumn {
+  background: var(--slate-bg);
+}
+.BasicUI .gamepadpagedsettings_PagedSettingsDialog_PageListColumn {
+  background: var(--slate-surface);
+}
+
+/* S3 — sidebar items: Steam-blue gradient (active .22, focused .40) + blue left bar on focus →
+ * neutral highlight + Slate-blue bar (same idea as the main menu: neutral pill, blue marker).
+ * Steam: `.Item.Active` (0,2,0), `.Item:focus` (0,2,0). */
+.BasicUI .gamepadpagedsettings_PagedSettingsDialog_PageListItem.gamepadpagedsettings_Active {
+  background: linear-gradient(90deg, rgba(244, 244, 245, .08) 0%, rgba(244, 244, 245, 0) 100%);
+}
+.BasicUI .gamepadpagedsettings_PagedSettingsDialog_PageListItem:focus {
+  background: linear-gradient(90deg, rgba(244, 244, 245, .16) 0%, rgba(244, 244, 245, 0) 100%);
+  border-left-color: var(--slate-blue);
+}
+
+/* S4 — setting rows: #23262e → surface, rounded. Only the boxed row variant (`Background`) has a
+ * background; that modifier has no stable translation name, so it's matched by hash substring (fails safe:
+ * if Steam renames it the rows just keep Steam's color). Steam: `.Field.<variant>` (0,2,0). */
+.BasicUI .gamepaddialog_Field[class*="_2CCdODv0vfzOMrEBUzZwfI"] {
+  background: var(--slate-surface);
+  border-radius: var(--slate-radius-card);  /* rows sit 6px apart, so each is its own card */
+}
+
+/* S5 — buttons and dropdowns (Check For Updates, language, channel…): 2px → 8px.
+ * Steam's strongest: button.….DialogButton:enabled (0,3,1) → 0,4,1 here. */
+.BasicUI .gamepadpagedsettings_PagedSettingsDialog button.DialogButton,
+.BasicUI .gamepadpagedsettings_PagedSettingsDialog button.DialogButton:enabled {
+  border-radius: 8px;
+}
+
+/* S6 — status checkmarks: connected Wi-Fi (Internet), selected item (Customization)
+ * #59bf40 → light Slate green. Steam: single class (0,1,0). */
+.BasicUI :is(.networksettings_Checkmark, .customizationsettings_Checkmark) {
+  color: var(--slate-green-light);
+}
+
+/* S7 — Storage usage chart. The category colors ARE the information (legend dots match bar
+ * segments), so each keeps its hue in its Slate version; purples (DLC, shaders) stay Steam's.
+ * Free space: cool striped #363d48/#3d4450 → neutral stripes. Steam: single class (0,1,0). */
+.BasicUI .contentmanagement_DriveUsageGames { background-color: var(--slate-blue); }
+.BasicUI .contentmanagement_DriveUsageWorkshop { background-color: var(--slate-green-light); }
+.BasicUI [class*="_2h-2O3n134sdwgtdM_Fuqr"] { background-color: var(--slate-green); }  /* Media (no stable name) */
+.BasicUI .contentmanagement_DriveUsageFreeSpace { background-color: var(--slate-control); }
+.BasicUI .contentmanagement_DriveUsageIndicator {
+  background: repeating-linear-gradient(315deg, #3a3b3f, #3a3b3f 10px, var(--slate-control) 10px, var(--slate-control) 20px);
+}
+/* Game art placeholders in the Storage list (and anywhere else this variant is used):
+ * navy #0e141b → surface. Steam: `.BasicUI .GreyBackground` (0,2,0) → 0,3,0. */
+.BasicUI .libraryassetimage_GreyBackground.libraryassetimage_GreyBackground {
+  background-color: var(--slate-surface);
+}
+
+/* S8 — slider notch ticks (Keyboard, Display…): active tick #1a9fff → Slate blue (0,2,0 → 0,3,0) */
+.BasicUI .gamepadslider_SliderNotchTick.gamepadslider_TickActive {
+  background-color: var(--slate-blue);
+}
+
+/* S9 — links in setting descriptions (In Game: "Learn more"…): Steam link blue #6dcff6 →
+ * light Slate blue (readable on charcoal). */
+.BasicUI .gamepaddialog_FieldDescription a {
+  color: var(--slate-blue-light);
+}
+
+/* S10 — Downloads settings panel (no stable name): #23262e → surface, rounded like the rows. */
+.BasicUI [class*="_3Vl2zkYPoCpw1q_1n28D3z"] {
+  background-color: var(--slate-surface);
+  border-radius: var(--slate-radius-card);
+}
+
+/* S11 — Game Recording mode cards (no stable names; hash substrings fail safe).
+ * Card #23262e → surface; hover/focus and selected cool overlays → neutral overlays;
+ * selected radio pip #1a9fff → Slate blue. Steam's selected rule follows its focus rule at equal
+ * specificity, so the same order is kept here. */
+.BasicUI [class*="_7EGqd8bdiXJBd2fj5Hh8r"] {
+  background-color: var(--slate-surface);
+}
+.BasicUI [class*="_7EGqd8bdiXJBd2fj5Hh8r"]:is(:hover, .gpfocus) {
+  background-color: rgba(244, 244, 245, .08);
+}
+.BasicUI [class*="_7EGqd8bdiXJBd2fj5Hh8r"][class*="MYyvJ6lNQZtM4MHwS-Y3g"] {
+  background-color: rgba(244, 244, 245, .14);
+}
+.BasicUI [class*="_7EGqd8bdiXJBd2fj5Hh8r"] [class*="_1gKI37LOWj1Df3QSnxvKyF"] {
+  background-color: var(--slate-blue);
+}
+
+/* S12 — Family: "Me" badge #59bf40 (dark text) → light Slate green, keeps the dark text (8.9:1). */
+.BasicUI .familysharedcomponents_MeBadge {
+  background-color: var(--slate-green-light);
+}

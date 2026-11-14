@@ -78,3 +78,19 @@
 .BasicUI .gamepadtabbedpage_TabBadge[class*="dMeP6nQOzmGaNM8EMLiSk"] {
   background-color: var(--slate-blue);
 }
+
+/* A7 — focused dialog row (Settings, Quick Access settings, game properties…). Steam colors it
+ * twice: a static #3d4450 AND a 0.5s fade animation (`ItemFocusAnim-darkGreySettings`,
+ * #23262e/cool-grey text → #383a41/white) that ends on the blue-grey. Animations beat normal
+ * declarations, so the color can't be overridden directly — instead swap the animation for a
+ * Slate one with the same fade (surface/muted text → control/white). Only rows with the
+ * HighlightOnFocus modifier highlight. Steam's strongest: `.Field:not(.Classic).HighlightOnFocus
+ * .gpfocus` (0,4,0) → doubled Field here (0,5,0). */
+@keyframes slate-row-focus {
+  0%   { background: var(--slate-surface); color: var(--slate-muted-light); }
+  100% { background: var(--slate-control); color: #fff; }
+}
+.BasicUI .gamepaddialog_Field.gamepaddialog_Field.gamepaddialog_HighlightOnFocus:is(.gpfocus, .gpfocuswithin) {
+  background: var(--slate-control);
+  animation-name: slate-row-focus;
+}
