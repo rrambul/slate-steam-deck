@@ -621,3 +621,19 @@ charcoal, extended keys / toggles / pointer #1a9fff → `--slate-blue`, one-shot
 surface. Points Shop keyboard themes untouched. Injection verified (translated selector present);
 visual check pending (keyboard can't be opened remotely).
 
+### Store game pages + dialogs (ST8–ST12) — 2026-11-14
+New store React UI: classes are store CSS-module hashes (suffix `-`), all matched by substring (fail
+safe). ST8 overrides the store's own color variables (`--color-greyneutral-2/4/6/8`, `--color-blue-8`;
+only ~12 rules use them, cheap and robust). ST9: `.DialogContent` charcoal + neutral edge, 12px;
+Deck Compatibility dialog forces `#0e141b !important` on `.DeckVerifiedModalDialog(Client) .DialogContent._DialogLayout`
+→ answered with `!important` (Slate's rule: only against Steam's own !important / inline); scroll fades
+`Z8zypUObkYE-` ::before/::after. ST10: info panels `alRCY87ae-s-`, purchase box `icJTR-r-wDw-`, price row
+`[class*="SalePriceWidgetContainer"]` inside it, compat tab pills `AYShSUpazpQ-` excluding the active
+modifier `Tw-TchJW1T8-` and `.gpfocus` (a first attempt beat Steam's white active pill → dark icon on
+dark). ST11 tag chips `bEoYeP62vKg-` → neutral pills. ST12 links/text `oDEFTUumdv8-`, `GeWSoC6e568-`,
+"40 FPS" `WGUFkBLPn8E-` + chevron `heKA7rr02xo-` → light Slate blue; `S0TPsOpik3c-` ("Learn more"),
+`QilvZ2g5iKM-` → Slate blue. Kept: prices, discount green, review scores, Deck-compat status colors,
+ProtonDB tier badge. Collisions found and avoided: `StoreSalePriceWidgetContainer`,
+`StoreSaleDiscountBox`, `ActiveTab`, `v6` are CSS Loader translation names.
+Verified: Deck Compatibility dialog on hardware; page behind the dialog pending.
+

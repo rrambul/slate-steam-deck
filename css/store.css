@@ -77,3 +77,73 @@ html.client.GamepadMode .LoadingThrobber .Bar {
   background-color: var(--slate-blue-light);
 }
 
+
+/* ── Game pages + dialogs (new store React UI) ────────────────────────────────────────────────
+ * Almost everything here is a store CSS-module hash (suffix "-") that changes when Valve redeploys
+ * the store; every rule matches by substring so a rename just brings Steam's look back. Prices,
+ * discount green, review scores and Deck-compat status colors (Playable yellow, check green,
+ * SteamOS blue tick) are information and stay. NOTE: StoreSalePriceWidgetContainer /
+ * StoreSaleDiscountBox are CSS Loader translation names (would be rewritten) — never write them as
+ * class selectors here; use a non-name substring.
+ */
+
+/* ST8 — store color variables (used by some components): navy greys + Steam blue → Slate */
+html.client.GamepadMode {
+  --color-greyneutral-2: var(--slate-bg);
+  --color-greyneutral-4: #18191c;
+  --color-greyneutral-6: var(--slate-surface);
+  --color-greyneutral-8: var(--slate-control);
+  --color-blue-8: var(--slate-blue);
+}
+
+/* ST9 — dialogs (e.g. Steam Deck Compatibility): #0e141b + #23262e border → charcoal + neutral edge;
+ * the scroll fades at top/bottom follow. */
+html.client.GamepadMode .DialogContent {
+  background-color: var(--slate-bg);
+  border-color: rgba(244, 244, 245, .08);
+  border-radius: 12px;
+}
+/* The Deck Compatibility dialog forces #0e141b with !important → answered with !important (the one
+ * case where Slate uses it: overriding Steam's own !important). */
+html.client.GamepadMode :is(.DeckVerifiedModalDialogClient, .DeckVerifiedModalDialog) .DialogContent._DialogLayout {
+  background: var(--slate-bg) !important;
+}
+html.client.GamepadMode .DialogContent_InnerWidth > [class*="Z8zypUObkYE-"]::before {
+  background-image: linear-gradient(var(--slate-bg), transparent);
+}
+html.client.GamepadMode .DialogContent_InnerWidth > [class*="Z8zypUObkYE-"]::after {
+  background-image: linear-gradient(transparent, var(--slate-bg));
+}
+
+/* ST10 — game page surfaces: info panels navy .5 → charcoal .5; purchase box blue gradient →
+ * neutral; side panel #17202c → surface; price row #071d35 → deep charcoal. */
+html.client.GamepadMode [class*="alRCY87ae-s-"] { background-color: rgba(17, 18, 20, .5); }
+html.client.GamepadMode [class*="icJTR-r-wDw-"] {
+  background-image: linear-gradient(rgba(244, 244, 245, .10) 0%, rgba(244, 244, 245, .05) 100%);
+  border-radius: var(--slate-radius-card);
+}
+/* compat dialog tab pills #17202c → surface; the active pill (modifier hash Tw-TchJW1T8-) and the
+ * focused one keep Steam's white. ("ActiveTab" is a CSS Loader translation name — not usable.) */
+html.client.GamepadMode [class*="AYShSUpazpQ-"]:not([class*="Tw-TchJW1T8-"]):not(.gpfocus) {
+  background-color: var(--slate-surface);
+}
+html.client.GamepadMode [class*="icJTR-r-wDw-"] [class*="SalePriceWidgetContainer"] { background-color: var(--slate-bg-deep); }
+
+/* ST11 — user tag chips: blue #004074 + Steam-blue text → neutral chip, light text */
+html.client.GamepadMode [class*="bEoYeP62vKg-"] {
+  background-color: rgba(244, 244, 245, .08);
+  border-radius: 999px;
+}
+html.client.GamepadMode [class*="bEoYeP62vKg-"] [class*="oDEFTUumdv8-"] { color: #dcdedf; }
+
+/* ST12 — accents: links/highlighted text #1a9fff / #56abff → light Slate blue; "Learn more" button
+ * and small blue badges #1a9fff → Slate blue. */
+html.client.GamepadMode [class*="oDEFTUumdv8-"],
+html.client.GamepadMode [class*="GeWSoC6e568-"],
+html.client.GamepadMode [class*="WGUFkBLPn8E-"],
+html.client.GamepadMode [class*="heKA7rr02xo-"] { color: var(--slate-blue-light); }  /* + "40 FPS" and its chevron */
+html.client.GamepadMode [class*="S0TPsOpik3c-"],
+html.client.GamepadMode [class*="QilvZ2g5iKM-"] {
+  background-color: var(--slate-blue);
+  border-radius: 8px;
+}

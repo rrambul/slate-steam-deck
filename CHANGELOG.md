@@ -27,7 +27,9 @@ The version lives in `theme.json` (shown by CSS Loader) and as a git tag `vX.Y.Z
 - **Store** (`css/store.css`, Gaming Mode only): charcoal page and nav bar, rounded game cards with
   neutral info panels and a matching rounded focus ring, neutral sale/discount/community/calendar
   panels, Slate-blue wishlist/in-library/NEW badges. Review-score colors kept. Light pass on the
-  home page; purchase pages untouched.
+  home page; purchase pages untouched. Game pages: charcoal Steam Deck Compatibility dialog (selected
+  tab stays white), neutral info panels, purchase box and tag chips, light Slate-blue links;
+  compatibility status colors kept.
 - **On-screen keyboard** (`css/keyboard.css`, Default theme only): charcoal panel and keys, Slate-blue
   toggles, extra keys, pointer and key-press flash; Points Shop keyboard themes untouched.
 - **Notifications** (`css/notifications.css`, also injected into notification toasts): friend
