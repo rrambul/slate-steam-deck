@@ -36,6 +36,11 @@
   --key-emoji-category-highlight-background-color: var(--slate-control);
   --key-emoji-focused-background-color: var(--slate-muted-light);
 }
+/* keys: square → 6px (keys sit apart on the panel, so each reads as its own small card; the
+ * focused white key and the press flash (already 6px in Steam) follow) */
+.BasicUI .virtualkeyboard_Keyboard.DefaultTheme .virtualkeyboard_KeyboardKey {
+  border-radius: 6px;
+}
 /* pressed-key flash: #1a9fff (literal, 0,4,0) → Slate blue */
 .BasicUI .virtualkeyboard_Keyboard.DefaultTheme .virtualkeyboard_KeyboardKey.virtualkeyboard_Touched {
   background-color: var(--slate-blue);

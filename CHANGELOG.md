@@ -33,7 +33,8 @@ The version lives in `theme.json` (shown by CSS Loader) and as a git tag `vX.Y.Z
   neutrals (reaches parts of the store whose styles can't be inspected), and game pages get Slate
   shapes throughout (rounded media, cards, rows, buttons, capsules) with neutral text.
 - **On-screen keyboard** (`css/keyboard.css`, Default theme only): charcoal panel and keys, Slate-blue
-  toggles, extra keys, pointer and key-press flash; Points Shop keyboard themes untouched.
+  toggles, extra keys, pointer and key-press flash; rounded keys; Points Shop keyboard themes
+  untouched.
 - **Friends & Chat**: chat header with Slate green/blue presence accent, Slate presence colors for
   names (incl. away and focused rows), neutral dividers, buttons, history and entry; selected Quick
   Access tab neutral (its fade-in animation swapped for a Slate one).

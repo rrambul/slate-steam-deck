@@ -618,8 +618,8 @@ surface, keys #0e141b → `--slate-bg`, modifiers #000 → `--slate-bg-deep`, fo
 charcoal, extended keys / toggles / pointer #1a9fff → `--slate-blue`, one-shot + dead-key accents →
 `--slate-blue-light`, emoji highlight #3d4450 → control. Pressed-key flash (literal #1a9fff, 0,4,0) →
 `--slate-blue` at 0,5,0. Text preview bar `virtualkeyboardcontainer_VirtualKeyboardTextBuffer` #151f25 →
-surface. Points Shop keyboard themes untouched. Injection verified (translated selector present);
-visual check pending (keyboard can't be opened remotely).
+surface. Points Shop keyboard themes untouched. Keys 2px → 6px (`.DefaultTheme .KeyboardKey`).
+Verified on hardware (opened by the user; no Steam blue/green left).
 
 ### Store game pages + dialogs (ST8–ST12) — 2026-11-14
 New store React UI: classes are store CSS-module hashes (suffix `-`), all matched by substring (fail
