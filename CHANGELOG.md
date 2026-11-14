@@ -18,6 +18,10 @@ The version lives in `theme.json` (shown by CSS Loader) and as a git tag `vX.Y.Z
   active slider ticks, Game Recording selection and description links → Slate blue; Downloads and
   Game Recording panels neutral; Family "Me" badge → light Slate green. The full-screen page shell
   shared by other pages also gets the charcoal canvas.
+- **Downloads** (`css/downloads.css`): charcoal page and lists, neutral dividers and buttons;
+  download graph, progress bars and the active download's button in Slate blue/green (paused grey
+  kept); Patch Notes and device name in light Slate blue; the blue tint over the game art → neutral
+  fade; top-bar download progress line → Slate blue.
 - **Notifications** (`css/notifications.css`, also injected into notification toasts): friend
   in-game strip, "Playing: <game>" text and the unread dot → light Slate green; online strip → Slate blue.
 

@@ -1,0 +1,108 @@
+/* Slate — downloads.css
+ * Downloads page (Library › Downloads / top-bar download icon). Injected into: bigpicture.
+ * Same mapping as elsewhere: page navy → charcoal; Steam blue/green → their Slate versions
+ * (network = blue, disk = green, as in Steam); grey "paused" states keep Steam's grey (meaning).
+ * Variant classes without stable names are matched by hash substring (fail safe).
+ */
+
+/* D1 — page + sections: navy radial / #0e141b → canvas / charcoal.
+ * Steam: `.BasicUI .DownloadsPage` (0,2,0), `.BasicUI .TopSection .Section` (0,3,0),
+ * `.Section.<x>.Empty .RightSection` (0,4,0). */
+.BasicUI .downloads_DownloadsPage.downloads_DownloadsPage {
+  background: var(--slate-canvas);
+}
+.BasicUI .downloads_Section.downloads_Section.downloads_Section,
+.BasicUI .downloads_Section.downloads_Section.downloads_Empty [class*="_24D3LpyHe8-HbiQftVVsna"] {
+  background-color: var(--slate-bg);
+}
+/* section title rules ("Up Next ———"): cool #67707b/.3 → neutral (Steam 0,2,0) */
+.BasicUI .downloads_Rule.downloads_Rule {
+  background-color: rgba(244, 244, 245, .10);
+}
+
+/* D2 — links + text accents: Patch Notes #1a9fff → light Slate blue (hover → pale);
+ * "Managing downloads for THIS DEVICE" name #1a9fff → light Slate blue, its green (remote) variant
+ * → light Slate green. */
+.BasicUI .downloads_PatchNotes { color: var(--slate-blue-light); }
+.BasicUI .downloads_PatchNotes:hover { color: var(--slate-blue-pale); }
+.BasicUI [class*="_1bZTWHCV-uVaS5pEQLn-0Z"] { color: var(--slate-blue-light); }
+.BasicUI [class*="_1bZTWHCV-uVaS5pEQLn-0Z"][class*="MAz4a5CbYdLofX51lonjn"] { color: var(--slate-green-light); }
+
+/* D3 — device picker button (top-left): rest #3d4450 → control; focus/hover #1a9fff + blue shine
+ * → Slate blue + white shine; its green variant → Slate green. Steam up to 0,7,0. */
+.BasicUI .downloads_DownloadsPage.downloads_DownloadsPage [class*="_1XjtfRHLm0-7aFDsMlcIl-"] [class*="FmfZJt_PKB2p0mdDnNZ1a"] {
+  background: var(--slate-control);
+}
+.BasicUI .downloads_DownloadsPage.downloads_DownloadsPage [class*="_1XjtfRHLm0-7aFDsMlcIl-"] [class*="FmfZJt_PKB2p0mdDnNZ1a"]:is(.Focusable:focus, :hover) {
+  background: var(--slate-blue);
+}
+.BasicUI .downloads_DownloadsPage.downloads_DownloadsPage [class*="_1XjtfRHLm0-7aFDsMlcIl-"][class*="MAz4a5CbYdLofX51lonjn"] [class*="FmfZJt_PKB2p0mdDnNZ1a"]:is(.Focusable:focus, :hover) {
+  background: var(--slate-green);
+}
+.BasicUI .downloads_DownloadsPage.downloads_DownloadsPage [class*="_1XjtfRHLm0-7aFDsMlcIl-"] [class*="FmfZJt_PKB2p0mdDnNZ1a"]:is(.Focusable:focus, :hover)::after {
+  background-image: linear-gradient(75deg, rgba(255, 255, 255, 0) 33%, rgba(255, 255, 255, .35) 50%, rgba(255, 255, 255, 0) 66%);
+}
+
+/* D4 — download graph: network bars rgba(#1a9fff,.5) → Slate blue; disk line #59bf40 → light
+ * Slate green; legend icons follow. Steam's hover (white bars, 0,4,0) still wins. */
+.BasicUI .downloadgraph_DownloadGraph .downloadgraph_GraphBarDownload {
+  color: color-mix(in srgb, var(--slate-blue) 75%, transparent);
+}
+.BasicUI .downloadgraph_DownloadGraph .downloadgraph_GraphLine {
+  stroke: var(--slate-green-light);
+}
+.BasicUI .downloadgraph_Network.downloadgraph_Network svg { color: var(--slate-blue-light); }
+.BasicUI .downloadgraph_Disk.downloadgraph_Disk { background-color: var(--slate-green-light); }
+
+/* D5 — progress bars (active item + list items). Fill: #1a9fff → Slate blue; "downloading" variant
+ * (blue .5) → Slate blue 75%; disk/"updating files" variant → light Slate green; the grey
+ * (paused/queued) variant is excluded and keeps Steam's grey. Steam: `.Status .ProgressBar div`
+ * (0,2,1), variants 0,3,1 → base 0,4,1 here, variants 0,5,1. Track #3d4450 → control. */
+.BasicUI .downloads_ProgressBar.downloads_ProgressBar:not([class*="_2XedpgsgZ3gMAUuPRtnfld"]) div {
+  background-color: var(--slate-blue);
+}
+.BasicUI .downloads_ProgressBar.downloads_ProgressBar[class*="_2mLZnQr2HzWQ1K8D8xouc-"] div {
+  background-color: color-mix(in srgb, var(--slate-blue) 75%, transparent);
+}
+.BasicUI .downloads_ProgressBar.downloads_ProgressBar[class*="HifZB5TP6WNuubp1dzyxS"] div {
+  background-color: var(--slate-green-light);
+}
+.BasicUI .downloads_SectionItemStatus .downloads_ProgressBar.downloads_ProgressBar {
+  background-color: var(--slate-control);
+}
+
+/* D6 — item buttons (download now, pause…): rest #3d4450 → control; item hover → lighter neutral;
+ * the active download's button #1a9fff → Slate blue. Focus (white button, Steam 0,6,0) is left to
+ * Steam — the active rule excludes a focused row and a hovered button. */
+.BasicUI .downloads_SectionItem .downloads_Button.DialogButton:enabled {
+  background: var(--slate-control);
+}
+.BasicUI .downloads_SectionItem:hover .downloads_Button.DialogButton:enabled {
+  background: #5a5b60;
+}
+.BasicUI .downloads_SectionItemWrapper:not(.gpfocus) .downloads_SectionItem.downloads_Active .downloads_Button.DialogButton:enabled:not(:hover) {
+  background: var(--slate-blue);
+}
+
+/* D7 — active download panel: #0e141b → charcoal; focused #3d4450 → control (Steam 0,5,0 → 0,6,0). */
+.BasicUI .downloads_SectionItem.downloads_Active {
+  background-color: var(--slate-bg);
+}
+.BasicUI .downloads_SectionItemWrapper.downloads_SectionItemWrapper.gpfocus .downloads_SectionItem.downloads_Active {
+  background-color: var(--slate-control);
+}
+/* Hero art fade: a multiply gradient to Steam blue rgb(0,86,214) tinted the art's right side blue →
+ * multiply to charcoal, so the art fades into the stats panel without a hue. (Steam 0,3,0) */
+.BasicUI .downloadgraph_HeroAndLogo .downloadgraph_HeroContainer .downloadgraph_HeroGradient {
+  background: linear-gradient(to right, transparent 15%, var(--slate-bg) 90%);
+}
+/* Drag-to-reorder drop target (touch): blue radial → Slate blue radial (Steam 0,3,0 → 0,4,0). */
+.BasicUI .downloads_SectionList.downloads_DropOption.downloads_DragOver {
+  background: radial-gradient(100% 100% at 33% 45%, color-mix(in srgb, var(--slate-blue) 70%, #000) 0%, color-mix(in srgb, var(--slate-blue) 25%, #000) 100%);
+}
+
+/* D8 — top-bar download indicator (progress line under the game icon): #1a9fff → Slate blue.
+ * Steam: 0,4,0 → doubled bar class 0,5,0. Injected via bigpicture (the header lives there). */
+.BasicUI .header_HeaderDownloadContainer .header_HeaderAppPortraitContainer .header_HeaderDownloadProgressBarBackground .header_HeaderDownloadProgressBar {
+  background-color: var(--slate-blue);
+}

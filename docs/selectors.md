@@ -546,17 +546,36 @@ Injected into `bigpicture`. Steam's cool blue-greys → Slate neutrals with the 
 | `…_PageListItem.gamepadpagedsettings_Active` / `:focus` (S3) | blue gradient .22/.40 + #1a9fff bar | neutral gradient .08/.16 + `--slate-blue` bar | ✓ |
 | `.gamepaddialog_Field[class*="_2CCdODv0vfzOMrEBUzZwfI"]` (S4, boxed row; modifier `Background` has no stable name) | #23262e, square | `--slate-surface`, 8px (rows sit 6px apart) | ✓ |
 | `PagedSettingsDialog button.DialogButton(:enabled)` (S5) | 2px | 8px (0,4,1) | ✓ |
-| `networksettings_Checkmark`, `customizationsettings_Checkmark` (S6) | #59bf40 | `--slate-green-light` | pending |
-| `contentmanagement_DriveUsage{Games,Workshop,FreeSpace,Indicator}`, Media `[class*="_2h-2O3n134sdwgtdM_Fuqr"]` (S7) | #1a9fff / #59bf40 / #3d4450 / cool stripes / #236c39 | Slate blue / green-light / control / neutral stripes / Slate green; DLC + shader purples kept (category colors are the information) | pending |
-| `.libraryassetimage_GreyBackground` doubled (S7) | `.BasicUI` #0e141b (0,2,0) | `--slate-surface` (0,3,0) | pending |
-| `gamepadslider_SliderNotchTick.gamepadslider_TickActive` (S8) | #1a9fff (0,2,0) | `--slate-blue` (0,3,0) | pending |
-| `gamepaddialog_FieldDescription a` (S9) | #6dcff6 | `--slate-blue-light` | pending |
-| `[class*="_3Vl2zkYPoCpw1q_1n28D3z"]` (S10, Downloads panel, `FakeContainer`) | #23262e | surface, 8px | pending |
-| `[class*="_7EGqd8bdiXJBd2fj5Hh8r"]` + `MYyv…` active + `_1gKI…` pip (S11, Game Recording) | #23262e, cool overlays, #1a9fff pip | surface, neutral overlays .08/.14, `--slate-blue` pip | pending |
-| `familysharedcomponents_MeBadge` (S12) | #59bf40 + dark text | `--slate-green-light` + dark text | pending |
+| `networksettings_Checkmark`, `customizationsettings_Checkmark` (S6) | #59bf40 | `--slate-green-light` | ✓ |
+| `contentmanagement_DriveUsage{Games,Workshop,FreeSpace,Indicator}`, Media `[class*="_2h-2O3n134sdwgtdM_Fuqr"]` (S7) | #1a9fff / #59bf40 / #3d4450 / cool stripes / #236c39 | Slate blue / green-light / control / neutral stripes / Slate green; DLC + shader purples kept (category colors are the information) | ✓ |
+| `.libraryassetimage_GreyBackground` doubled (S7) | `.BasicUI` #0e141b (0,2,0) | `--slate-surface` (0,3,0) | ✓ |
+| `gamepadslider_SliderNotchTick.gamepadslider_TickActive` (S8) | #1a9fff (0,2,0) | `--slate-blue` (0,3,0) | ✓ |
+| `gamepaddialog_FieldDescription a` (S9) | #6dcff6 | `--slate-blue-light` | ✓ |
+| `[class*="_3Vl2zkYPoCpw1q_1n28D3z"]` (S10, Downloads panel, `FakeContainer`) | #23262e | surface, 8px | ✓ |
+| `[class*="_7EGqd8bdiXJBd2fj5Hh8r"]` + `MYyv…` active + `_1gKI…` pip (S11, Game Recording) | #23262e, cool overlays, #1a9fff pip | surface, neutral overlays .08/.14, `--slate-blue` pip | ✓ |
+| `contentmanagement_Rule` ×3 (Storage divider; Steam 0,3,0) / GR unselected pip `[class*="_2sQtvR60AbFF5UzDwY9hit"]` | #67707b/.3 / #67707b | white .10 / `--slate-muted`; GR cards also 8px | ✓ |
+| `familysharedcomponents_MeBadge` (S12) | #59bf40 + dark text | `--slate-green-light` + dark text | ✓ |
 
 Focused dialog row (A7, `accents.css`): Steam sets #3d4450 *and* runs `ItemFocusAnim-darkGreySettings`
 (fill-mode forwards, ends #383a41). Animations beat normal declarations, so the rule swaps
 `animation-name` for `slate-row-focus` (surface → `--slate-control`, muted → white). Verified ✓.
 Gotcha: when a color won't change although the rule wins the cascade, check `el.getAnimations()`.
+
+## Downloads (`css/downloads.css`) — 2026-11-14
+Injected into `bigpicture`. Network = blue, disk = green (as in Steam) → Slate versions; Steam's grey
+paused/queued states keep their grey (meaning). Unnamed variants via hash substring.
+
+| Selector | Steam | Slate | Verified |
+|---|---|---|---|
+| `.downloads_DownloadsPage` ×2 / `.downloads_Section` ×3 / `.Section.Empty [class*="_24D3…"]` (D1) | navy radial / #0e141b | canvas / `--slate-bg` | ✓ |
+| `.downloads_Rule` ×2 (D1) | #67707b/.3 | white .10 | ✓ |
+| `.downloads_PatchNotes`, `[class*="_1bZTWHCV…"]` (+ `MAz4…` Green) (D2) | #1a9fff (+ #59bf40) | `--slate-blue-light` (+ green-light) | ✓ |
+| device picker `[class*="_1XjtfRHLm0…"] [class*="FmfZJt…"]` (D3) | #3d4450, focus #1a9fff + blue shine | control, focus `--slate-blue` + white shine | rest ✓, focus pending |
+| `downloadgraph_GraphBarDownload` / `GraphLine` / `Network svg` / `Disk` (D4) | #1a9fff .5 / #59bf40 | Slate blue 75% / green-light | ✓ |
+| `.downloads_ProgressBar` ×2 `:not([class*="_2Xedpg…"]) div` + variants `_2mLZnQ…` (downloading), `HifZB5…` (disk) (D5) | #1a9fff / .5 / #59bf40; grey paused | Slate blue / 75% / green-light; grey kept | ✓ |
+| `.downloads_SectionItem .downloads_Button.DialogButton:enabled` + active variant (D6) | #3d4450 / #1a9fff | control / `--slate-blue` (focus white left to Steam) | ✓ |
+| `.downloads_SectionItem.downloads_Active` (+ focused) (D7) | #0e141b (#3d4450) | `--slate-bg` (control) | pending |
+| `downloadgraph_HeroGradient` (D7) | multiply → rgb(0,86,214) (blue tint on art) | multiply → `--slate-bg` | pending |
+| `downloads_SectionList.downloads_DropOption.downloads_DragOver` (D7) | blue radial | Slate-blue radial | not seen |
+| `header_HeaderDownloadProgressBar` (D8, top bar) | #1a9fff (0,4,0) | `--slate-blue` | ✓ |
 

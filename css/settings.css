@@ -61,6 +61,7 @@
 .BasicUI .contentmanagement_DriveUsageWorkshop { background-color: var(--slate-green-light); }
 .BasicUI [class*="_2h-2O3n134sdwgtdM_Fuqr"] { background-color: var(--slate-green); }  /* Media (no stable name) */
 .BasicUI .contentmanagement_DriveUsageFreeSpace { background-color: var(--slate-control); }
+.BasicUI .contentmanagement_Rule.contentmanagement_Rule.contentmanagement_Rule { background-color: rgba(244, 244, 245, .10); }  /* divider, cool #67707b/.3 (Steam 0,3,0) */
 .BasicUI .contentmanagement_DriveUsageIndicator {
   background: repeating-linear-gradient(315deg, #3a3b3f, #3a3b3f 10px, var(--slate-control) 10px, var(--slate-control) 20px);
 }
@@ -93,6 +94,7 @@
  * specificity, so the same order is kept here. */
 .BasicUI [class*="_7EGqd8bdiXJBd2fj5Hh8r"] {
   background-color: var(--slate-surface);
+  border-radius: var(--slate-radius-card);
 }
 .BasicUI [class*="_7EGqd8bdiXJBd2fj5Hh8r"]:is(:hover, .gpfocus) {
   background-color: rgba(244, 244, 245, .08);
@@ -100,7 +102,10 @@
 .BasicUI [class*="_7EGqd8bdiXJBd2fj5Hh8r"][class*="MYyvJ6lNQZtM4MHwS-Y3g"] {
   background-color: rgba(244, 244, 245, .14);
 }
-.BasicUI [class*="_7EGqd8bdiXJBd2fj5Hh8r"] [class*="_1gKI37LOWj1Df3QSnxvKyF"] {
+.BasicUI [class*="_7EGqd8bdiXJBd2fj5Hh8r"] [class*="_2sQtvR60AbFF5UzDwY9hit"] {  /* unselected pip, cool #67707b */
+  background-color: var(--slate-muted);
+}
+.BasicUI [class*="_7EGqd8bdiXJBd2fj5Hh8r"] [class*="_2sQtvR60AbFF5UzDwY9hit"][class*="_1gKI37LOWj1Df3QSnxvKyF"] {
   background-color: var(--slate-blue);
 }
 
