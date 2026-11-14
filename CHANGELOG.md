@@ -5,6 +5,9 @@ All notable changes to Slate. Versions follow [Semantic Versioning](https://semv
 The version lives in `theme.json` (shown by CSS Loader) and as a git tag `vX.Y.Z`.
 
 ## [Unreleased]
+### Changed
+- Tab "new" dot (What's New on Home) and the online avatar strip (top-bar profile picture, friends
+  list) → Slate blue `#2D74C4`, the same blue as Install and the toggles (the strip was light Slate blue).
 
 ## [0.4.0] — 2026-11-14
 Verified on Steam Deck LCD, SteamOS 3.9.5, CSS Loader 2.1.3.

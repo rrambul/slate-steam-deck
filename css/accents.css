@@ -37,11 +37,11 @@
   fill: var(--slate-green-light);
 }
 
-/* A4 — avatar presence strip: online #4cb4ff → Slate blue (light, it's a 3px strip),
+/* A4 — avatar presence strip: online #4cb4ff → Slate blue (same blue as Install/toggles),
  * in-game #59bf40 → Slate green. Offline / watching-broadcast keep Steam's colors.
  * Steam: `.GamepadMode .online .steamavatar_avatarStatus` (0,3,0); the doubled class → 0,4,0. */
 .BasicUI .online .steamavatar_avatarStatus.steamavatar_avatarStatus {
-  background: var(--slate-blue-light);
+  background: var(--slate-blue);
 }
 .BasicUI .ingame .steamavatar_avatarStatus.steamavatar_avatarStatus {
   background: var(--slate-green-light);
@@ -69,4 +69,12 @@
 }
 .BasicUI .FriendsListContent .friendlistListContainer .friendGroup.onlineFriends.onlineFriends {
   border-top-color: color-mix(in srgb, var(--slate-blue-light) 30%, transparent);
+}
+
+/* A6 — tab "new" dot (e.g. What's New on Home): Steam #1a9fff → Slate blue.
+ * The dot is a TabBadge with an extra untranslated variant class (`.dMeP6nQOzmGaNM8EMLiSk`, 0,1,0)
+ * that sets the color; count badges don't have it, so match it by substring (not a translation
+ * name, so CSS Loader leaves it alone). If Steam renames it, the dot just turns Steam-blue again. */
+.BasicUI .gamepadtabbedpage_TabBadge[class*="dMeP6nQOzmGaNM8EMLiSk"] {
+  background-color: var(--slate-blue);
 }

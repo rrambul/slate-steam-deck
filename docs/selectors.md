@@ -504,7 +504,8 @@ Injected into bigpicture + MainMenu + QuickAccess.
 - Toggles: `gamepaddialog_ToggleRail::before` #1a9fff → Slate blue; focused-row track #23262e → surface.
 - Battery: `<rect fill="#59BF40">` presentation attribute → `svg rect[fill="#59BF40" i]` → Slate green.
   Only the green state matches; other charge colors untouched.
-- Avatar presence (`steamavatar_avatarStatus`): `.GamepadMode .online …` #4cb4ff → `--slate-blue-light`
+- Avatar presence (`steamavatar_avatarStatus`): `.GamepadMode .online …` #4cb4ff → `--slate-blue` (was light blue until v0.4.0; switched to match the main accent)
+- Tab "new" dot (`gamepadtabbedpage_TabBadge` + variant `[class*="dMeP6nQOzmGaNM8EMLiSk"]`, e.g. What's New): #1a9fff → `--slate-blue`. Substring match on the untranslated variant hash so count badges are untouched; fails safe if renamed. Verified 2026-11-14.
   #6FA3DF (new token); `.ingame …` #59bf40 → `--slate-green-light`. Doubled class for 0,4,0.
   Offline (#67707b) and watching-broadcast (purple) kept.
 - ProtonDB grid dots: SVG attrs `rgb(74, 194, 100)` / `rgb(200, 30, 30)` → Slate green / red.
