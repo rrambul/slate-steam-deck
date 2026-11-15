@@ -5,7 +5,11 @@ All notable changes to Slate. Versions follow [Semantic Versioning](https://semv
 The version lives in `theme.json` (shown by CSS Loader) and as a git tag `vX.Y.Z`.
 
 ## [Unreleased]
-Verified on SteamOS 3.9.6 beta with the Steam client beta (Nov 13 2026) as well as stable.
+
+## [1.0.0] — 2026-11-15
+First DeckThemes release. Verified on Steam Deck LCD: SteamOS 3.9.5 stable and SteamOS 3.9.6 beta with
+the Steam client beta (Nov 13 2026), Decky Loader 3.3.1, CSS Loader 2.1.3. Meets every DeckThemes CSS
+theme requirement (see `docs/deckthemes-checklist.md`).
 ### Added
 - **Keyboard** option in CSS Loader (Slate › Keyboard: **Slate** / **Steam**) — keyboard theming can be
   switched off (DeckThemes rule for system-wide themes).

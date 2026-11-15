@@ -73,14 +73,14 @@ css/notifications.css  notification list + toasts (friend presence, unread dot; 
 css/accents.css     Steam blue/green accents → Slate colors on all pages
 docs/selectors.md   every selector, why it was chosen, and how it was verified
 docs/deckthemes-checklist.md  DeckThemes submission requirements audit
+docs/deckthemes-listing.md    DeckThemes listing text (description, options)
 deploy.sh           rsync deploy to the Deck
 ```
 Selectors use CSS Loader's stable class names (e.g. `appportrait_InRecentGames`), which it
 translates to Steam's hashed classes at injection time.
 
 ## Status
-v0.5.0, working towards 1.0.0 (the first DeckThemes release). Slate styles every Gaming Mode screen
-CSS Loader can reach:
+v1.0.0, the first DeckThemes release. Slate styles every Gaming Mode screen CSS Loader can reach:
 - Home (Full / Compact hero), Library, game pages
 - Settings and Game Properties, Downloads, Search, Media
 - Store (home, game pages, wishlist, categories)
@@ -92,8 +92,8 @@ tiers, review scores, warnings, sale branding) are kept. Not themeable: the cont
 See docs/selectors.md.
 
 ## Versioning
-[Semantic Versioning](https://semver.org/): `0.x` during development, `1.0.0` for the first
-DeckThemes release. See [CHANGELOG.md](CHANGELOG.md); releases are tagged `vX.Y.Z`.
+[Semantic Versioning](https://semver.org/): `1.0.0` is the first DeckThemes release; fixes bump the patch
+version, new options the minor version. See [CHANGELOG.md](CHANGELOG.md); releases are tagged `vX.Y.Z`.
 
 ## License
 [MIT](LICENSE). Slate ships CSS only — no Steam, game or plugin assets. Screenshots used during

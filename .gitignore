@@ -5,3 +5,6 @@ config_ROOT.json
 
 # Screenshots contain third-party game art; keep local, do not commit
 docs/screenshots/
+
+# Built submission zips (make from theme.json + css/)
+dist/
