@@ -10,11 +10,11 @@ Audit of Slate against the DeckThemes CSS theme requirements (2026-11-14).
 | Works on latest **beta and stable** SteamOS, Decky Loader, CSS Loader | ✅ | Stable: SteamOS 3.9.5, CSS Loader 2.1.3. Beta (2026-11-15): SteamOS 3.9.6 + Steam client beta (Nov 13 2026), Decky 3.3.1, CSS Loader 2.1.3 — every class hash present, all screens swept, Store included. |
 | `*` / `!important` only if absolutely necessary | ✅ | No universal selector. `!important` only against inline styles or Steam's own `!important`: playcount-decky badge (inline `style` on `.playerBadge > button`), protondb-decky trend border (inline), Store Deck-Compatibility dialog (Steam `!important`). Each is commented in place. |
 | Under 10 MB, least disk space | ✅ | ~230 KB for the whole repo; the theme itself is `theme.json` + `css/` (~136 KB). |
-| Preview image without text (unless describing options) | ⏳ | No preview image yet — to make for the v1.0.0 submission. |
+| Preview image without text (unless describing options) | ✅ | Four 1280×800 screenshots from the Deck, no added text: Home (Full hero), Library, game page, Settings › Display. Avatar blanked, no friend names. Kept locally in `docs/screenshots/preview/` (gitignored: they contain third-party game art) and uploaded only to DeckThemes. |
 | Safe for work | ✅ | |
 | CSS variables prefixed with a unique identifier | ✅ | All variables Slate defines are `--slate-*` (plus keyframes `slate-*`). Other custom properties in the CSS are Steam's own (`--color-*`, `--gp*`, `--key-*`, `--left-track-color`, …) being overridden, not new ones. |
 | Doesn't bundle other themes; uses dependencies | ✅ | No bundled themes, no dependencies needed. |
 | Keyboard theming applies to the default keyboard | ✅ | Only `.virtualkeyboard_Keyboard.DefaultTheme`; Points Shop keyboard themes untouched. |
 | System-wide theme targeting the keyboard → keyboard theming toggleable | ✅ | **Keyboard** option (CSS Loader › Slate › Keyboard: Slate / Steam). `css/keyboard.css` is only injected by that patch. Verified on hardware (toggling removes/restores the rules). |
 
-Open before submitting: preview image.
+All requirements met — ready for the v1.0.0 submission.
