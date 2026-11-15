@@ -549,6 +549,8 @@ Injected into `bigpicture`. Steam's cool blue-greys → Slate neutrals with the 
 | `networksettings_Checkmark`, `customizationsettings_Checkmark` (S6) | #59bf40 | `--slate-green-light` | ✓ |
 | `contentmanagement_DriveUsage{Games,Workshop,FreeSpace,Indicator}`, Media `[class*="_2h-2O3n134sdwgtdM_Fuqr"]` (S7) | #1a9fff / #59bf40 / #3d4450 / cool stripes / #236c39 | Slate blue / green-light / control / neutral stripes / Slate green; DLC + shader purples kept (category colors are the information) | ✓ |
 | `.libraryassetimage_GreyBackground` doubled (S7) | `.BasicUI` #0e141b (0,2,0) | `--slate-surface` (0,3,0) | ✓ |
+| `.contentmanagement_AppBody` (Storage game rows) | square; focus `.BasicUI .<list> .AppBody:focus` #3d4450 (0,4,0) | 8px; focus tripled + `:is(:focus,.gpfocus)` → `--slate-control` (0,5,0) | ✓ |
+| `.contentmanagement_AppBodyPortrait .appportrait_LibraryItemBox` | square, `overflow: visible` (0,2,0) | 6px + `overflow: hidden` (0,3,0) | ✓ |
 | `gamepadslider_SliderNotchTick.gamepadslider_TickActive` (S8) | #1a9fff (0,2,0) | `--slate-blue` (0,3,0) | ✓ |
 | `gamepaddialog_FieldDescription a` (S9) | #6dcff6 | `--slate-blue-light` | ✓ |
 | `[class*="_3Vl2zkYPoCpw1q_1n28D3z"]` (S10, Downloads panel, `FakeContainer`) | #23262e | surface, 8px | ✓ |

@@ -70,6 +70,17 @@
 .BasicUI .libraryassetimage_GreyBackground.libraryassetimage_GreyBackground {
   background-color: var(--slate-surface);
 }
+/* Storage game list: square rows and thumbnails → rounded; focused row blue-grey #3d4450 → neutral
+ * control. Steam: `.BasicUI .<list> .AppBody:focus` (0,4,0) → 0,5,0. Thumbnails: Steam's
+ * `.BasicUI .LibraryItemBox { overflow: visible }` (0,2,0) → 0,3,0, same as Downloads. */
+.BasicUI .contentmanagement_AppBody { border-radius: 8px; }
+.BasicUI .contentmanagement_AppBody.contentmanagement_AppBody.contentmanagement_AppBody:is(:focus, .gpfocus) {
+  background-color: var(--slate-control);
+}
+.BasicUI .contentmanagement_AppBodyPortrait .appportrait_LibraryItemBox {
+  border-radius: 6px;
+  overflow: hidden;
+}
 
 /* S8 — slider notch ticks (Keyboard, Display…): active tick #1a9fff → Slate blue (0,2,0 → 0,3,0) */
 .BasicUI .gamepadslider_SliderNotchTick.gamepadslider_TickActive {

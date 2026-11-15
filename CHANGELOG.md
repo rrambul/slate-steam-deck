@@ -20,6 +20,8 @@ The version lives in `theme.json` (shown by CSS Loader) and as a git tag `vX.Y.Z
 - Small status labels: DEMO banner, "friends playing now" badge and the friends-playing dot on Library
   capsules → Slate greens; blue "patch notes" event labels → light Slate blue.
 - Friends & Chat: chat entry box neutral.
+- Settings › Storage: game rows and thumbnails are now rounded; the focused row is neutral instead of
+  blue-grey.
 - Store home: the remaining game capsules (Recommended / Because you played / DLC / sale rows,
   community picks), price tags and list rows are now rounded, with a matching rounded focus ring;
   the store's Discovery Queue widget is neutral.
