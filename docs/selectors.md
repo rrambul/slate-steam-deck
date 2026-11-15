@@ -777,3 +777,15 @@ none missing. Fixes found during the beta sweep (not beta regressions):
 
 Swept on beta: Settings (all 24 tabs), Quick Access (all tabs), Library (all tabs), game page, Downloads,
 Media, Home. The main menu still uses the older `mainmenu_Item` hash on beta too, so the fallback stays.
+
+### Store on beta (2026-11-15)
+The Store is a website (not part of the Steam client), so its changes follow Valve's web deploys, not the
+beta channel. A Store update raised some selectors above Slate's `html.GamepadMode` prefix (0,1,1):
+`body.v6.game_bg` (0,2,1) kept the game page navy, `.zveLzqpea5Q-._103ffsVWYo4- ._8feLLiXVP5Y-` (0,3,0)
+kept the info panel blue. Fix: the prefix is now `html.GamepadMode.GamepadMode` everywhere in store.css
+(+0,1,0, no !important). New: `[class*="vEPSMT4v-yc-"] [class*="_3NqWEVeqDKg-"]` feature-row icon box
+#101822 → `--slate-bg`; `[class*="FneGtSBNXCI-"] [class*="ZLlm68-AqhM-"]` price box #071d35 (0,3,0) →
+`--slate-bg-deep` (0,4,1). Store home, search, category, wishlist, specials: unchanged from the stable
+sweep (only the inline per-page colours left on purpose).
+Note: loading a store URL directly (location.href) gives the desktop layout without `GamepadMode`; game
+pages must be opened from inside the store (click a capsule) to test the Gaming Mode page.
