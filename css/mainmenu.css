@@ -9,7 +9,9 @@
  * this Deck's Steam doesn't use yet. So each is matched both ways:
  *   :is(.mainmenu_Item, [class*="2w9TpQwxU7vcwaAbf3KGv"])
  * — the stable name covers newer Steam, the partial hash (not an exact table name, so CSS
- * Loader leaves it alone) covers the current one. Drop the [class*] part once Steam updates.
+ * Loader leaves it alone) covers the current one. Re-checked 2026-11-15: stable Steam still
+ * uses the older hashes (_2w9TpQwxU7vcwaAbf3KGv_, _1uLVHdiiCg78BRnhqLxUID), so the fallback
+ * is still needed. Drop the [class*] part only once stable Steam ships the newer hashes.
  */
 
 /* M1 — panel: Steam's flat navy #0e141b sheet → Slate charcoal, rounded outer edge, soft

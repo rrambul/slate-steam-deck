@@ -11,6 +11,8 @@ The version lives in `theme.json` (shown by CSS Loader) and as a git tag `vX.Y.Z
 ### Changed
 - Theme target `Home` → `System-Wide` (it styles every Gaming Mode screen); new description.
 - Removed the one universal selector (`*`) from the CSS. See `docs/deckthemes-checklist.md`.
+- README: describes the whole Gaming Mode scope (was "Home screen"); OLED and docked marked untested
+  instead of "expected to match".
 ### Fixed
 - Store: wishlist pages weren't styled at all (their page root lacks a class the store rules required) —
   now covered; wishlist header, nav, buttons, search and badges, and category pages' tab strip, video rows

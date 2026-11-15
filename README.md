@@ -1,6 +1,7 @@
 # Slate
 
-A minimal, clean CSS Loader theme for the Steam Deck Home screen.
+A minimal, clean CSS Loader theme for Steam Deck Gaming Mode: Home, Library, game pages, Settings,
+Store, menus, keyboard and more.
 "The games are the artwork. The interface should disappear."
 
 ## Requirements
@@ -10,8 +11,8 @@ A minimal, clean CSS Loader theme for the Steam Deck Home screen.
 | Device | Status |
 |---|---|
 | Steam Deck LCD (Jupiter) | developed and verified on hardware |
-| Steam Deck OLED (Galileo) | expected to match: same 1280×800 panel / 854×534 Gaming Mode viewport; not yet verified on hardware |
-| Docked / external display | layout uses viewport units (`vh`) for the hero; not yet verified |
+| Steam Deck OLED (Galileo) | untested (same 1280×800 resolution and Gaming Mode viewport as the LCD, so it should match) |
+| Docked / external display | untested (the hero is sized in viewport units, other screens follow Steam's layout) |
 
 Charcoal (`#111214`) is intentionally not pure black, which avoids OLED black smearing.
 
@@ -78,7 +79,17 @@ Selectors use CSS Loader's stable class names (e.g. `appportrait_InRecentGames`)
 translates to Steam's hashed classes at injection time.
 
 ## Status
-v0.5.0 — every Gaming Mode screen CSS Loader can reach: Home (Full/Compact hero), Library, game page, Settings + Game Properties, Downloads (card layout), Search, Media, Store (home + game pages), main menu + in-game pages (Achievements, Guides, Notes), Quick Access + Friends & Chat, context menus, on-screen keyboard, notifications. Neutral charcoal, rounded shapes, Slate blue/green accents; colours that carry meaning (ProtonDB tiers, review scores, warnings) kept. Not themeable: the controller layout editor. See docs/selectors.md.
+v0.5.0, working towards 1.0.0 (the first DeckThemes release). Slate styles every Gaming Mode screen
+CSS Loader can reach:
+- Home (Full / Compact hero), Library, game pages
+- Settings and Game Properties, Downloads, Search, Media
+- Store (home, game pages, wishlist, categories)
+- STEAM menu and in-game pages (Achievements, Guides, Notes), Quick Access, Friends & Chat
+- context menus, the on-screen keyboard, notifications
+
+Neutral charcoal, rounded shapes, Slate blue and green accents. Colours that carry meaning (ProtonDB
+tiers, review scores, warnings, sale branding) are kept. Not themeable: the controller layout editor.
+See docs/selectors.md.
 
 ## Versioning
 [Semantic Versioning](https://semver.org/): `0.x` during development, `1.0.0` for the first
