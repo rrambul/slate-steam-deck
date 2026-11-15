@@ -124,6 +124,13 @@
 .BasicUI .familysharedcomponents_MeBadge {
   background-color: var(--slate-green-light);
 }
+/* Family member cards 2px → 8px, "Me" badge square → 4px. Avatars: the image is rounded on the
+ * left and the presence strip (a 3px sibling on the right) on the right, so the pair reads as
+ * one rounded tile; clipping the holder instead would hide the strip. */
+.BasicUI .familysharedcomponents_FamilyMemberRow.familysharedcomponents_FamilyMemberRow { border-radius: 8px; }
+.BasicUI .familysharedcomponents_MeBadge.familysharedcomponents_MeBadge { border-radius: 4px; }
+.BasicUI .familysharedcomponents_FamilyMemberRow .steamavatar_avatarHolder .steamavatar_avatar { border-radius: 6px 0 0 6px; }
+.BasicUI .familysharedcomponents_FamilyMemberRow .steamavatar_avatarHolder .steamavatar_avatarStatus { border-radius: 0 3px 3px 0; }
 
 /* S13 — Game Properties (⚙ on a game; same paged dialog as Settings, so S1–S5 already apply).
  * Per-tab leftovers. Steam: `.AppProperties .DialogBody .X` (0,3,0), betas rows 0,5,0, pips/radio

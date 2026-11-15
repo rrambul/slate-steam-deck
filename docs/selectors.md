@@ -756,3 +756,17 @@ Full-page scan clean; verified on hardware.
 - Not reachable remotely: Library Filter/Sort dialog (Y button), confirmation dialogs (not triggered —
   destructive actions), lock screen.
 
+
+## Beta check (2026-11-15) — SteamOS 3.9.6 beta, Steam client beta 1794536281 (Nov 13 2026)
+CSS Loader's translation table was re-downloaded after the update and is identical. Every class hash
+Slate uses (stable names translated as CSS Loader does, plus `[class*=]` substrings) was checked
+against Steam's own stylesheets on each page: bigpicture 196, MainMenu 74, QuickAccess 40, toasts 12 —
+none missing. Fixes found during the beta sweep (not beta regressions):
+
+| Selector | Steam | Slate | ✓ |
+|---|---|---|---|
+| `.familysharedcomponents_FamilyMemberRow` doubled | 2px | 8px (0,3,0) | ✓ |
+| `.familysharedcomponents_MeBadge` doubled | square | 4px | ✓ |
+| `…FamilyMemberRow .steamavatar_avatarHolder .steamavatar_avatar` / `.steamavatar_avatarStatus` | square | image `6px 0 0 6px`, strip `0 3px 3px 0` (clipping the holder hid the strip) | ✓ |
+| `.ingame .personanameandstatus_playerName` doubled | `.GamepadMode .ingame .playerName` #c2ffb3 (0,3,0) | `--slate-green-pale` #B5E2CA (0,4,0) | ✓ |
+| `.footer_BasicFooter` | `border-top: 1px solid` → currentColor #acb2b8 (0,1,0) | `border-top-color: #b1b1b4` (0,2,0) | ✓ |

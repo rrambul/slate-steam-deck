@@ -11,3 +11,8 @@
 .gamepadui_BasicHome.gamepadui_OpaqueBackground {
   background: var(--slate-canvas);
 }
+
+/* Bottom button bar (STEAM Menu … B Back): its 1px top hairline has no color, so it takes the
+ * footer's cool grey text color #acb2b8 → a neutral grey of the same lightness.
+ * Steam: `.BasicFooter { border-top: 1px solid }` (0,1,0) → 0,2,0. */
+.BasicUI .footer_BasicFooter { border-top-color: #b1b1b4; }

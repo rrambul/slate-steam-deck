@@ -22,6 +22,9 @@ The version lives in `theme.json` (shown by CSS Loader) and as a git tag `vX.Y.Z
 - Friends & Chat: chat entry box neutral.
 - Settings › Storage: game rows and thumbnails are now rounded; the focused row is neutral instead of
   blue-grey.
+- Settings › Family: member cards, avatars and the "Me" badge are rounded; in-game member names (and
+  in-game friend names elsewhere) pale lime → pale Slate green (new token `--slate-green-pale`).
+- Bottom button bar: its top hairline is neutral grey instead of cool grey.
 - Store home: the remaining game capsules (Recommended / Because you played / DLC / sale rows,
   community picks), price tags and list rows are now rounded, with a matching rounded focus ring;
   the store's Discovery Queue widget is neutral.

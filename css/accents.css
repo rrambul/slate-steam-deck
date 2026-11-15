@@ -67,6 +67,12 @@
 .BasicUI .friend.ingame .status.status {
   color: var(--slate-green-light);
 }
+/* in-game names (Family members, friends lists): Steam pale lime #c2ffb3
+ * (`.GamepadMode .ingame .playerName`, 0,3,0) → pale Slate green, the in-game twin of the
+ * online name's --slate-blue-pale. 0,4,0 here. */
+.BasicUI .ingame .personanameandstatus_playerName.personanameandstatus_playerName {
+  color: var(--slate-green-pale);
+}
 .BasicUI .FriendsListContent .friendlistListContainer .friendGroup.onlineFriends.onlineFriends {
   border-top-color: color-mix(in srgb, var(--slate-blue-light) 30%, transparent);
 }
