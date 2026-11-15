@@ -770,3 +770,10 @@ none missing. Fixes found during the beta sweep (not beta regressions):
 | `…FamilyMemberRow .steamavatar_avatarHolder .steamavatar_avatar` / `.steamavatar_avatarStatus` | square | image `6px 0 0 6px`, strip `0 3px 3px 0` (clipping the holder hid the strip) | ✓ |
 | `.ingame .personanameandstatus_playerName` doubled | `.GamepadMode .ingame .playerName` #c2ffb3 (0,3,0) | `--slate-green-pale` #B5E2CA (0,4,0) | ✓ |
 | `.footer_BasicFooter` | `border-top: 1px solid` → currentColor #acb2b8 (0,1,0) | `border-top-color: #b1b1b4` (0,2,0) | ✓ |
+| `.appdetailsplaysection_CloudStatusRow::before/::after` | rgba(61,68,80,.54) (0,1,1) | rgba(67,67,71,.54) (0,2,1) | ✓ |
+| `.appactionbutton_ButtonChild` / `.appdetailsplaysection_ButtonChild` doubled `.Focusable:is(:focus,:hover)::after` | glint `linear-gradient(75deg, … #b3dfff 50% …)` (0,4,1) | `background-image` only, `--slate-text` band (0,5,1); Steam's 300% size + animation kept | ✓ |
+| `.posttextentry_PostTextEntry .posttextentry_Controls .posttextentry_PostButton` doubled | #3d4450, 2px (0,4,0); `.Enabled` blue gradient | `--slate-control`, 8px (0,5,0); `.Enabled` `--slate-blue` (0,6,0) | ✓ |
+| `.smartscrollcontainer_ScrollToTopButton div` | gradient rgba(20,93,219,.9)→#292d32, text #7cc4ff (0,1,1) | Slate blue → surface, `--slate-blue-pale` (0,2,1) | ✓ |
+
+Swept on beta: Settings (all 24 tabs), Quick Access (all tabs), Library (all tabs), game page, Downloads,
+Media, Home. The main menu still uses the older `mainmenu_Item` hash on beta too, so the fallback stays.

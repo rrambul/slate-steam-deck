@@ -182,3 +182,33 @@
 .BasicUI button.DialogButton.appdetailsbutton_AppDetailsButton.appdetailsbutton_BottomRight:not(.gpfocus) {
   background-color: var(--slate-control);
 }
+
+/* G7 — last cool details (found in the 2026-11-15 sweep). */
+/* "Steam Cloud: up to date" divider lines: rgba(61,68,80,.54) → neutral, same alpha.
+ * Steam: `.CloudStatusRow::before/::after` (0,1,1) → 0,2,1. */
+.BasicUI .appdetailsplaysection_CloudStatusRow::before,
+.BasicUI .appdetailsplaysection_CloudStatusRow::after {
+  background-color: rgba(67, 67, 71, .54);
+}
+/* Focus/hover glint that sweeps across the action button: Steam-blue band #b3dfff → near-white.
+ * Only the image changes; Steam's size, position and animation stay.
+ * Steam: `.BasicUI .ButtonChild.Focusable:focus::after` (0,4,1) → 0,5,1. */
+.BasicUI .appactionbutton_ButtonChild.appactionbutton_ButtonChild.Focusable:is(:focus, :hover)::after,
+.BasicUI .appdetailsplaysection_ButtonChild.appdetailsplaysection_ButtonChild.Focusable:is(:focus, :hover)::after {
+  background-image: linear-gradient(75deg, rgba(244, 244, 245, 0) 33%, var(--slate-text) 50%, rgba(244, 244, 245, 0) 66%);
+}
+/* Activity "Post" button: cool #3d4450 → neutral control; enabled blue gradient → Slate blue; 2px → 8px.
+ * Steam: `.BasicUI .PostTextEntry .Controls .PostButton` (0,4,0), enabled/hover (0,4,0 / 0,5,0) → 0,5,0 / 0,6,0. */
+.BasicUI .posttextentry_PostTextEntry .posttextentry_Controls .posttextentry_PostButton.posttextentry_PostButton {
+  background-color: var(--slate-control);
+  border-radius: 8px;
+}
+.BasicUI .posttextentry_PostTextEntry .posttextentry_Controls .posttextentry_PostButton.posttextentry_PostButton.posttextentry_Enabled {
+  background: var(--slate-blue);
+}
+/* "Scroll to top" tab: Steam-blue gradient rgba(20,93,219,.9) → Slate blue, label #7cc4ff → pale Slate blue.
+ * Steam: `.ScrollToTopButton div` (0,1,1) → 0,2,1. */
+.BasicUI .smartscrollcontainer_ScrollToTopButton div {
+  background: linear-gradient(rgba(45, 116, 196, .9) 0, var(--slate-surface) 100%);
+  color: var(--slate-blue-pale);
+}

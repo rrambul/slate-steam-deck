@@ -5,6 +5,7 @@ All notable changes to Slate. Versions follow [Semantic Versioning](https://semv
 The version lives in `theme.json` (shown by CSS Loader) and as a git tag `vX.Y.Z`.
 
 ## [Unreleased]
+Verified on SteamOS 3.9.6 beta with the Steam client beta (Nov 13 2026) as well as stable.
 ### Added
 - **Keyboard** option in CSS Loader (Slate › Keyboard: **Slate** / **Steam**) — keyboard theming can be
   switched off (DeckThemes rule for system-wide themes).
@@ -25,6 +26,9 @@ The version lives in `theme.json` (shown by CSS Loader) and as a git tag `vX.Y.Z
 - Settings › Family: member cards, avatars and the "Me" badge are rounded; in-game member names (and
   in-game friend names elsewhere) pale lime → pale Slate green (new token `--slate-green-pale`).
 - Bottom button bar: its top hairline is neutral grey instead of cool grey.
+- Game page: "Steam Cloud" divider lines neutral; the glint that sweeps across the focused action button
+  is near-white instead of Steam blue; Activity "Post" button neutral / Slate blue and rounded; "Scroll to
+  top" tab Slate blue.
 - Store home: the remaining game capsules (Recommended / Because you played / DLC / sale rows,
   community picks), price tags and list rows are now rounded, with a matching rounded focus ring;
   the store's Discovery Queue widget is neutral.
