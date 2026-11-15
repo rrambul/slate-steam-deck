@@ -796,3 +796,9 @@ pages must be opened from inside the store (click a capsule) to test the Gaming 
 | `[class*="maxz19gKOQc-"]` (day column) | square | 8px | ✓ |
 | `[class*="-UQT03dsikU-"] :is(img, video)` (capsule art) | square; box is 6px taller than the art | 6px on the art itself (rounding the box left the art's bottom corners square) | ✓ |
 | `html…:has([class*="-UQT03dsikU-"] :is(.gpfocus,:focus)) [class*="bXqaBMkoZYQ-"]` (store focus ring) | square | 6px while a calendar capsule has focus | ✓ |
+
+### Store discount pill
+| Selector | Steam | Slate | ✓ |
+|---|---|---|---|
+| `.discount_block.discount_block .discount_pct` / `.discount_prices` | `html.GamepadMode body.v7 .discount_block .discount_pct` radius 0 (0,4,2) | left / right corners 6px (0,5,1); `.no_discount` price 6px | ✓ |
+| `.sale_capsule .discount_block` | `justify-content: flex-end` (block spans the card) | `center` (cards only; list rows and info panels unchanged) | ✓ |

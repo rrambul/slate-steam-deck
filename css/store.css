@@ -258,6 +258,15 @@ html.GamepadMode.GamepadMode :is(.sale_capsule, .community_recommendation_capsul
   overflow: hidden;
 }
 html.GamepadMode.GamepadMode .discount_block { border-radius: 6px; overflow: hidden; }
+/* Discount badge + price as one rounded pill: the badge's left corners and the price's right corners
+ * are rounded themselves, because in game cards the block spans the whole card width and its own
+ * rounding falls outside the pill. Steam: `html.GamepadMode body.v7 .discount_block .discount_pct`
+ * (0,4,2) sets 0 → doubled class here (0,5,1). In game cards (`.sale_capsule`) the pill is centered
+ * (Steam: right-aligned); list rows and info panels keep Steam's alignment. */
+html.GamepadMode.GamepadMode .discount_block.discount_block .discount_pct { border-radius: 6px 0 0 6px; }
+html.GamepadMode.GamepadMode .discount_block.discount_block .discount_prices { border-radius: 0 6px 6px 0; }
+html.GamepadMode.GamepadMode .discount_block.discount_block.no_discount .discount_prices { border-radius: 6px; }
+html.GamepadMode.GamepadMode .sale_capsule .discount_block { justify-content: center; }
 html.GamepadMode.GamepadMode .tab_row_item { border-radius: 6px; }
 html.GamepadMode.GamepadMode:has(:is(.sale_capsule, .community_recommendation_capsule, .community_recommendation_app, .tab_row_item):is(.gpfocus, :focus)) [class*="bXqaBMkoZYQ-"] {
   border-radius: var(--slate-radius-card);
