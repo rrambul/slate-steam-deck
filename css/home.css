@@ -8,17 +8,24 @@
  * css/hero-full.css and is injected only when the CSS Loader option Hero = "Full" (default);
  * "Compact" keeps Steam's hero height with everything below.
  */
-/* Steam: radial(75% 83% at 50% 18%) on both container + images → larger, softer reach */
-.gamepadhomerecentgames_RecentGamesBackgroundContainer,
-.gamepadhomerecentgames_RecentGamesBackgroundImages {
+/* Hero art. Steam: radial mask (75% 83% at 50% 18%) on both container + images, art dimmed to 50%.
+ * Slate: a wider radial on the container (soft edges), plus a top-to-bottom fade on the images so the
+ * art recedes behind the covers and settles into the charcoal toward the bottom bar; art at 60% with
+ * slightly less saturation, so bright art no longer turns the page light grey. Masks sit on wrappers
+ * that aren't animated, so Steam's slide/crossfade is untouched. Blur was tried and rejected: it hides
+ * the game and re-blurs a full-screen layer on every frame of the crossfade. */
+.gamepadhomerecentgames_RecentGamesBackgroundContainer {
   -webkit-mask-image: radial-gradient(110% 95% at 50% 22%,
                       #000 0%, rgba(0, 0, 0, .85) 55%, rgba(0, 0, 0, 0) 100%);
   mask-image: radial-gradient(110% 95% at 50% 22%,
               #000 0%, rgba(0, 0, 0, .85) 55%, rgba(0, 0, 0, 0) 100%);
 }
-/* Steam dims the art to 50% — let the game be the artwork */
+.gamepadhomerecentgames_RecentGamesBackgroundImages {
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, .7) 0%, rgba(0, 0, 0, .45) 40%, rgba(0, 0, 0, .12) 75%, transparent 100%);
+          mask-image: linear-gradient(to bottom, rgba(0, 0, 0, .7) 0%, rgba(0, 0, 0, .45) 40%, rgba(0, 0, 0, .12) 75%, transparent 100%);
+}
 .gamepadhomerecentgames_RecentGamesBackgroundImage {
-  filter: brightness(80%);
+  filter: brightness(60%) saturate(.85);
 }
 /* more air between cover and title (Steam 14px) */
 .gamepadhomerecentgames_RecentGamesContainer .basicgamecarousel_CarouselGameLabelWrapper {
@@ -37,19 +44,6 @@
  * blur (was 12px) showed as a dark rectangle behind the title on bright art. */
 .gamepadhomerecentgames_RecentGamesContainer .marquee_Content {
   text-shadow: 0 1px 2px rgba(0, 0, 0, .75), 0 0 4px rgba(0, 0, 0, .35);
-}
-
-/* H1b — hero art fade: the focused game's art stays recognizable but recedes behind the covers and
- * settles into the charcoal canvas toward the bottom bar (bright art no longer turns the page light grey).
- * Steam: art at brightness(.8) under a radial edge mask. Slate: brightness(.6) + a top-to-bottom alpha
- * mask on the images wrapper (not animated, so Steam's slide/crossfade is untouched). Blur was tried
- * and rejected: it hides the game and re-blurs a full-screen layer every frame of the crossfade. */
-.gamepadhomerecentgames_RecentGamesBackgroundImages {
-  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, .7) 0%, rgba(0, 0, 0, .45) 40%, rgba(0, 0, 0, .12) 75%, transparent 100%);
-          mask-image: linear-gradient(to bottom, rgba(0, 0, 0, .7) 0%, rgba(0, 0, 0, .45) 40%, rgba(0, 0, 0, .12) 75%, transparent 100%);
-}
-.gamepadhomerecentgames_RecentGamesBackgroundImages .libraryassetimage_Image.libraryassetimage_Image {
-  filter: brightness(.6) saturate(.85);
 }
 
 /* H2 — hero art transition. Steam's incoming keyframes set `transform` twice
