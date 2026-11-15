@@ -802,3 +802,10 @@ pages must be opened from inside the store (click a capsule) to test the Gaming 
 |---|---|---|---|
 | `.discount_block.discount_block .discount_pct` / `.discount_prices` | `html.GamepadMode body.v7 .discount_block .discount_pct` radius 0 (0,4,2) | left / right corners 6px (0,5,1); `.no_discount` price 6px | ✓ |
 | `.sale_capsule .discount_block` | `justify-content: flex-end` (block spans the card) | `center` (cards only; list rows and info panels unchanged) | ✓ |
+| `.discount_block.discount_block .bundle_base_discount + .discount_pct` | (bundle discount "-20%" before the badge) | radius 0 — badge is mid-pill (0,6,1) | ✓ |
+| `.discount_block.discount_block.search_discount_block .discount_pct` | price has no box | 6px all corners (0,6,1) | ✓ |
+| `[class*="_0MLgqm-W-nA-"] [class*="kjiBcsaqA8o-"]` (React `StoreSaleDiscountBox`, a CSS Loader name → hash) | 1px, in a black price bar | 6px all corners | ✓ |
+
+Checked pages: home (cards, tab rows, featured info), search, category, specials, wishlist (no discounted
+items at the time), game page (purchase box, "More like this"). React price widgets on specials and the
+game page purchase box were already a rounded pill (`[class*="ZLlm68-AqhM-"]` 6px + overflow hidden).

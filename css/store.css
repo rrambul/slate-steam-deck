@@ -266,6 +266,13 @@ html.GamepadMode.GamepadMode .discount_block { border-radius: 6px; overflow: hid
 html.GamepadMode.GamepadMode .discount_block.discount_block .discount_pct { border-radius: 6px 0 0 6px; }
 html.GamepadMode.GamepadMode .discount_block.discount_block .discount_prices { border-radius: 0 6px 6px 0; }
 html.GamepadMode.GamepadMode .discount_block.discount_block.no_discount .discount_prices { border-radius: 6px; }
+/* bundle discount ("-20%" struck through) sits before the badge: the badge is mid-pill then, so square */
+html.GamepadMode.GamepadMode .discount_block.discount_block .bundle_base_discount + .discount_pct { border-radius: 0; }
+/* where the price beside the badge has no box of its own (search results) or sits in a black bar across
+ * the card (React capsules on category pages, "More like this"), the badge is a standalone chip: all
+ * corners rounded. React badge = `StoreSaleDiscountBox` (a CSS Loader name) → matched by its hash. */
+html.GamepadMode.GamepadMode .discount_block.discount_block.search_discount_block .discount_pct,
+html.GamepadMode.GamepadMode [class*="_0MLgqm-W-nA-"] [class*="kjiBcsaqA8o-"] { border-radius: 6px; }
 html.GamepadMode.GamepadMode .sale_capsule .discount_block { justify-content: center; }
 html.GamepadMode.GamepadMode .tab_row_item { border-radius: 6px; }
 html.GamepadMode.GamepadMode:has(:is(.sale_capsule, .community_recommendation_capsule, .community_recommendation_app, .tab_row_item):is(.gpfocus, :focus)) [class*="bXqaBMkoZYQ-"] {
