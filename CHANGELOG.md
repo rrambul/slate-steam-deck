@@ -10,6 +10,8 @@ Verified on SteamOS 3.9.6 beta with the Steam client beta (Nov 13 2026) as well 
 - **Keyboard** option in CSS Loader (Slate › Keyboard: **Slate** / **Steam**) — keyboard theming can be
   switched off (DeckThemes rule for system-wide themes).
 ### Changed
+- Home: the focused game's hero art is faded: dimmer, and it settles into the charcoal toward the
+  bottom, so the covers stand out and bright art no longer turns the page light grey (both Hero options).
 - Theme target `Home` → `System-Wide` (it styles every Gaming Mode screen); new description.
 - Removed the one universal selector (`*`) from the CSS. See `docs/deckthemes-checklist.md`.
 - README: describes the whole Gaming Mode scope (was "Home screen"); OLED and docked marked untested

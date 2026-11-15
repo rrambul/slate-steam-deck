@@ -39,6 +39,19 @@
   text-shadow: 0 1px 2px rgba(0, 0, 0, .75), 0 0 4px rgba(0, 0, 0, .35);
 }
 
+/* H1b — hero art fade: the focused game's art stays recognizable but recedes behind the covers and
+ * settles into the charcoal canvas toward the bottom bar (bright art no longer turns the page light grey).
+ * Steam: art at brightness(.8) under a radial edge mask. Slate: brightness(.6) + a top-to-bottom alpha
+ * mask on the images wrapper (not animated, so Steam's slide/crossfade is untouched). Blur was tried
+ * and rejected: it hides the game and re-blurs a full-screen layer every frame of the crossfade. */
+.gamepadhomerecentgames_RecentGamesBackgroundImages {
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, .7) 0%, rgba(0, 0, 0, .45) 40%, rgba(0, 0, 0, .12) 75%, transparent 100%);
+          mask-image: linear-gradient(to bottom, rgba(0, 0, 0, .7) 0%, rgba(0, 0, 0, .45) 40%, rgba(0, 0, 0, .12) 75%, transparent 100%);
+}
+.gamepadhomerecentgames_RecentGamesBackgroundImages .libraryassetimage_Image.libraryassetimage_Image {
+  filter: brightness(.6) saturate(.85);
+}
+
 /* H2 — hero art transition. Steam's incoming keyframes set `transform` twice
  * (translateX then scale), so the directional slide is lost — art only fades/zooms.
  * Slate restores the slide (art enters from the side you move toward; Steam's
