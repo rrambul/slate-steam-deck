@@ -309,3 +309,13 @@ html.GamepadMode.GamepadMode [class*="t-LlQicBZjE-"]::after { background-color: 
 html.GamepadMode.GamepadMode [class*="O7UR3Sc3EmM-"] { background-color: var(--slate-blue); }
 html.GamepadMode.GamepadMode [class*="mpKocPQdcN4-"],
 html.GamepadMode.GamepadMode [class*="cFn3BDbAK-g-"] { background-image: linear-gradient(#5d6066 5%, #45474b 95%); }
+
+/* ST16 — Store home "Your Personal Calendar": day columns square → 8px; game capsules → 6px. The
+ * capsule box is 6px taller than its art, so the image and hover video are rounded themselves (a
+ * clipped box would leave the art's bottom corners square); the store focus ring rounds to match
+ * while a capsule has focus. */
+html.GamepadMode.GamepadMode [class*="maxz19gKOQc-"] { border-radius: var(--slate-radius-card); }
+html.GamepadMode.GamepadMode [class*="-UQT03dsikU-"] :is(img, video) { border-radius: 6px; }
+html.GamepadMode.GamepadMode:has([class*="-UQT03dsikU-"] :is(.gpfocus, :focus)) [class*="bXqaBMkoZYQ-"] {
+  border-radius: 6px;
+}

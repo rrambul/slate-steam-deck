@@ -789,3 +789,10 @@ kept the info panel blue. Fix: the prefix is now `html.GamepadMode.GamepadMode` 
 sweep (only the inline per-page colours left on purpose).
 Note: loading a store URL directly (location.href) gives the desktop layout without `GamepadMode`; game
 pages must be opened from inside the store (click a capsule) to test the Gaming Mode page.
+
+### Store home — Your Personal Calendar (ST16)
+| Selector | Steam | Slate | ✓ |
+|---|---|---|---|
+| `[class*="maxz19gKOQc-"]` (day column) | square | 8px | ✓ |
+| `[class*="-UQT03dsikU-"] :is(img, video)` (capsule art) | square; box is 6px taller than the art | 6px on the art itself (rounding the box left the art's bottom corners square) | ✓ |
+| `html…:has([class*="-UQT03dsikU-"] :is(.gpfocus,:focus)) [class*="bXqaBMkoZYQ-"]` (store focus ring) | square | 6px while a calendar capsule has focus | ✓ |

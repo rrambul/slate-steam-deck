@@ -19,6 +19,7 @@ Verified on SteamOS 3.9.6 beta with the Steam client beta (Nov 13 2026) as well 
   some of Steam's selectors (`body.v6.game_bg`, the info panel) above Slate's. Every Store rule now starts
   with `html.GamepadMode.GamepadMode` (one class stronger, same pages); also the feature-row icon boxes
   and the price box inside purchase options are charcoal instead of navy.
+- Store home: "Your Personal Calendar" day columns, game capsules and their focus ring are rounded.
 - Store: wishlist pages weren't styled at all (their page root lacks a class the store rules required) —
   now covered; wishlist header, nav, buttons, search and badges, and category pages' tab strip, video rows
   and accents are neutral / Slate.
