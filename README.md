@@ -5,7 +5,7 @@ Store, menus, keyboard and more.
 "The games are the artwork. The interface should disappear."
 
 ## Requirements
-- SteamOS (tested on 3.9.5), Decky Loader, CSS Loader 2.1.3 (manifest v9)
+- SteamOS (tested on 3.9.5 stable and 3.9.6 beta), Decky Loader, CSS Loader 2.1.3 (manifest v9)
 
 ## Devices
 | Device | Status |
